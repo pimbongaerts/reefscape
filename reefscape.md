@@ -4,17 +4,16 @@ Workflow for the reconstruction of high-altitude photogrammetry plots ("reefscap
 
 ## Extract images from video
 
-**1 - Access the server** (using `ssh`) and set up a `screen` session:
+**1 - Access the server** (using `ssh` and from within the network or using VPN) and set up a `screen` session:
 
 ```shell
 $ ssh deepcat1
-# Start a new SCREEN session with ZSH
-$ screen -S video_extract
-$ zsh
+# Start a new SCREEN session with ZSH (Z-shell)
+$ screen -S video_extract zsh
 # Ensure that NAS volume with raw data is mounted
-$ sudo mount 10.39.10.172:/volume1/curacao_raw ~/mounts/curacao_raw
+$ sudo mount deepcat2:/volume1/curacao_raw ~/mounts/curacao_raw
 # Ensure that NAS volume with reconstructions is mounted
-$ sudo mount 10.39.10.172:/volume2/coral3d ~/mounts/coral3d
+$ sudo mount deepcat2:/volume2/coral3d ~/mounts/coral3d
 ```
 
 **2 - Copy across and organize the raw videos** to be extracted:
@@ -41,7 +40,7 @@ total 15G
 $ rm GX018985.MP4 GX018986.MP4 GX018987.MP4 GX018988.MP4 GX018989.MP4 GX018990.MP4
 ```
 
-**3 - Use the [batch_framer.sh]([source](https://github.com/pimbongaerts/framer/blob/master/batch_framer.sh)) script to extract frames** of all videos and rename the folders so they are sequential for import into MetaScan.  Additional info*: The script uses Ryan's `framer.sh` (https://github.com/ryanbooker/framer), which uses`ffmpeg`'s edge detection to extract the sharpest frame from each second of video. It uses [ffmpeg](https://ffmpeg.org), [imagemagick](https://www.imagemagick.org) and [GNU Parallel](https://www.gnu.org/software/parallel/). On the deepcat1 server, ffmpeg is compiled for NVIDIA hardware accelleration (see: https://developer.nvidia.com/ffmpeg) to leverage the internal GPU (NVidia GP 100).
+**3 - Use the [batch_framer.sh]([source](https://github.com/pimbongaerts/framer/blob/master/batch_framer.sh)) script to extract frames** of all videos and rename the folders so they are sequential for import into MetaScan.  Additional info*: The script uses a modification Ryan's [framer script](https://github.com/ryanbooker/framer), which uses`ffmpeg`'s edge detection to extract the sharpest frame from each second of video. It uses [ffmpeg](https://ffmpeg.org), [imagemagick](https://www.imagemagick.org) and [GNU Parallel](https://www.gnu.org/software/parallel/). On the deepcat1 server, ffmpeg is compiled for NVIDIA hardware accelleration (see: https://developer.nvidia.com/ffmpeg) to leverage the internal GPU (NVidia GP 100; TODO: compile imagemagick too).
 
 ```shell
 $ ~/Github/framer/batch_framer.sh
@@ -59,42 +58,6 @@ $ for i in GP*; do ls "$i" | wc -l; done
 $ rm *.MP4
 # Move folders with extracted frames to a new `photos` folder for import
 $ mkdir photos && mv GP* photos
-```
-
-## Folder structure
-
-Overall organization of the `coral3d` shared folder:
-
-```shell
-.
-├── Westpoint
-│   ├── overview
-|       ├── westpoint_all
-|       ├── westpoint_Q1
-|       ├── westpoint_Q2
-|       ├── westpoint_Q3
-|       ├── westpoint_Q4
-|       ├── westpoint_Q5
-|       └── westpoint_Q6
-|   └── photoplots
-|       ├── westpoint_05m
-|       ├── westpoint_10m
-|       ├── westpoint_25m
-|       ├── westpoint_40m
-|       └── westpoint_60m
-└── Seaquarium
-		├──...etc
-```
-
-Organization of the individual Q1-Q6 folders :
-
-```shell
-.
-├── Westpoint
-│   ├── overview
-|       ├── westpoint_all
-|       ├── westpoint_Q1
-|       		├── 
 ```
 
 
