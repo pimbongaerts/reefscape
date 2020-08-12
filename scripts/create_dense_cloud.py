@@ -37,7 +37,7 @@ def main(project_name, camera_path):
     doc = Metashape.app.document
     chunk = doc.addChunk()
     chunk.crs = Metashape.CoordinateSystem("EPSG::4612")
-    save_project()
+    save_project(project_name)
 
     chunk.addPhotos(get_cameras(camera_path))
 
@@ -53,21 +53,21 @@ def main(project_name, camera_path):
                       keep_keypoints = False,           # Do not store keypoints in the project
                       guided_matching = False,          # Disable guided image matching
                       reset_matches = True)             # Resent current matches
-    save_project()
+    save_project(project_name)
 
     chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
                        reset_alignment = True)          # Reset current alignment
-    save_project()
+    save_project(project_name)
 
     chunk.buildDepthMaps(downscale = 1,                 # Depth map quality = Ultra (1)
                          filter_mode = Metashape.MildFiltering,
                          reuse_depth = False)           # Disable reuse depth maps option
-    save_project()
+    save_project(project_name)
 
     chunk.buildDenseCloud(point_colors = True,          # Enable point colors calculation
                           point_confidence = True,      # Enable point confidence calculation
                           keep_depth = True)            # Enable store depth maps option
-    save_project()
+    save_project(project_name)
 
 
 if __name__ == '__main__':
