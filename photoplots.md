@@ -1,4 +1,4 @@
-# Photoplots pipeline (GUI)
+# Photoplots workflow
 
 Workflow for the reconstruction of our high-resolution 100m2 photogrammetry plots ("photoplots"). 
 
@@ -26,7 +26,26 @@ $ mkdir seaquarium_12 && cd "$_"
 $ cp /Volumes/curacao_raw/Curacao\ 2019/03-01-2019\ Seaquarium/PM\ Photogrammetry\ plot\ 12\ m/Cannon\ Photogrammetry/2019_03_01/*.CR2 .
 ```
 
-**3 - Import into Agisoft Metascan**:
+**3 - Create JPEG version of RAW images**:
+
+```shell
+$ ls seaquarium_40m_2020mar.raw/*.CR2 | parallel -j 30 convert {} -set colorspace RGB -colorspace sRGB jpg:{.}.jpeg
+$ mkdir seaquarium_40m_2020mar.photos
+$ mv seaquarium_40m_2020mar.raw/*.jpg seaquarium_40m_2020mar.photos
+
+$ for file in *.CR2; do 
+
+convert cr2:*.cr2 -set colorspace RGB -colorspace sRGB jpg:{.}.jpeg
+
+convert cr2:seaquarium_40m_2020mar.raw/0X7A2543.CR2 -set colorspace RGB -colorspace sRGB jpg:test.jpg
+
+$ mogrify -format jpeg -set colorspace RGB -colorspace sRGB *.CR2
+```
+
+
+
+**4 - Import into Agisoft Metascan**:
 
 * 
 
+ convert cr2:0X7A6770.CR2 -set colorspace RGB -colorspace sRGB 0X7A6770_c.jpg
