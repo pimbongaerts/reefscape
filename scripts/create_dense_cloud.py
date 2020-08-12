@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-./metashape.sh -r ~/protocols/scripts/create_dense_cloud.py project_name camera_path
+~/tools/metashape-pro/metashape.sh -r ~/protocols/scripts/create_dense_cloud.py project_name camera_path
 """
-#import Metashape
+import Metashape
 import argparse
 import os
 import re
@@ -34,7 +34,7 @@ def save_project(project_name):
 
 def main(project_name, camera_path):
 
-    doc = PhotoScan.app.document
+    doc = Metashape.app.document
     chunk = doc.addChunk()
     chunk.crs = Metashape.CoordinateSystem("EPSG::4612")
     save_project()
