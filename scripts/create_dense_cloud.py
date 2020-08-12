@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-./metashape.sh -r <script.py> [script arguments]
+./metashape.sh -r ~/protocols/scripts/create_dense_cloud.py project_name camera_path
 """
 #import Metashape
 import argparse
@@ -12,7 +12,7 @@ __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
 __license__ = 'GPL'
 
-CAMERA_EXTENSION = 'CR2'
+CAMERA_EXTENSION = 'jpeg'
 
 def get_cameras(camera_path):
     """ get the photo (.JPG) list in specified folder """
