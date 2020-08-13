@@ -9,6 +9,7 @@ import argparse
 import os
 import re
 import sys
+import time
 
 __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
@@ -25,16 +26,28 @@ def get_cameras(camera_path):
             camera_list.append(filepath)
     return camera_list
 
+def progress_print(p):
+    """ Print progress """
+    # TODO: only show update after certain time or percentage change
+    elapsed = float(time.time() - start_time)
+    if p:
+        sec = elapsed / p * 100
+        print('Current task progress: {:.2f}%, estimated time left: {:.0f} seconds'.format(p, sec))
+    else:
+        print('Current task progress: {:.2f}%, estimated time left: unknown'.format(p)) #if 0% progress
+
 def main(project_name, camera_path):
 
     doc = Metashape.app.document
     doc.save(project_name)
 
     chunk = doc.addChunk()
-    chunk.crs = Metashape.CoordinateSystem("EPSG::4612")
+    #chunk.crs = Metashape.CoordinateSystem("EPSG::4612")
     chunk.addPhotos(get_cameras(camera_path))
     doc.save()
 
+    global start_time
+    start_time = time.time()
     chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
                       generic_preselection = True,      # Enable generic preselection
                       reference_preselection = False,   # Disable reference preselection
@@ -44,21 +57,28 @@ def main(project_name, camera_path):
                       tiepoint_limit = 0,
                       keep_keypoints = False,           # Do not store keypoints in the project
                       guided_matching = False,          # Disable guided image matching
-                      reset_matches = True)             # Resent current matches
+                      reset_matches = True,             # Resent current matches
+                      progress = progress_print)             
     doc.save()
 
+    start_time = time.time()
     chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
-                       reset_alignment = True)          # Reset current alignment
+                       reset_alignment = True,          # Reset current alignment
+                       progress = progress_print)          
     doc.save()
 
+    start_time = time.time()
     chunk.buildDepthMaps(downscale = 2,                 # Depth map quality = High (2)
                          filter_mode = Metashape.MildFiltering,
-                         reuse_depth = False)           # Disable reuse depth maps option
+                         reuse_depth = False,           # Disable reuse depth maps option
+                         progress = progress_print)
     doc.save()
 
+    start_time = time.time()
     chunk.buildDenseCloud(point_colors = True,          # Enable point colors calculation
                           point_confidence = True,      # Enable point confidence calculation
-                          keep_depth = True)            # Enable store depth maps option
+                          keep_depth = True,            # Enable store depth maps option
+                          progress = progress_print)
     doc.save()
 
 
