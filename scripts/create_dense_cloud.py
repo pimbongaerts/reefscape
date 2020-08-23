@@ -15,7 +15,7 @@ __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
 __license__ = 'GPL'
 
-CAMERA_EXTENSION = 'jpeg'
+CAMERA_EXTENSION = 'CR2'
 
 def get_cameras(camera_path):
     """ Get the paths for each camera """
@@ -31,8 +31,10 @@ def progress_print(p):
     # TODO: only show update after certain time or percentage change
     elapsed = float(time.time() - start_time)
     if p:
-        sec = elapsed / p * 100
-        print('Current task progress: {:.2f}%, estimated time left: {:.0f} seconds'.format(p, sec))
+        if p.is_integer():
+            secs = elapsed / p * 100
+            time_left = time.strftime("%Hh %Mm% %Ss", time.gmtime(secs))
+            print('Current task progress: {:.0f}%, estimated time left: {}'.format(p, time_left))
     else:
         print('Current task progress: {:.2f}%, estimated time left: unknown'.format(p)) #if 0% progress
 
@@ -42,7 +44,6 @@ def main(project_name, camera_path):
     doc.save(project_name)
 
     chunk = doc.addChunk()
-    #chunk.crs = Metashape.CoordinateSystem("EPSG::4612")
     chunk.addPhotos(get_cameras(camera_path))
     doc.save()
 
