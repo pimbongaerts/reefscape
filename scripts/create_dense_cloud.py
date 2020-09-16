@@ -19,7 +19,7 @@ CAMERA_EXTENSION = 'CR2'
 CAMERA_POSTFIX = '.raw'
 UPDATE_INTERVAL = 300   # in seconds (= 5min)
 
-def get_cameras(camera_path):
+def get_cameras():
     """ Get the paths for each camera """
     camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), CAMERA_POSTFIX)
     camera_list = []
