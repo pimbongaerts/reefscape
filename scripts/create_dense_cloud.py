@@ -83,7 +83,9 @@ def get_project_filepath():
   return '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
 
 def main():
-
+    global last_update_time
+    last_update_time = time.time()
+    
     doc = Metashape.app.document
     project_filepath = get_project_filepath()
     doc.save(project_filepath)
@@ -94,8 +96,7 @@ def main():
 
     global start_time
     start_time = time.time()
-    global last_update_time
-    last_update_time = time.time()
+
 
     chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
                       generic_preselection = True,      # Enable generic preselection
