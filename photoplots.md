@@ -7,45 +7,37 @@ Workflow for the reconstruction of our high-resolution 100m2 photogrammetry plot
 **1 - Access the server** (using `ssh` and from within the network or using VPN) and set up a `screen` session:
 
 ```shell
+# SSH into server and start a new SCREEN session with ZSH
 $ ssh deepcat1
-# Start a new SCREEN session with ZSH
-$ screen -S video_extract zsh
-# Ensure that NAS volume with raw data is mounted
+$ screen -S photoplot zsh
+# Ensure that NAS volumes with raw data & reconstructions are mounted
 $ sudo mount deepcat2:/volume1/curacao_raw ~/mounts/curacao_raw
-# Ensure that NAS volume with reconstructions is mounted
 $ sudo mount deepcat2:/volume2/coral3d ~/mounts/coral3d
 ```
 
 **2 - Copy across the photographs** to be extracted:
 
 ```shell
-# Example: Seaquarium 12m
+# Example: Seaquarium 40m 2020mar
 $ cd ~/mounts/coral3d/Seaquarium/photoplots
-$ mkdir seaquarium_12 && cd "$_"
-# Copy across raw photographs
-$ cp /Volumes/curacao_raw/Curacao\ 2019/03-01-2019\ Seaquarium/PM\ Photogrammetry\ plot\ 12\ m/Cannon\ Photogrammetry/2019_03_01/*.CR2 .
+$ mkdir seaquarium_40m_2020mar && cd "$_"
+$ cp /Volumes/curacao_raw/[folder]/*.CR2 .
 ```
 
 **3 - Create JPEG version of RAW images**:
 
 ```shell
-$ ls seaquarium_40m_2020mar.raw/*.CR2 | parallel -j 30 convert {} -set colorspace RGB -colorspace sRGB jpg:{.}.jpeg
+#$ ls seaquarium_40m_2020mar.raw/*.CR2 | parallel -j 30 convert {} -set colorspace RGB -colorspace sRGB jpg:{.}.jpeg
+$ mogrify -format jpeg -set colorspace RGB -colorspace sRGB *.CR2
 $ mkdir seaquarium_40m_2020mar.photos
 $ mv seaquarium_40m_2020mar.raw/*.jpg seaquarium_40m_2020mar.photos
-
-$ for file in *.CR2; do 
-
-convert cr2:*.cr2 -set colorspace RGB -colorspace sRGB jpg:{.}.jpeg
-
-convert cr2:seaquarium_40m_2020mar.raw/0X7A2543.CR2 -set colorspace RGB -colorspace sRGB jpg:test.jpg
-
-$ mogrify -format jpeg -set colorspace RGB -colorspace sRGB *.CR2
 ```
 
 
 
-**4 - Import into Agisoft Metascan**:
+**4 - Build dense cloud in Agisoft Metascan using create_dense_cloud.py script **:
 
-* 
+```shell
+$ ~/tools/metashape-pro/metashape.sh -r create_dense_cloud.py seaquarium_40m_2020mar.psx seaquarium_40m_2020mar.photos
+```
 
- convert cr2:0X7A6770.CR2 -set colorspace RGB -colorspace sRGB 0X7A6770_c.jpg
