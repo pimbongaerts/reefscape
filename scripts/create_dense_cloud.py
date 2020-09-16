@@ -75,6 +75,7 @@ def progress_print(p):
             last_update_time = time.time()
     else:
         print('Current task progress: {:.2f}%, estimated time left: unknown'.format(p)) #if 0% progress
+        last_update_time = time.time()
 
 def get_project_filepath():
   """ Retrieve current path and use directory name as project name """
