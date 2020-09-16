@@ -68,14 +68,14 @@ def progress_print(p):
     """ Print progress """
     elapsed = float(time.time() - start_time)
     if p:
-        if p.is_integer() or (int(last_update_time - time.time()) > UPDATE_INTERVAL):
+        if p.is_integer():
             secs = elapsed / p * 100
             time_left = time.strftime("%Hh %Mm% %Ss", time.gmtime(secs))
             print('Current task progress: {:.0f}%, estimated time left: {}'.format(p, time_left))
-            last_update_time = time.time()
+            #last_update_time = time.time()
     else:
         print('Current task progress: {:.2f}%, estimated time left: unknown'.format(p)) #if 0% progress
-        last_update_time = time.time()
+        #last_update_time = time.time()
 
 def get_project_filepath():
   """ Retrieve current path and use directory name as project name """
@@ -83,9 +83,7 @@ def get_project_filepath():
   return '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
 
 def main():
-    global last_update_time
-    last_update_time = time.time()
-    
+
     doc = Metashape.app.document
     project_filepath = get_project_filepath()
     doc.save(project_filepath)
@@ -96,7 +94,6 @@ def main():
 
     global start_time
     start_time = time.time()
-
 
     chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
                       generic_preselection = True,      # Enable generic preselection
