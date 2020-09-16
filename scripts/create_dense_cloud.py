@@ -68,7 +68,7 @@ def progress_print(p):
     """ Print progress """
     elapsed = float(time.time() - start_time)
     if p:
-        if p.is_integer() or last_update_time - time.time() > UPDATE_INTERVAL:
+        if p.is_integer() or (int(last_update_time - time.time()) > UPDATE_INTERVAL):
             secs = elapsed / p * 100
             time_left = time.strftime("%Hh %Mm% %Ss", time.gmtime(secs))
             print('Current task progress: {:.0f}%, estimated time left: {}'.format(p, time_left))
