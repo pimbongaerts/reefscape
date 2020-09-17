@@ -129,7 +129,7 @@ def main():
     doc.save()
 
     start_time = time.time()
-    chunk.exportPoints(path = replace(project_filepath, '.psx', '.ply'),
+    chunk.exportPoints(path = project_filepath.replace('.psx', '.ply'),
                        source_data = DenseCloudData,
                        binary = True, 
                        save_normals = True, 
