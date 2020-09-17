@@ -130,7 +130,7 @@ def main():
 
     start_time = time.time()
     chunk.exportPoints(path = project_filepath.replace('.psx', '.ply'),
-                       source_data = DenseCloudData,
+                       #source_data = DenseCloudData,
                        binary = True, 
                        save_normals = True, 
                        save_colors = True, 
