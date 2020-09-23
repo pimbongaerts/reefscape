@@ -130,15 +130,15 @@ def main():
 
     start_time = time.time()
     chunk.exportPoints(path = project_filepath.replace('.psx', '.ply'),
-                       #source_data = DenseCloudData,
+                       source_data = Metashape.DenseCloudData,
                        binary = True, 
                        save_normals = True, 
                        save_colors = True, 
                        save_classes = False,
                        save_confidence = True,
-                       raster_transform = RasterTransformNone,
+                       raster_transform = Metashape.RasterTransformNone,
                        colors_rgb_8bit = True,
-                       format = PointsFormatPLY,
+                       format = Metashape.PointsFormatPLY,
                        split_in_blocks = False,
                        progress = progress_print)
     doc.save()

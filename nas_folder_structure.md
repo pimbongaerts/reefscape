@@ -1,5 +1,7 @@
 ## Folder structure of lab's NAS server
 
+noelle pereta
+
 ### Overall organization of the `coral3d` shared folder
 
 | Folder hierarchy                            | Naming convention             | Naming syntax          | Examples                           |
@@ -11,31 +13,40 @@
 ```bash
 .
 ├── curacao_focal									# Region & plot type
-│   ├── cur_kal_05m								# Specific focal plot
-|   |   ├── cur_kal_05m_20190203	# Specific timepoint of focal plot
-|   |   ├── cur_kal_05m_20191103
-|   |   └── cur_kal_05m_20200203
-|   ├── cur_kal_10m
-|   |   ├── cur_kal_10m_20190203
-|   |   ├── cur_kal_10m_20190203
-|   |   └── cur_kal_10m_20190203
-|   ├──...etc
-|   |   ├── ...etc
-│   └── cur_sla_05m
-|       ├── cur_kal_05m_20190203
-|       ├── cur_kal_05m_20191103
-|       └── cur_kal_05m_20200203
+│   ├── cur_kal		
+│   │   ├── cur_kal_05m								# Specific focal plot
+│   |   |   ├── cur_kal_05m_20190203	# Specific timepoint of focal plot
+│   |   |   ├── cur_kal_05m_20191103
+│   |   |   └── cur_kal_05m_20200203
+│   |   ├── cur_kal_10m
+│   |   |   ├── cur_kal_10m_20190203
+│   |   |   ├── cur_kal_10m_20190203
+│   |   |   └── cur_kal_10m_20190203
+│   |   ├── etc...
+│   |   |   ├── etc...
+│   |
+│   ├── cur_sla
+│   |   ├── cur_sla_05m
+│   |   |   ├── cur_kal_05m_20190203
+│   |   |   ├── cur_kal_05m_20191103
+│   |   |   └── cur_kal_05m_20200203
+│   |   ├── etc...
+│   |   |   ├── etc...
+│   |
 └── curacao_large									# Region & plot type
-│   ├── cur_kal										# Specific large area plot
-|       ├── cur_kal_Q1_20190203		# Specific quarter/time of large plot
-|       ├── cur_kal_Q2_20190203
-|       ├── cur_kal_Q3_20190203
-|       ├── cur_kal_Q4_20190203
+│   ├── cur_kal									  # Specific large area plot
+|   |   ├── cur_kal_Q1_20190203		# Specific quarter/time of large plot
+|   |   ├── cur_kal_Q2_20190203
+|   |   ├── cur_kal_Q3_20190203
+|   |   ├── cur_kal_Q4_20190203
 |   └── cur_sna
-|       ├── cur_sna_Q1_20190203
-|       ├── cur_sna_Q2_20190203
-|       ├── cur_sna_Q3_20190203
-|       └── cur_sna_Q4_20190203
+|   |   ├── cur_sna_Q1_20190203
+|   |   ├── cur_sna_Q2_20190203
+|   |   ├── cur_sna_Q3_20190203
+|   |   └── cur_sna_Q4_20190203
+│   ├── etc...
+│   |   ├── etc...
+│   |
 ```
 
 For focal plots - the following naming conventions are used:
