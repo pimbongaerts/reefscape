@@ -75,7 +75,7 @@ def get_project_filepath():
   """ ~/plots/seaquarium_40m_2020mar --> ~/plots/seaquarium_40m_2020mar/seaquarium_40m_2020mar.psx """
   return '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
 
-def start_next_step(log_file, message):
+def start_next_step(message, doc, log_file):
   """ Write update to logfile """
   doc.save()
   start_time = time.time()
@@ -96,7 +96,7 @@ def main():
     log_filename = project_filepath.replace('.psx', '.log')
     log_file = open(log_filename, 'w')
 
-    start_next_step("Match photos", log_file)
+    start_next_step("Match photos", doc, log_file)
     chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
                       generic_preselection = True,      # Enable generic preselection
                       reference_preselection = False,   # Disable reference preselection
@@ -109,24 +109,24 @@ def main():
                       reset_matches = True,             # Resent current matches
                       progress = progress_print)             
 
-    start_next_step("Align photos", log_file)
+    start_next_step("Align photos", doc, log_file)
     chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
                        reset_alignment = True,          # Reset current alignment
                        progress = progress_print)          
 
-    start_next_step("Build dense maps", log_file)
+    start_next_step("Build dense maps", doc, log_file)
     chunk.buildDepthMaps(downscale = 2,                 # Depth map quality = High (2)
                          filter_mode = Metashape.MildFiltering,
                          reuse_depth = False,           # Disable reuse depth maps option
                          progress = progress_print)
 
-    start_next_step("Build dense maps", log_file)
+    start_next_step("Build dense maps", doc, log_file)
     chunk.buildDenseCloud(point_colors = True,          # Enable point colors calculation
                           point_confidence = True,      # Enable point confidence calculation
                           keep_depth = True,            # Enable store depth maps option
                           progress = progress_print)
 
-    start_next_step("Export points to PLY file", log_file)
+    start_next_step("Export points to PLY file", doc, log_file)
     chunk.exportPoints(path = project_filepath.replace('.psx', '.ply'),
                        source_data = Metashape.DenseCloudData,
                        binary = True, 
@@ -140,10 +140,10 @@ def main():
                        split_in_blocks = False,
                        progress = progress_print)
 
-    start_next_step("Export cameras positions", log_file)
+    start_next_step("Export cameras positions", doc, log_file)
     chunk.exportCameras(project_filepath.replace('.psx', '.cams.xml'))
 
-    start_next_step("Export camera metadata", log_file)
+    start_next_step("Export camera metadata", doc, log_file)
     output_camera_metadata(chunk)
 
     log_file.close()
