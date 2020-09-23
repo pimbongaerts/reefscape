@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 """
-./metashape.sh -r create_dense_cloud.py [project_name] [camera_path]
-~/tools/metashape-pro/metashape.sh -r ~/protocols/scripts/create_dense_cloud.py ~/mounts/coral3d/Seaquarium/test/test_project2.psx ~/mounts/coral3d/Seaquarium/test/test.raw
+Constructs and exports dense point cloud from raw images,
+using the Metashape API.
 
+Usage: ./metashape.sh -r create_dense_cloud.py
 """
 import Metashape
 import argparse
@@ -10,6 +11,8 @@ import os
 import re
 import sys
 import time
+import math
+import json
 
 __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
@@ -29,40 +32,28 @@ def get_cameras():
             camera_list.append(filepath)
     return camera_list
 
-# def output_cameras():
-#   """ Export camera and metadata - from extract_meta.py script (100islands) """
-#   cams_filename = proj_dir + '/' + proj_name + '.cams.xml'
-#   chunk.exportCameras(cams_filename)
-  
-#   meta_filename = proj_dir + '/' + proj_name + '.meta.json'
+def output_camera_metadata(chunk):
+  """ Export camera metadata for Viscore (from extract_meta.py script) """
+  meta_filename = project_filepath.replace('.psx', '.meta.json')
+  meta_file = open(meta_filename, 'w')
+  outputs = {}
 
-#   meta_file = open(meta_filename, 'w')
-  
-
-#   outputs = {}
-
-#   for cam in cams:
-#       key = cam.key
-#       path = cam.photo.path
-#       center = cam.center
-#       if center is not None:
-#           geo = chunk.transform.matrix.mulp(center)
-#           if chunk.crs is not None:
-#               lla = list(chunk.crs.project(geo))
-#           center = list(center)
+  for cam in chunk.cameras:
+      center = cam.center
+      if center is not None:
+          geo = chunk.transform.matrix.mulp(center)
+          if chunk.crs is not None:
+              lla = list(chunk.crs.project(geo))
+          center = list(center)
       
-#       agi_trans = cam.transform
-#       trans = None
-#       if agi_trans is not None:
-#           trans = [list(agi_trans.row(n)) for n in range(agi_trans.size[1])]
+      agi_trans = cam.transform
+      trans = None
+      if agi_trans is not None:
+          trans = [list(agi_trans.row(n)) for n in range(agi_trans.size[1])]
       
-#       outputs[key] = {'path' : path, 'center' : center, 'transform' : trans}
-      
-    
-#   print(outputs)
-#   meta_file.write(json.dumps({'cameras' : outputs}, indent=4))
-
-#   meta_file.close()
+      outputs[cam.key] = {'path' : cam.photo.path, 'center' : center, 'transform' : trans}
+  meta_file.write(json.dumps({'cameras' : outputs}, indent = 4))
+  meta_file.close()
 
 def progress_print(p):
     """ Print progress """
@@ -72,15 +63,20 @@ def progress_print(p):
             secs = elapsed / p * 100
             time_left = time.strftime("%Hh %Mm% %Ss", time.gmtime(secs))
             print('Current task progress: {:.0f}%, estimated time left: {}'.format(p, time_left))
-            #last_update_time = time.time()
     else:
         print('Current task progress: {:.2f}%, estimated time left: unknown'.format(p)) #if 0% progress
-        #last_update_time = time.time()
 
 def get_project_filepath():
   """ Retrieve current path and use directory name as project name """
   """ ~/plots/seaquarium_40m_2020mar --> ~/plots/seaquarium_40m_2020mar/seaquarium_40m_2020mar.psx """
   return '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
+
+def start_next_step(log_file, message):
+  """ Write update to logfile """
+  doc.save()
+  start_time = time.time()
+  formatted_message = "[{0}] {1}".format(time.asctime(time.localtime()), message)
+  log_file.write(formatted_message)
 
 def main():
 
@@ -93,8 +89,10 @@ def main():
     doc.save()
 
     global start_time
-    start_time = time.time()
+    log_filename = project_filepath.replace('.psx', '.log')
+    log_file = open(log_filename, 'w')
 
+    start_next_step("Match photos", log_file)
     chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
                       generic_preselection = True,      # Enable generic preselection
                       reference_preselection = False,   # Disable reference preselection
@@ -106,29 +104,25 @@ def main():
                       guided_matching = False,          # Disable guided image matching
                       reset_matches = True,             # Resent current matches
                       progress = progress_print)             
-    doc.save()
 
-    start_time = time.time()
+    start_next_step("Align photos", log_file)
     chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
                        reset_alignment = True,          # Reset current alignment
                        progress = progress_print)          
-    doc.save()
 
-    start_time = time.time()
+    start_next_step("Build dense maps", log_file)
     chunk.buildDepthMaps(downscale = 2,                 # Depth map quality = High (2)
                          filter_mode = Metashape.MildFiltering,
                          reuse_depth = False,           # Disable reuse depth maps option
                          progress = progress_print)
-    doc.save()
 
-    start_time = time.time()
+    start_next_step("Build dense maps", log_file)
     chunk.buildDenseCloud(point_colors = True,          # Enable point colors calculation
                           point_confidence = True,      # Enable point confidence calculation
                           keep_depth = True,            # Enable store depth maps option
                           progress = progress_print)
-    doc.save()
 
-    start_time = time.time()
+    start_next_step("Export points to PLY file", log_file)
     chunk.exportPoints(path = project_filepath.replace('.psx', '.ply'),
                        source_data = Metashape.DenseCloudData,
                        binary = True, 
@@ -141,9 +135,12 @@ def main():
                        format = Metashape.PointsFormatPLY,
                        split_in_blocks = False,
                        progress = progress_print)
-    doc.save()
 
+    start_next_step("Export cameras positions", log_file)
+    chunk.exportCameras(project_filepath.replace('.psx', '.cams.xml'))
 
+    start_next_step("Export camera metadata", log_file)
+    output_camera_metadata(chunk)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
