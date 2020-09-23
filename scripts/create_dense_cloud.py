@@ -3,7 +3,11 @@
 Constructs and exports dense point cloud from raw images,
 using the Metashape API.
 
-Usage: ./metashape.sh -r create_dense_cloud.py
+Usage: 
+./metashape.sh -platform offscreen -r create_dense_cloud.py
+or create an alias:
+alias densecloud="~/path_to_metashape-pro/metashape.sh -platform offscreen \
+                                                       -r ~/protocols/scripts/create_dense_cloud.py"
 """
 import Metashape
 import argparse
@@ -141,6 +145,8 @@ def main():
 
     start_next_step("Export camera metadata", log_file)
     output_camera_metadata(chunk)
+
+    log_file.close()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
