@@ -78,7 +78,7 @@ def get_project_filepath():
 
 def start_next_step(message, log_file):
   """ Write update to logfile """
-  formatted_message = "[{0}] {1}".format(time.asctime(time.localtime()), message)
+  formatted_message = "[{0}] {1}\n".format(time.asctime(time.localtime()), message)
   print(formatted_message)
   log_file.write(formatted_message)
 
