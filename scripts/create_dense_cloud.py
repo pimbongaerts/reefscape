@@ -75,7 +75,7 @@ def get_project_filepath():
   """ ~/plots/seaquarium_40m_2020mar --> ~/plots/seaquarium_40m_2020mar/seaquarium_40m_2020mar.psx """
   return '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
 
-def start_next_step(message, doc, log_file):
+def start_next_step(message, log_file):
   """ Write update to logfile """
   formatted_message = "[{0}] {1}".format(time.asctime(time.localtime()), message)
   print(formatted_message)
