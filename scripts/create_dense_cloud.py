@@ -94,6 +94,7 @@ def main():
     global start_time
     log_filename = project_filepath.replace('.psx', '.log')
     log_file = open(log_filename, 'w')
+    start_time = time.time()
 
     start_next_step("Match photos", log_file)
     chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
