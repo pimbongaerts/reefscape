@@ -26,6 +26,8 @@ CAMERA_EXTENSION = 'CR2'
 CAMERA_POSTFIX = '.raw'
 UPDATE_INTERVAL = 300   # in seconds (= 5min)
 
+start_time = 0
+
 def get_cameras():
     """ Get the paths for each camera """
     camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), CAMERA_POSTFIX)
@@ -36,10 +38,9 @@ def get_cameras():
             camera_list.append(filepath)
     return camera_list
 
-def output_camera_metadata(chunk):
+def output_camera_metadata(meta_filepath, chunk):
   """ Export camera metadata for Viscore (from extract_meta.py script) """
-  meta_filename = project_filepath.replace('.psx', '.meta.json')
-  meta_file = open(meta_filename, 'w')
+  meta_file = open(meta_filepath, 'w')
   outputs = {}
 
   for cam in chunk.cameras:
@@ -156,7 +157,8 @@ def main():
     chunk.exportCameras(project_filepath.replace('.psx', '.cams.xml'))
 
     start_next_step("Export camera metadata", log_file)
-    output_camera_metadata(chunk)
+    output_camera_metadata(project_filepath.replace('.psx', '.meta.json'), 
+                           chunk)
 
     doc.save()
     start_time = time.time()
