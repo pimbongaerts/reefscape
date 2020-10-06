@@ -99,11 +99,17 @@ def main(camera_extension):
 
     doc = Metashape.app.document
     project_filepath = get_project_filepath()
-    doc.save(project_filepath)
+    if os.path.isfile(project_filepath):
+        doc.open(file_name)         # Open exisiting project
+    else:
+        doc.save(project_filepath)  # Create new project
 
-    chunk = doc.addChunk()
-    chunk.addPhotos(get_cameras(camera_extension))
-    doc.save()
+    if doc.chunk:
+        chunk = doc.addChunk        # Add chunk if it does not already exists
+
+    if len(doc.chunk.cameras) == 0:
+        chunk.addPhotos(get_cameras(camera_extension))
+        doc.save()
 
     global start_time
     log_filename = project_filepath.replace('.psx', '.log')
