@@ -32,9 +32,8 @@ def get_cameras(camera_extension):
     """ Get the paths for each camera """
     camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), CAMERA_POSTFIX)
     camera_list = []
-    camera_extension_strip = camera_extension.rsplit(".",1)[1]
     for filename in os.listdir(camera_path):
-        if filename.endswith('.' + camera_extension_strip):
+        if filename.endswith('.' + camera_extension):
             filepath = os.path.join(camera_path, filename)
             camera_list.append(filepath)
     return camera_list
