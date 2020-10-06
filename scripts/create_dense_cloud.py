@@ -70,7 +70,7 @@ def check_if_all_cameras_aligned(chunk):
                                                                len(chunk.cameras)))
       print('Please rectify before continuing.')
       sys.exit()
-    else
+    else:
       print('{0} out of {0} cameras aligned'.format(len(chunk.cameras)))
 
 def progress_print(p):
