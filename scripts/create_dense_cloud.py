@@ -68,8 +68,6 @@ def check_if_all_cameras_aligned(chunk):
     if len(cameras_not_aligned) > 0:
       print('Error: {0} out of {1} cameras not aligned'.format(len(cameras_not_aligned),
                                                                len(chunk.cameras)))
-      print('Please rectify before continuing.')
-      sys.exit()
     else:
       print('{0} out of {0} cameras aligned'.format(len(chunk.cameras)))
 
