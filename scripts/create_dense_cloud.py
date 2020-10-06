@@ -28,12 +28,13 @@ UPDATE_INTERVAL = 300   # in seconds (= 5min)
 
 start_time = 0
 
-def get_cameras():
+def get_cameras(camera_extension):
     """ Get the paths for each camera """
     camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), CAMERA_POSTFIX)
     camera_list = []
+    camera_extension_strip = camera_extension.rsplit(".",1)[1]
     for filename in os.listdir(camera_path):
-        if filename.endswith('.' + CAMERA_EXTENSION):
+        if filename.endswith('.' + camera_extension_strip):
             filepath = os.path.join(camera_path, filename)
             camera_list.append(filepath)
     return camera_list
@@ -82,14 +83,14 @@ def start_next_step(message, log_file):
   print(formatted_message)
   log_file.write(formatted_message)
 
-def main():
+def main(camera_extension):
 
     doc = Metashape.app.document
     project_filepath = get_project_filepath()
     doc.save(project_filepath)
 
     chunk = doc.addChunk()
-    chunk.addPhotos(get_cameras())
+    chunk.addPhotos(get_cameras(camera_extension))
     doc.save()
 
     global start_time
@@ -167,5 +168,8 @@ def main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('-c', '--camera_extension', dest='camera_extension',
+                        metavar='camera_extension', default='CR2',
+                        help='extension of camera files (default CR2)')
     args = parser.parse_args()
-    main()
+    main(args.camera_extension)

@@ -32,9 +32,13 @@ $ cp ~/mounts/curacao_raw/[folder]/*.CR2 .
 **3 - Create JPEG version of RAW images**:
 
 ```shell
+# Check resolution of one of the CR2 raw images
+$ exiftool 0X7A5492.CR2 | grep "Image Size"
+Canon Image Size                : n/a
+Image Size                      : 8688x5792
 # Run ImageMagick conversion to JPEG in parallel
 # (here: 30 threads)
-$ find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format jpeg -set colorspace RGB -colorspace sRGB {}
+$ find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format jpeg -set colorspace RGB -colorspace sRGB -resize 5792x8688 {}
 # Single thread option (slow):
 # mogrify -format jpeg -set colorspace RGB -colorspace sRGB *.CR2
 $ mkdir ../cur_kal_40m_20200214.photos
@@ -49,6 +53,14 @@ $ mv *.jpeg ../cur_kal_40m_20200214.photos
 # Then run the create_dense_cloud.py script (using alias):
 $ densecloud
 ```
+
+With some of the Mar-2019 plots there are some issues with the original CR2 files - for these we will need to do non-lossy conversion to  JPEGs first:
+
+```shell
+$  find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format jpeg -set colorspace RGB -colorspace sRGB -quality 100 -resize 1920x2880 {}
+```
+
+
 
 **5 - Extract bottom depths for photos from altimeter data **:
 

@@ -1,21 +1,20 @@
 ## Folder structure of lab's NAS server
 
-noelle pereta
-
 ### Overall organization of the `coral3d` shared folder
 
-| Folder hierarchy                            | Naming convention             | Naming syntax          | Examples                           |
-| ------------------------------------------- | ----------------------------- | ---------------------- | ---------------------------------- |
-| 1.  Region & plot type                      | `curacao`                     | `region_type`          | `curacao_focal` or `curacao_large` |
-| 2. Specific plot                            | Region, location, depth       | `reg_loc_xxm`          | `cur_kal_05m`                      |
-| 3. Specific timepoint (and section) of plot | Region, location, depth, date | `reg_loc_xxm_yyyymmdd` | `cur_kal_05m_20190203`             |
+| Folder hierarchy                            | Naming convention             | Naming syntax          | Examples                      |
+| ------------------------------------------- | ----------------------------- | ---------------------- | ----------------------------- |
+| 1. Plot type                                | `curacao`                     |                        | `focal_plots` or `large_area` |
+| 2. Location                                 | Region, location              | `reg_loc`              |                               |
+| 3. Specific plot / depth                    | Region, location, depth       | `reg_loc_xxm`          | `cur_kal_05m`                 |
+| 4. Specific timepoint (and section) of plot | Region, location, depth, date | `reg_loc_xxm_yyyymmdd` | `cur_kal_05m_20190203`        |
 
 ```bash
 .
-├── curacao_focal									# Region & plot type
-│   ├── cur_kal		
-│   │   ├── cur_kal_05m								# Specific focal plot
-│   |   |   ├── cur_kal_05m_20190203	# Specific timepoint of focal plot
+├── focal_plots												# Plot type
+│   ├── cur_kal												# Location
+│   │   ├── cur_kal_05m								# Depth (specific plot in location)
+│   |   |   ├── cur_kal_05m_20190203	# Timepoint of focal plot
 │   |   |   ├── cur_kal_05m_20191103
 │   |   |   └── cur_kal_05m_20200203
 │   |   ├── cur_kal_10m
@@ -33,7 +32,7 @@ noelle pereta
 │   |   ├── etc...
 │   |   |   ├── etc...
 │   |
-└── curacao_large									# Region & plot type
+└── large_area										# Plot type
 │   ├── cur_kal									  # Specific large area plot
 |   |   ├── cur_kal_Q1_20190203		# Specific quarter/time of large plot
 |   |   ├── cur_kal_Q2_20190203
