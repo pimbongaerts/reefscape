@@ -60,6 +60,19 @@ def output_camera_metadata(meta_filepath, chunk):
   meta_file.write(json.dumps({'cameras' : outputs}, indent = 4))
   meta_file.close()
 
+def check_if_all_cameras_aligned(chunk):
+    cameras_not_aligned = []
+    for camera in chunk.cameras:
+        if not camera.transform:
+            cameras_not_aligned.append(camera)
+    if len(cameras_not_aligned) > 0:
+      print('Error: {0} out of {1} cameras not aligned'.format(len(cameras_not_aligned),
+                                                               len(chunk.cameras)))
+      print('Please rectify before continuing.')
+      sys.exit()
+    else
+      print('{0} out of {0} cameras aligned'.format(len(chunk.cameras)))
+
 def progress_print(p):
     """ Print progress """
     elapsed = float(time.time() - start_time)
@@ -116,11 +129,12 @@ def main(camera_extension):
     start_next_step("Align photos", log_file)
     chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
                        reset_alignment = True,          # Reset current alignment
-                       progress = progress_print)          
-
+                       progress = progress_print)
     doc.save()
     start_time = time.time()
-    
+
+    check_if_all_cameras_aligned(chunk)
+
     start_next_step("Build dense maps", log_file)
     chunk.buildDepthMaps(downscale = 2,                 # Depth map quality = High (2)
                          filter_mode = Metashape.MildFiltering,

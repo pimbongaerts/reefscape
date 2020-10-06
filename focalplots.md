@@ -33,14 +33,10 @@ $ cp ~/mounts/curacao_raw/[folder]/*.CR2 .
 
 ```shell
 # Check resolution of one of the CR2 raw images
-$ exiftool 0X7A5492.CR2 | grep "Image Size"
-Canon Image Size                : n/a
+$ exiftool --ImageSize 0X7A5492.CR2
 Image Size                      : 8688x5792
-# Run ImageMagick conversion to JPEG in parallel
-# (here: 30 threads)
-$ find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format jpeg -set colorspace RGB -colorspace sRGB -resize 5792x8688 {}
-# Single thread option (slow):
-# mogrify -format jpeg -set colorspace RGB -colorspace sRGB *.CR2
+# Run ImageMagick conversion to JPEG in parallel (specify number of threads in -j and resolution in -resize)
+$ find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format jpeg -set colorspace RGB -colorspace sRGB -resize 8688x5792 {}
 $ mkdir ../cur_kal_40m_20200214.photos
 $ mv *.jpeg ../cur_kal_40m_20200214.photos
 ```
@@ -54,10 +50,12 @@ $ mv *.jpeg ../cur_kal_40m_20200214.photos
 $ densecloud
 ```
 
-With some of the Mar-2019 plots there are some issues with the original CR2 files - for these we will need to do non-lossy conversion to  JPEGs first:
+With some of the Mar-2019 plots there are some issues with the original CR2 files - for these we will need to do non-lossy conversion to  PNGs first:
 
 ```shell
-$  find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format jpeg -set colorspace RGB -colorspace sRGB -quality 100 -resize 1920x2880 {}
+$  find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format png -set colorspace RGB -colorspace sRGB -quality 100 -resize 2880x1920 {}
+# Then run densecloud with specification of the camera format (-c)
+$ densecloud -c png
 ```
 
 
