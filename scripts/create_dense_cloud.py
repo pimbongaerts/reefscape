@@ -112,7 +112,7 @@ def main(extension_cameras, aligned_camera_threshold):
     else:
         chunk = doc.chunk
 
-    if len(doc.chunk.cameras) == 0:
+    if len(chunk.cameras) == 0:
         chunk.addPhotos(get_cameras(extension_cameras))
         doc.save()
 
