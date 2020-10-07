@@ -95,12 +95,13 @@ def start_next_step(message, log_file):
 def main(extension_cameras, aligned_camera_threshold):
 
     global start_time
+    project_filepath = get_project_filepath()
     log_filename = project_filepath.replace('.psx', '.log')
     log_file = open(log_filename, 'w')
     start_time = time.time()
 
     doc = Metashape.app.document
-    project_filepath = get_project_filepath()
+    
     if os.path.isfile(project_filepath):
         doc.open(file_name)         # Open exisiting project
     else:
