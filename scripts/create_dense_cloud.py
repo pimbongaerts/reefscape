@@ -100,7 +100,7 @@ def main(extension_cameras, aligned_camera_threshold):
     log_file = open(log_filename, 'w')
     start_time = time.time()
 
-    doc = Metashape.app.document
+    doc = Metashape.Document()
     
     if os.path.isfile(project_filepath):
         doc.open(project_filepath)  # Open exisiting project
@@ -112,7 +112,7 @@ def main(extension_cameras, aligned_camera_threshold):
     else:
         chunk = doc.chunk
 
-    if not chunk.cameras:
+    if len(chunk.cameras) == 0:
         chunk.addPhotos(get_cameras(extension_cameras))
         doc.save()
 
