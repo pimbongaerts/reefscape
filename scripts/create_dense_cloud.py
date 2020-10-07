@@ -24,16 +24,16 @@ __license__ = 'GPL'
 
 CAMERA_EXTENSION = 'CR2'
 CAMERA_POSTFIX = '.raw'
-UPDATE_INTERVAL = 300   # in seconds (= 5min)
+UPDATE_INTERVAL = 300       # in seconds (= 5min)
 
 start_time = 0
 
-def get_cameras(camera_extension):
+def get_cameras(extension_cameras):
     """ Get the paths for each camera """
     camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), CAMERA_POSTFIX)
     camera_list = []
     for filename in os.listdir(camera_path):
-        if filename.endswith('.' + camera_extension):
+        if filename.endswith('.' + extension_cameras):
             filepath = os.path.join(camera_path, filename)
             camera_list.append(filepath)
     return camera_list
@@ -60,16 +60,15 @@ def output_camera_metadata(meta_filepath, chunk):
   meta_file.write(json.dumps({'cameras' : outputs}, indent = 4))
   meta_file.close()
 
-def check_if_all_cameras_aligned(chunk):
-    cameras_not_aligned = []
+def get_aligned_and_non_aligned_cameras(chunk):
+    aligned_cameras = []
+    non_aligned_cameras = []
     for camera in chunk.cameras:
         if not camera.transform:
-            cameras_not_aligned.append(camera)
-    if len(cameras_not_aligned) > 0:
-      print('Error: {0} out of {1} cameras not aligned'.format(len(cameras_not_aligned),
-                                                               len(chunk.cameras)))
-    else:
-      print('{0} out of {0} cameras aligned'.format(len(chunk.cameras)))
+            non_aligned_cameras.append(camera)
+        else:
+            aligned_cameras.append(camera)
+    return(aligned_cameras, non_aligned_cameras)
 
 def progress_print(p):
     """ Print progress """
@@ -93,7 +92,12 @@ def start_next_step(message, log_file):
   print(formatted_message)
   log_file.write(formatted_message)
 
-def main(camera_extension):
+def main(extension_cameras, aligned_camera_threshold):
+
+    global start_time
+    log_filename = project_filepath.replace('.psx', '.log')
+    log_file = open(log_filename, 'w')
+    start_time = time.time()
 
     doc = Metashape.app.document
     project_filepath = get_project_filepath()
@@ -104,40 +108,44 @@ def main(camera_extension):
 
     if doc.chunk:
         chunk = doc.addChunk        # Add chunk if it does not already exists
+    else:
+        chunk = doc.chunk
 
     if len(doc.chunk.cameras) == 0:
-        chunk.addPhotos(get_cameras(camera_extension))
+        chunk.addPhotos(get_cameras(extension_cameras))
         doc.save()
 
-    global start_time
-    log_filename = project_filepath.replace('.psx', '.log')
-    log_file = open(log_filename, 'w')
-    start_time = time.time()
+    aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
-    start_next_step("Match photos", log_file)
-    chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
-                      generic_preselection = True,      # Enable generic preselection
-                      reference_preselection = False,   # Disable reference preselection
-                      filter_mask = False,              # Disable filtering points by mask
-                      mask_tiepoints = False,           # Disable applying mask filter to tie points
-                      keypoint_limit = 5000,            
-                      tiepoint_limit = 0,
-                      keep_keypoints = False,           # Do not store keypoints in the project
-                      guided_matching = False,          # Disable guided image matching
-                      reset_matches = True,             # Resent current matches
-                      progress = progress_print)             
+    if len(aligned_cameras) == 0:
+        start_next_step("Match photos", log_file)
+        chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
+                          generic_preselection = True,      # Enable generic preselection
+                          reference_preselection = False,   # Disable reference preselection
+                          filter_mask = False,              # Disable filtering points by mask
+                          mask_tiepoints = False,           # Disable applying mask filter to tie points
+                          keypoint_limit = 5000,            
+                          tiepoint_limit = 0,
+                          keep_keypoints = False,           # Do not store keypoints in the project
+                          guided_matching = False,          # Disable guided image matching
+                          reset_matches = True,             # Resent current matches
+                          progress = progress_print)             
 
-    doc.save()
-    start_time = time.time()
+        doc.save()
+        
+        start_time = time.time()
+        start_next_step("Align photos", log_file)
+        chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
+                           reset_alignment = True,          # Reset current alignment
+                           progress = progress_print)
+        doc.save()
+        start_time = time.time()
 
-    start_next_step("Align photos", log_file)
-    chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
-                       reset_alignment = True,          # Reset current alignment
-                       progress = progress_print)
-    doc.save()
-    start_time = time.time()
+        aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
-    check_if_all_cameras_aligned(chunk)
+    if (len(aligned_cameras) / len(chunk.cameras)) < aligned_camera_threshold:
+        sys.exit('Unsufficient cameras aligned: {0} aligned out of {1}'.format(len(aligned_cameras),
+                                                                            len(chunk.cameras)))
 
     start_next_step("Build dense maps", log_file)
     chunk.buildDepthMaps(downscale = 2,                 # Depth map quality = High (2)
@@ -185,8 +193,11 @@ def main(camera_extension):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('-c', '--camera_extension', dest='camera_extension',
-                        metavar='camera_extension', default='CR2',
+    parser.add_argument('-e', '--extension_cameras', dest='extension_cameras',
+                        metavar='extension_cameras', default='CR2',
                         help='extension of camera files (default CR2)')
+    parser.add_argument('-a', '--aligned_camera_threshold', dest='aligned_camera_threshold',
+                        metavar='aligned_camera_threshold', default=0.8, type=long,
+                        help='minimum threshold of aligned cameras (default 0.8)')
     args = parser.parse_args()
-    main(args.camera_extension)
+    main(args.extension_cameras, args.aligned_camera_threshold)
