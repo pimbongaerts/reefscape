@@ -107,7 +107,7 @@ def main(extension_cameras, aligned_camera_threshold):
     else:
         doc.save(project_filepath)  # Create new project
 
-    if doc.chunk:
+    if not doc.chunk:
         chunk = doc.addChunk        # Add chunk if it does not already exists
     else:
         chunk = doc.chunk
