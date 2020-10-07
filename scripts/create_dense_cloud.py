@@ -197,7 +197,7 @@ if __name__ == '__main__':
                         metavar='extension_cameras', default='CR2',
                         help='extension of camera files (default CR2)')
     parser.add_argument('-a', '--aligned_camera_threshold', dest='aligned_camera_threshold',
-                        metavar='aligned_camera_threshold', default=0.8, type=long,
+                        metavar='aligned_camera_threshold', default=0.8, type=float,
                         help='minimum threshold of aligned cameras (default 0.8)')
     args = parser.parse_args()
     main(args.extension_cameras, args.aligned_camera_threshold)
