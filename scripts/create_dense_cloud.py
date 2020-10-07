@@ -103,7 +103,7 @@ def main(extension_cameras, aligned_camera_threshold):
     doc = Metashape.app.document
     
     if os.path.isfile(project_filepath):
-        doc.open(file_name)         # Open exisiting project
+        doc.open(project_filepath)  # Open exisiting project
     else:
         doc.save(project_filepath)  # Create new project
 
