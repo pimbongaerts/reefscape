@@ -33,7 +33,7 @@
 │   ├──cur_sna_05m
 │   │   ├──cur_sna_05m_2020xxxx         CR2:   0 JPG:    0   
 │   │   ├──cur_sna_05m_201911xx         CR2:   0 JPG:    0   
-│   │   ├──cur_sna_05m_20190307         CR2: 951 JPG:    0   PSX   
+│   │   ├──cur_sna_05m_20190307         CR2: 951 JPG:    0   PSX   PLY   CAM   MET   
 │   ├──cur_sna_40m
 │   │   ├──cur_sna_40m_20200216         CR2: 807 JPG:    0   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_40m_201911xx         CR2:   0 JPG:    0   
