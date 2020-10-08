@@ -5,7 +5,7 @@ import argparse
 import os
 import glob
 
-focal_plots_path = "/Volumes/coral3d/focal_plots/"
+focal_plots_path = "/home/deepcat/mounts/coral3d/focal_plots/"
 PLY = "PLY"
 NO_PLY = ""
 
