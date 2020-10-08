@@ -1,3 +1,4 @@
+```shell
 ├── cur_kal
 │   ├──cur_kal_20m
 │   │   ├──cur_kal_20m_20190308         CR2:1196 JPG:    0   
@@ -123,3 +124,5 @@
 │   │   ├──cur_seb_10m_2019xxxx         CR2:   0 JPG:    0   
 │   ├──cur_seb_20m
 │   │   ├──cur_seb_20m_2019xxxx         CR2:   0 JPG:    0   
+```
+

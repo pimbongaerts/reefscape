@@ -82,7 +82,9 @@ class Timepoint(object):
 
 
 def main():
+    print('```shell')
     focal_plots = Focal_plots(focal_plots_path)
+    print('```')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
