@@ -23,7 +23,7 @@ __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
 __license__ = 'GPL'
 
-RAW_EXTENSION = '.CR2'
+RAW_EXTENSION = 'CR2'
 RAW_FOLDER_POSTFIX = '.raw'
 PHOTO_FOLDER_POSTFIX = '.photos'
 MIN_PHOTOS = 200
