@@ -58,7 +58,8 @@ def convert_cameras(camera_extension):
             new_filename = filename.replace(RAW_EXTENSION, camera_extension)
             new_filepath = '{0}/{1}'.format(photo_camera_path, new_filename)
             print('Converting {0} to {1}...'.format(filename, new_filename))
-            process = subprocess.Popen('darktable-cli {0} {1}'.format(old_filepath, new_filepath))
+            process = subprocess.Popen('darktable-cli {0} {1}'.format(old_filepath, new_filepath), 
+                                       shell=True)
             process.wait()
             print(process.returncode)
             camera_list.append(new_filepath)
