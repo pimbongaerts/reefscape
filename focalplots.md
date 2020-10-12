@@ -29,19 +29,7 @@ $ mkdir cur_kal_40m_20200214 && cd "$_"
 $ cp ~/mounts/curacao_raw/[folder]/*.CR2 .
 ```
 
-**3 - Create JPEG version of RAW images**:
-
-```shell
-# Check resolution of one of the CR2 raw images
-$ exiftool --ImageSize 0X7A5492.CR2
-Image Size                      : 8688x5792
-# Run ImageMagick conversion to JPEG in parallel (specify number of threads in -j and resolution in -resize)
-$ find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format jpeg -set colorspace RGB -colorspace sRGB -resize 8688x5792 {}
-$ mkdir ../cur_kal_40m_20200214.photos
-$ mv *.jpeg ../cur_kal_40m_20200214.photos
-```
-
-**4 - Build dense cloud in Agisoft Metascan using [create_dense_cloud.py](scripts/create_dense_cloud.py) script **:
+**3 - Build dense cloud in Agisoft Metascan using [create_dense_cloud.py](scripts/create_dense_cloud.py) script **:
 
 ```shell
 # Ensure you are using zsh and are inside the right folder
@@ -58,38 +46,7 @@ $  find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format png -set color
 $ densecloud -c png
 ```
 
+Targets with colors: 49.9cm
 
-
-**5 - Extract bottom depths for photos from altimeter data **:
-
-Download and open the photo of the altimeter for that day,copy it to the timepoint folder as a permanent record, and determine offset:
-
-```shell
-# Download it to view a local copy to note the time
-[local] $ scp [user]:~/mounts/curacao_raw/[folder]/0X7A9986.CR2 .
-[local] $ open 0X7A9986.CR2 # see below - time in image: 09:10:02
-# Copy it to the timepoint folder as permanent record
-$ mkdir cur_kal_40m_20200214.alt
-$ cp ~/mounts/curacao_raw/[folder]/0X7A9986.CR2 cur_kal_40m_20200214.alt/
-# Determine offset by extracing DateTimeOriginal from exit
-$ TZ='UTC0'; export TZ
-$ exiftool -time:DateTimeOriginal cur_kal_40m_20200214.alt/0X7A9986.CR2
-Date/Time Original              : 2020:02:14 09:11:37
-# offset = 09:10:02 - 09:11:37 -  =  -95 secs
-# negative value here as altimeter is 95 secs behind the camera
-```
-
-![altimeter](images/altimeter.png)
-
-Match altimeter data with images and output to csv file with the [timesync_files.py](scripts/timesync_files.py) script:
-
-```shell
-# Extract DateTimeOriginal from exif of cameras/photos
-$ cd cur_kal_40m_20200214.raw
-$ for i in *.CR2; do camtime=$(exiftool -time:DateTimeOriginal $i | tail -c 20); echo $i "," $camtime; done > ../temp_camera_times.csv
-# Match images with altimeter metadata (-95 seconds offset and
-# maximum allowed deviation of 2 seconds)
-$ timesync_files.py temp_camera_times.csv aratui_filtered2.csv -95 2 > cur_kal_40m_20200214.alt.csv
-$ rm temp_camera_times.csv
-```
+Targets with ruler: 50.0cm
 

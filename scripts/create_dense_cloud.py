@@ -17,25 +17,51 @@ import sys
 import time
 import math
 import json
+import subprocess
 
 __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
 __license__ = 'GPL'
 
-CAMERA_EXTENSION = 'CR2'
-CAMERA_POSTFIX = '.raw'
+RAW_EXTENSION = '.CR2'
+RAW_FOLDER_POSTFIX = '.raw'
+PHOTO_FOLDER_POSTFIX = '.photos'
+MIN_PHOTOS = 200
 UPDATE_INTERVAL = 300       # in seconds (= 5min)
 
 start_time = 0
 
-def get_cameras(extension_cameras):
+def convert_cameras(camera_extension):
     """ Get the paths for each camera """
-    camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), CAMERA_POSTFIX)
+    raw_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), RAW_FOLDER_POSTFIX)
+    photo_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
     camera_list = []
-    for filename in os.listdir(camera_path):
+    
+    if os.path.exists(photo_camera_path):
+      camera_count = len([filename for filename in os.listdir('.') if filename.endswith(extension_cameras)])
+      for filename in os.listdir(raw_camera_path):
         if filename.endswith('.' + extension_cameras):
-            filepath = os.path.join(camera_path, filename)
+            filepath = os.path.join(photo_camera_path, filename)
             camera_list.append(filepath)
+      if len(camera_list) > MIN_PHOTOS:
+        print('Cameras already converted to {}!'.format(camera_extension))
+        return camera_list
+    else:
+      try:
+        os.mkdir(photo_camera_path)
+      except OSError:
+        sys.exit('Could not create folder: {}'.format(photo_camera_path))
+    
+    for filename in os.listdir(raw_camera_path):
+        if filename.endswith(RAW_EXTENSION):
+            old_filepath = os.path.join(raw_camera_path, filename)
+            new_filename = filename.replace(RAW_EXTENSION, extension_cameras)
+            new_filepath = '{0}/{1}'.format(photo_camera_path, new_filename)
+            print('Converting {0} to {1}...'.format(filename, new_filename))
+            process = subprocess.Popen('darktable-cli {0} {1}'.format(old_filepath, new_filepath))
+            process.wait()
+            print(process.returncode)
+            camera_list.append(new_filepath)
     return camera_list
 
 def output_camera_metadata(meta_filepath, chunk):
@@ -92,16 +118,15 @@ def start_next_step(message, log_file):
   print(formatted_message)
   log_file.write(formatted_message)
 
-def main(extension_cameras, aligned_camera_threshold):
+def main(project_path, camera_extension, aligned_camera_threshold):
 
     global start_time
-    project_filepath = get_project_filepath()
-    log_filename = project_filepath.replace('.psx', '.log')
-    log_file = open(log_filename, 'w')
     start_time = time.time()
 
+    project_filepath = get_project_filepath()
+    log_file = open(project_filepath.replace('.psx', '.log'), 'w')
+
     doc = Metashape.Document()
-    
     if os.path.isfile(project_filepath):
         doc.open(project_filepath)  # Open exisiting project
     else:
@@ -113,7 +138,8 @@ def main(extension_cameras, aligned_camera_threshold):
         chunk = doc.chunk
 
     if len(chunk.cameras) == 0:
-        chunk.addPhotos(get_cameras(extension_cameras))
+        camera_list = convert_cameras(camera_extension)
+        chunk.addPhotos(camera_list)
         doc.save()
 
     aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
@@ -194,11 +220,14 @@ def main(extension_cameras, aligned_camera_threshold):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('-e', '--extension_cameras', dest='extension_cameras',
-                        metavar='extension_cameras', default='CR2',
-                        help='extension of camera files (default CR2)')
+    parser.add_argument('-p', '--project_path', dest='project_path',
+                        metavar='project_path', default='[pwd]',
+                        help='project path (default: present working directory)')
+    parser.add_argument('-c', '--camera_extension', dest='camera_extension',
+                        metavar='camera_extension', default='jpg',
+                        help='extension/format of converted cameras (default: jpg)')
     parser.add_argument('-a', '--aligned_camera_threshold', dest='aligned_camera_threshold',
                         metavar='aligned_camera_threshold', default=0.8, type=float,
                         help='minimum threshold of aligned cameras (default 0.8)')
     args = parser.parse_args()
-    main(args.extension_cameras, args.aligned_camera_threshold)
+    main(args.project_path, args.camera_extension, args.aligned_camera_threshold)
