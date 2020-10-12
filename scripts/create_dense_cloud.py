@@ -38,9 +38,9 @@ def convert_cameras(camera_extension):
     camera_list = []
     
     if os.path.exists(photo_camera_path):
-      camera_count = len([filename for filename in os.listdir('.') if filename.endswith(extension_cameras)])
+      camera_count = len([filename for filename in os.listdir('.') if filename.endswith(camera_extension)])
       for filename in os.listdir(raw_camera_path):
-        if filename.endswith('.' + extension_cameras):
+        if filename.endswith('.' + camera_extension):
             filepath = os.path.join(photo_camera_path, filename)
             camera_list.append(filepath)
       if len(camera_list) > MIN_PHOTOS:
@@ -55,7 +55,7 @@ def convert_cameras(camera_extension):
     for filename in os.listdir(raw_camera_path):
         if filename.endswith(RAW_EXTENSION):
             old_filepath = os.path.join(raw_camera_path, filename)
-            new_filename = filename.replace(RAW_EXTENSION, extension_cameras)
+            new_filename = filename.replace(RAW_EXTENSION, camera_extension)
             new_filepath = '{0}/{1}'.format(photo_camera_path, new_filename)
             print('Converting {0} to {1}...'.format(filename, new_filename))
             process = subprocess.Popen('darktable-cli {0} {1}'.format(old_filepath, new_filepath))
