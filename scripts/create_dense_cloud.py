@@ -8,6 +8,9 @@ Usage:
 or create an alias:
 alias densecloud="~/path_to_metashape-pro/metashape.sh -platform offscreen \
                                                        -r ~/protocols/scripts/create_dense_cloud.py"
+
+
+#TODO: Open/Close log file
 """
 import Metashape
 import argparse
@@ -61,7 +64,6 @@ def convert_cameras(camera_extension):
             process = subprocess.Popen('darktable-cli {0} {1}'.format(old_filepath, new_filepath), 
                                        shell=True)
             process.wait()
-            print(process.returncode)
             camera_list.append(new_filepath)
     return camera_list
 
