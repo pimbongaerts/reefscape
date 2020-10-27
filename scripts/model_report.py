@@ -62,7 +62,7 @@ class Timepoint(object):
             if (os.path.isdir(modelpart_path) & modelpart_file.endswith('.raw')):
                 self.raw_files = len(glob.glob(modelpart_path + '/*.CR2'))
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.photos')):
-                self.jpg_files = len(glob.glob(modelpart_path + '/*.jpeg'))
+                self.jpg_files = len(glob.glob(modelpart_path + '/*.jpg'))
             elif modelpart_file.endswith('.psx'):
                 self.psx = True
                 p_files += "PSX   "
