@@ -3,43 +3,41 @@
 │   ├──cur_kal_20m
 │   │   ├──cur_kal_20m_20190308         CR2:1196 JPG:    0   
 │   │   ├──cur_kal_20m_20200214_WRONG   CR2:1106 JPG:    0   PSX   
-│   │   ├──cur_kal_20m_20200214         CR2:1053 JPG:    0   PSX   PLY   MET   CAM   
+│   │   ├──cur_kal_20m_20200214         CR2:1053 JPG:    0   
 │   │   ├──cur_kal_20m_201911xx         CR2:   0 JPG:    0   
 │   ├──cur_kal_40m
-│   │   ├──cur_kal_40m_20190224         CR2: 488 JPG:  488   PSX   MET   CAM   PLY   
-│   │   ├──cur_kal_40m_20191113         CR2:1024 JPG: 1024   PSX   PLY   MET   CAM   
-│   │   ├──cur_kal_40m_20200214         CR2: 900 JPG:  900   PLY   PSX   MET   CAM   
+│   │   ├──cur_kal_40m_20190224         CR2: 488 JPG:    0   
+│   │   ├──cur_kal_40m_20191113         CR2:1024 JPG:    0   
+│   │   ├──cur_kal_40m_20200214         CR2: 900 JPG:    0   
 │   ├──cur_kal_10m
 │   │   ├──cur_kal_10m_20190309         CR2:1345 JPG:    0   
 │   │   ├──cur_kal_10m_2020xxxx         CR2:   0 JPG:    0   
 │   │   ├──cur_kal_10m_201911xx         CR2:   0 JPG:    0   
 │   ├──cur_kal_05m
 │   │   ├──cur_kal_05m_20190309         CR2: 494 JPG:    0   
-│   │   ├──cur_kal_05m_20200214         CR2: 809 JPG:    0   PSX   PLY   CAM   MET   
+│   │   ├──cur_kal_05m_20200214         CR2: 809 JPG:    0   
 │   │   ├──cur_kal_05m_201911xx         CR2:   0 JPG:    0   
 │   ├──cur_kal_60m
-│   │   ├──cur_kal_60m_20190224         CR2: 512 JPG:    0   PSX   PLY   CAM   MET   
-│   │   ├──cur_kal_60m_20200214         CR2: 949 JPG:    0   PSX   PLY   CAM   
+│   │   ├──cur_kal_60m_20190224         CR2: 512 JPG:    0   
+│   │   ├──cur_kal_60m_20200214         CR2: 949 JPG:    0   
 │   │   ├──cur_kal_60m_201911xx         CR2:   0 JPG:    0   
 ├── cur_sna
 │   ├──cur_sna_20m
-│   │   ├──cur_sna_20m_20190310         CR2:   0 JPG:    0   PSX   PLY   CAM   MET   
-│   │   ├──cur_sna_20m_20200303_raw     CR2: 940 JPG:    0   PSX   CAM   MET   PLY   
-│   │   ├──cur_sna_20m_20200303         CR2:   0 JPG:    0   PSX   PLY   CAM   MET   
-│   │   ├──cur_sna_20m_20191111_raw     CR2:   0 JPG:    0   PSX   PLY   CAM   MET   
-│   │   ├──cur_sna_20m_20191111         CR2: 929 JPG:    0   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_20m_20190310         CR2:1121 JPG:  413   PSX   
+│   │   ├──cur_sna_20m_20200303         CR2:   0 JPG:  940   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_20m_20191111         CR2: 929 JPG:  929   PSX   PLY   CAM   MET   
 │   ├──cur_sna_10m
-│   │   ├──cur_sna_10m_20200303         CR2:1164 JPG:    0   PSX   PLY   CAM   MET   
-│   │   ├──cur_sna_10m_20190305         CR2:1048 JPG:    0   PSX   PLY   CAM   MET   
-│   │   ├──cur_sna_10m_20191111         CR2: 864 JPG:    0   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_10m_20200303         CR2:1164 JPG:    0   
+│   │   ├──cur_sna_10m_20190305         CR2:1048 JPG:    0   
+│   │   ├──cur_sna_10m_20191111         CR2: 864 JPG:    0   
 │   ├──cur_sna_05m
 │   │   ├──cur_sna_05m_201911xx         CR2:   0 JPG:    0   
-│   │   ├──cur_sna_05m_20190307         CR2: 951 JPG:    0   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_05m_20190307         CR2: 951 JPG:    0   
 │   │   ├──cur_sna_05m_20200303         CR2: 699 JPG:    0   
 │   ├──cur_sna_40m
-│   │   ├──cur_sna_40m_20200216         CR2: 807 JPG:    0   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_40m_20200216         CR2: 807 JPG:    0   
 │   │   ├──cur_sna_40m_201911xx         CR2:   0 JPG:    0   
-│   │   ├──cur_sna_40m_20190222         CR2: 645 JPG:    0   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_40m_20190222         CR2: 645 JPG:    0   
 │   ├──cur_sna_60m
 │   │   ├──cur_sna_60m_20200216         CR2: 804 JPG:    0   
 │   │   ├──cur_sna_60m_2019xxxx         CR2: 531 JPG:    0   
@@ -54,7 +52,7 @@
 │   │   ├──cur_sea_20m_2019xxxx         CR2:   0 JPG:    0   
 │   │   ├──cur_sea_20m_201911xx         CR2:   0 JPG:    0   
 │   ├──cur_sea_40m
-│   │   ├──cur_sea_40m_20200221         CR2: 929 JPG:  929   
+│   │   ├──cur_sea_40m_20200221         CR2: 929 JPG:    0   
 │   │   ├──cur_sea_40m_20190220         CR2: 483 JPG:    0   
 │   │   ├──cur_sea_40m_201911xx         CR2:   0 JPG:    0   
 │   ├──cur_sea_60m
