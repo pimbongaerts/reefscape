@@ -27,7 +27,7 @@
 │   │   ├──cur_sna_20m_20200303         CR2:   0 JPG:  940   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_20m_20191111         CR2: 929 JPG:  929   PSX   PLY   CAM   MET   
 │   ├──cur_sna_10m
-│   │   ├──cur_sna_10m_20200303         CR2:1164 JPG:   32   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_10m_20200303         CR2:1164 JPG: 1164   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_10m_20190305         CR2:1048 JPG:    0   
 │   │   ├──cur_sna_10m_20191111         CR2: 864 JPG:    0   
 │   ├──cur_sna_05m
