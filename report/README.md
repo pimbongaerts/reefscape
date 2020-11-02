@@ -3,8 +3,8 @@
 │   ├──cur_kal_20m
 │   │   ├──cur_kal_20m_20190308         CR2:1196 JPG:    0   
 │   │   ├──cur_kal_20m_20200214_WRONG   CR2:1106 JPG:    0   PSX   
-│   │   ├──cur_kal_20m_20200214         CR2:1053 JPG:    0   
-│   │   ├──cur_kal_20m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_kal_20m_20200214         CR2:1053 JPG: 1053   PSX   PLY   CAM   MET   
+│   │   ├──cur_kal_20m_20191113         CR2:1048 JPG:    0   
 │   ├──cur_kal_40m
 │   │   ├──cur_kal_40m_20190224         CR2: 488 JPG:    0   
 │   │   ├──cur_kal_40m_20191113         CR2:1024 JPG:    0   
@@ -12,53 +12,56 @@
 │   ├──cur_kal_10m
 │   │   ├──cur_kal_10m_20190309         CR2:1345 JPG:    0   
 │   │   ├──cur_kal_10m_2020xxxx         CR2:   0 JPG:    0   
-│   │   ├──cur_kal_10m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_kal_10m_20191113         CR2:1204 JPG:    0   
 │   ├──cur_kal_05m
 │   │   ├──cur_kal_05m_20190309         CR2: 494 JPG:    0   
 │   │   ├──cur_kal_05m_20200214         CR2: 809 JPG:    0   
-│   │   ├──cur_kal_05m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_kal_05m_20191113         CR2: 914 JPG:    0   
 │   ├──cur_kal_60m
 │   │   ├──cur_kal_60m_20190224         CR2: 512 JPG:    0   
 │   │   ├──cur_kal_60m_20200214         CR2: 949 JPG:    0   
-│   │   ├──cur_kal_60m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_kal_60m_20191113         CR2: 708 JPG:    0   
 ├── cur_sna
 │   ├──cur_sna_20m
 │   │   ├──cur_sna_20m_20190310         CR2:1121 JPG: 1121   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_20m_20200303         CR2:   0 JPG:  940   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_20m_20191111         CR2: 929 JPG:  929   PSX   PLY   CAM   MET   
+│   │   ├──@eaDir                       CR2:   0 JPG:    0   
 │   ├──cur_sna_10m
 │   │   ├──cur_sna_10m_20200303         CR2:1164 JPG: 1164   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_10m_20190305         CR2:1048 JPG:    0   
 │   │   ├──cur_sna_10m_20191111         CR2: 864 JPG:    0   
 │   ├──cur_sna_05m
-│   │   ├──cur_sna_05m_201911xx         CR2:   0 JPG:    0   
 │   │   ├──cur_sna_05m_20190307         CR2: 951 JPG:    0   
-│   │   ├──cur_sna_05m_20200303         CR2: 699 JPG:    0   
+│   │   ├──cur_sna_05m_20200303         CR2: 699 JPG:  699   PSX   
+│   │   ├──cur_sna_05m_20191110         CR2: 612 JPG:    0   
 │   ├──cur_sna_40m
 │   │   ├──cur_sna_40m_20200216         CR2: 807 JPG:    0   
-│   │   ├──cur_sna_40m_201911xx         CR2:   0 JPG:    0   
 │   │   ├──cur_sna_40m_20190222         CR2: 645 JPG:    0   
+│   │   ├──cur_sna_40m_20191110         CR2: 918 JPG:    0   
 │   ├──cur_sna_60m
 │   │   ├──cur_sna_60m_20200216         CR2: 804 JPG:    0   
 │   │   ├──cur_sna_60m_2019xxxx         CR2: 531 JPG:    0   
-│   │   ├──cur_sna_60m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_sna_60m_20191111         CR2: 838 JPG:    0   
+│   │   ├──@eaDir                       CR2:   0 JPG:    0   
+│   ├──@eaDir
 ├── cur_sea
 │   ├──cur_sea_10m
 │   │   ├──cur_sea_10m_20200221         CR2: 833 JPG:    0   
 │   │   ├──cur_sea_10m_20190320         CR2:   0 JPG:    0   
-│   │   ├──cur_sea_10m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_sea_10m_20191112         CR2: 985 JPG:    0   
 │   ├──cur_sea_20m
 │   │   ├──cur_sea_20m_20200221         CR2: 883 JPG:    0   
 │   │   ├──cur_sea_20m_2019xxxx         CR2:   0 JPG:    0   
-│   │   ├──cur_sea_20m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_sea_20m_20191112         CR2:1020 JPG:    0   
 │   ├──cur_sea_40m
 │   │   ├──cur_sea_40m_20200221         CR2: 929 JPG:    0   
 │   │   ├──cur_sea_40m_20190220         CR2: 483 JPG:    0   
-│   │   ├──cur_sea_40m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_sea_40m_20191112         CR2: 869 JPG:    0   
 │   ├──cur_sea_60m
 │   │   ├──cur_sea_60m_20200221         CR2:   0 JPG:    0   
 │   │   ├──cur_sea_60m_20190220         CR2: 504 JPG:    0   
-│   │   ├──cur_sea_60m_201911xx         CR2:   0 JPG:    0   
+│   │   ├──cur_sea_60m_20191112         CR2: 819 JPG:    0   
 ├── cur_dir
 │   ├──cur_dir_05m
 │   │   ├──cur_dir_05m_20200227         CR2: 816 JPG:    0   
@@ -116,11 +119,11 @@
 │   │   ├──cur_sam_40m_2020xxxx         CR2:   0 JPG:    0   
 ├── cur_cas
 │   ├──cur_cas_05m
-│   │   ├──cur_cas_05m_201903xx         CR2:   0 JPG:    0   
+│   │   ├──cur_cas_05m_20190401         CR2: 730 JPG:    0   
 │   ├──cur_cas_10m
-│   │   ├──cur_cas_10m_201903xx         CR2:   0 JPG:    0   
+│   │   ├──cur_cas_10m_20190401         CR2: 824 JPG:    0   
 │   ├──cur_cas_20m
-│   │   ├──cur_cas_20m_201903xx         CR2:   0 JPG:    0   
+│   │   ├──cur_cas_20m_20190331         CR2:1237 JPG:    0   
 ├── cur_seb
 │   ├──cur_seb_10m
 │   │   ├──cur_seb_10m_2019xxxx         CR2:   0 JPG:    0   
