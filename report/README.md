@@ -4,7 +4,7 @@
 │   │   ├──cur_kal_20m_20190308         CR2:1196 JPG:    0   
 │   │   ├──cur_kal_20m_20200214_WRONG   CR2:1106 JPG:    0   PSX   
 │   │   ├──cur_kal_20m_20200214         CR2:1053 JPG: 1053   PSX   PLY   CAM   MET   
-│   │   ├──cur_kal_20m_20191113         CR2:1048 JPG:    0   
+│   │   ├──cur_kal_20m_20191113         CR2:1048 JPG: 1048   PSX   PLY   CAM   MET   
 │   ├──cur_kal_40m
 │   │   ├──cur_kal_40m_20190224         CR2: 488 JPG:    0   
 │   │   ├──cur_kal_40m_20191113         CR2:1024 JPG:    0   
