@@ -1,7 +1,7 @@
 ```shell
 ├── cur_kal
 │   ├──cur_kal_20m
-│   │   ├──cur_kal_20m_20190308         CR2:1196 JPG:    0   
+│   │   ├──cur_kal_20m_20190308         CR2:1196 JPG: 1196   PSX   PLY   CAM   MET   
 │   │   ├──cur_kal_20m_20200214_WRONG   CR2:1106 JPG:    0   PSX   
 │   │   ├──cur_kal_20m_20200214         CR2:1053 JPG: 1053   PSX   PLY   CAM   MET   
 │   │   ├──cur_kal_20m_20191113         CR2:1048 JPG: 1048   PSX   PLY   CAM   MET   
@@ -11,11 +11,11 @@
 │   │   ├──cur_kal_40m_20200214         CR2: 900 JPG:    0   
 │   ├──cur_kal_10m
 │   │   ├──cur_kal_10m_20190309         CR2:1345 JPG:    0   
-│   │   ├──cur_kal_10m_2020xxxx         CR2:   0 JPG:    0   
 │   │   ├──cur_kal_10m_20191113         CR2:1204 JPG:    0   
+│   │   ├──cur_kal_10m_20200214         CR2:  24 JPG:    0   
 │   ├──cur_kal_05m
 │   │   ├──cur_kal_05m_20190309         CR2: 494 JPG:    0   
-│   │   ├──cur_kal_05m_20200214         CR2: 809 JPG:    0   
+│   │   ├──cur_kal_05m_20200214         CR2: 809 JPG:  809   PSX   PLY   CAM   MET   
 │   │   ├──cur_kal_05m_20191113         CR2: 914 JPG:    0   
 │   ├──cur_kal_60m
 │   │   ├──cur_kal_60m_20190224         CR2: 512 JPG:    0   
