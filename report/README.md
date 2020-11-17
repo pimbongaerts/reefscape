@@ -12,7 +12,7 @@
 │   ├──cur_kal_10m
 │   │   ├──cur_kal_10m_20190309         CR2:1345 JPG:    0   
 │   │   ├──cur_kal_10m_20191113         CR2:1204 JPG:    0   
-│   │   ├──cur_kal_10m_20200214         CR2:  24 JPG:    0   
+│   │   ├──cur_kal_10m_20200214         CR2:1106 JPG: 1106   PSX   PLY   CAM   MET   
 │   ├──cur_kal_05m
 │   │   ├──cur_kal_05m_20190309         CR2: 494 JPG:    0   
 │   │   ├──cur_kal_05m_20200214         CR2: 809 JPG:  809   PSX   PLY   CAM   MET   
@@ -41,17 +41,17 @@
 │   │   ├──cur_sna_40m_20191110         CR2: 918 JPG:    0   
 │   ├──cur_sna_60m
 │   │   ├──cur_sna_60m_20200216         CR2: 804 JPG:    0   
-│   │   ├──cur_sna_60m_2019xxxx         CR2: 531 JPG:    0   
 │   │   ├──cur_sna_60m_20191111         CR2: 838 JPG:    0   
 │   │   ├──@eaDir                       CR2:   0 JPG:    0   
+│   │   ├──cur_sna_60m_20190222         CR2: 497 JPG:    0   
 │   ├──@eaDir
 ├── cur_sea
 │   ├──cur_sea_10m
-│   │   ├──cur_sea_10m_20200221         CR2: 833 JPG:    0   
-│   │   ├──cur_sea_10m_20190320         CR2:   0 JPG:    0   
+│   │   ├──cur_sea_10m_20200221         CR2: 833 JPG:  833   PSX   PLY   CAM   MET   
 │   │   ├──cur_sea_10m_20191112         CR2: 985 JPG:    0   
+│   │   ├──cur_sea_10m_20190319         CR2:1270 JPG:    0   
 │   ├──cur_sea_20m
-│   │   ├──cur_sea_20m_20200221         CR2: 883 JPG:    0   
+│   │   ├──cur_sea_20m_20200221         CR2: 883 JPG:  883   PSX   PLY   CAM   MET   
 │   │   ├──cur_sea_20m_2019xxxx         CR2:   0 JPG:    0   
 │   │   ├──cur_sea_20m_20191112         CR2:1020 JPG:    0   
 │   ├──cur_sea_40m
@@ -59,9 +59,9 @@
 │   │   ├──cur_sea_40m_20190220         CR2: 483 JPG:    0   
 │   │   ├──cur_sea_40m_20191112         CR2: 869 JPG:    0   
 │   ├──cur_sea_60m
-│   │   ├──cur_sea_60m_20200221         CR2:   0 JPG:    0   
-│   │   ├──cur_sea_60m_20190220         CR2: 504 JPG:    0   
 │   │   ├──cur_sea_60m_20191112         CR2: 819 JPG:    0   
+│   │   ├──cur_sea_60m_20200221         CR2: 829 JPG:    0   CAM   MET   PLY   PSX   
+│   │   ├──cur_sea_60m_20190219         CR2: 504 JPG:    0   
 ├── cur_dir
 │   ├──cur_dir_05m
 │   │   ├──cur_dir_05m_20200227         CR2: 816 JPG:    0   
@@ -99,24 +99,26 @@
 │   ├──@eaDir
 ├── cur_est
 │   ├──cur_est_05m
-│   │   ├──cur_est_05m_20200219         CR2:1021 JPG:    0   
+│   │   ├──cur_est_05m_20200219         CR2:1021 JPG: 1021   PSX   
 │   ├──cur_est_10m
-│   │   ├──cur_est_10m_20200219         CR2:1281 JPG:    0   
+│   │   ├──cur_est_10m_20200219         CR2:1281 JPG: 1281   PSX   PLY   CAM   MET   
+│   │   ├──cur_est_10m.files            CR2:   0 JPG:    0   
+│   │   ├──cur_est_10m.photos           CR2:   0 JPG:    0   
 │   ├──cur_est_20m
-│   │   ├──cur_est_20m_20200219         CR2:1287 JPG:    0   
+│   │   ├──cur_est_20m_20200219         CR2:1287 JPG: 1287   PSX   
 │   ├──cur_est_40m
 │   │   ├──cur_est_40m_20200219         CR2:1362 JPG:    0   
 │   ├──cur_est_60m
 │   │   ├──cur_est_60m_20200302_CHECK   CR2:1160 JPG:    0   
 ├── cur_sam
 │   ├──cur_sam_05m
-│   │   ├──cur_sam_05m_2020xxxx         CR2:   0 JPG:    0   
+│   │   ├──cur_sam_05m_20200222         CR2: 712 JPG:    0   
 │   ├──cur_sam_10m
-│   │   ├──cur_sam_10m_2020xxxx         CR2:   0 JPG:    0   
+│   │   ├──cur_sam_10m_20200222         CR2: 908 JPG:    0   
 │   ├──cur_sam_20m
-│   │   ├──cur_sam_20m_2020xxxx         CR2:   0 JPG:    0   
+│   │   ├──cur_sam_20m_20200222         CR2:1074 JPG:    0   
 │   ├──cur_sam_40m
-│   │   ├──cur_sam_40m_2020xxxx         CR2:   0 JPG:    0   
+│   │   ├──cur_sam_40m_20200222         CR2:1037 JPG:    0   
 ├── cur_cas
 │   ├──cur_cas_05m
 │   │   ├──cur_cas_05m_20190401         CR2: 730 JPG:    0   
@@ -126,8 +128,8 @@
 │   │   ├──cur_cas_20m_20190331         CR2:1237 JPG:    0   
 ├── cur_seb
 │   ├──cur_seb_10m
-│   │   ├──cur_seb_10m_2019xxxx         CR2:   0 JPG:    0   
+│   │   ├──cur_seb_10m_20190319         CR2:1265 JPG:    0   
 │   ├──cur_seb_20m
-│   │   ├──cur_seb_20m_2019xxxx         CR2:   0 JPG:    0   
+│   │   ├──cur_seb_20m_20190319         CR2:1000 JPG:    0   
 ├── @eaDir
 ```
