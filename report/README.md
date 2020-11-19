@@ -64,11 +64,11 @@
 │   │   ├──cur_sea_60m_20190219         CR2: 504 JPG:    0   
 ├── cur_dir
 │   ├──cur_dir_05m
-│   │   ├──cur_dir_05m_20200227         CR2: 816 JPG:    0   
+│   │   ├──cur_dir_05m_20200227         CR2: 816 JPG:  816   PSX   PLY   CAM   MET   
 │   ├──cur_dir_10m
-│   │   ├──cur_dir_10m_20200227         CR2:1006 JPG:    0   
+│   │   ├──cur_dir_10m_20200227         CR2:1006 JPG: 1006   PSX   PLY   CAM   MET   
 │   ├──cur_dir_20m
-│   │   ├──cur_dir_20m_20200227         CR2:1131 JPG:    0   
+│   │   ├──cur_dir_20m_20200227         CR2:1131 JPG: 1131   PSX   
 │   ├──cur_dir_40m
 │   │   ├──cur_dir_40m_20200227         CR2:1199 JPG:    0   
 │   ├──cur_dir_60m
@@ -86,7 +86,7 @@
 │   │   ├──cur_wat_60m_20200206         CR2: 802 JPG:    0   
 ├── cur_hul
 │   ├──cur_hul_05m
-│   │   ├──cur_hul_05m_20200301         CR2: 766 JPG:    0   
+│   │   ├──cur_hul_05m_20200301         CR2: 766 JPG:  766   PSX   
 │   ├──cur_hul_10m
 │   │   ├──cur_hul_10m_20200301         CR2:1042 JPG:    0   
 │   ├──cur_hul_20m
@@ -105,7 +105,7 @@
 │   │   ├──cur_est_10m.files            CR2:   0 JPG:    0   
 │   │   ├──cur_est_10m.photos           CR2:   0 JPG:    0   
 │   ├──cur_est_20m
-│   │   ├──cur_est_20m_20200219         CR2:1287 JPG: 1287   PSX   
+│   │   ├──cur_est_20m_20200219         CR2:1287 JPG: 1287   PSX   PLY   CAM   MET   
 │   ├──cur_est_40m
 │   │   ├──cur_est_40m_20200219         CR2:1362 JPG:    0   
 │   ├──cur_est_60m
