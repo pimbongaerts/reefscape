@@ -129,6 +129,9 @@ def main(project_path, camera_extension, aligned_camera_threshold):
     project_filepath = get_project_filepath()
     log_file = open(project_filepath.replace('.psx', '.log'), 'w')
 
+    # Enable all GPUs
+    Metashape.app.gpu_mask = 2 ** (len(Metashape.app.enumGPUDevices())) - 1
+
     doc = Metashape.Document()
     if os.path.isfile(project_filepath):
         doc.open(project_filepath)  # Open exisiting project
