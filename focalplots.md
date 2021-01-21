@@ -8,11 +8,11 @@ Workflow for the reconstruction of our high-resolution 100m2 photogrammetry plot
 
 ```shell
 # SSH into server and start a new SCREEN session with ZSH
-$ ssh deepcat1
+$ ssh deepcat@deepseal # or `deepcat1`
 $ screen -S photoplot zsh
 # Ensure that NAS volumes with raw data & reconstructions are mounted
-$ sudo mount deepcat2:/volume1/curacao_raw ~/mounts/curacao_raw
-$ sudo mount deepcat2:/volume2/coral3d ~/mounts/coral3d
+$ sudo mount deepcat2:/volume1/curacao_raw /home/deepcat/mounts/deepseal/curacao_raw
+$ sudo mount deepcat2:/volume2/coral3d /home/deepcat/mounts/deepseal/coral3d
 ```
 
 **2 - Copy across the RAW photographs** to be extracted:
@@ -49,4 +49,13 @@ $ densecloud -c png
 Targets with colors: 49.9cm
 
 Targets with ruler: 50.0cm
+
+## Remote Viscore workstation
+
+
+
+```shell
+$ scp pim@deepcat2:/volume2/coral3d/focal_plots/cur_sna/cur_sna_20m/cur_sna_20m_20200303/cur_sna_20m_20200303.ply .
+
+```
 
