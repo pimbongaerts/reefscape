@@ -19,7 +19,7 @@ $ sudo mount deepcat2:/volume2/coral3d /home/deepcat/mounts/deepseal/coral3d
 
 ```shell
 # Example: Curacao - Playa Kalki 40m 2020mar
-$ cd ~/mounts/coral3d/curacao_focal/cur_kal_40m
+$ cd ~/mounts/coral3d/focal_plots/cur_kal/cur_kal_40m
 # Check date that photographs were taken
 # using sl function (which is: ls -lha [folder] | head)
 $ sl ~/mounts/curacao_raw/[folder]/
