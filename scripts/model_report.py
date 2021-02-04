@@ -53,6 +53,7 @@ class Timepoint(object):
         self.raw_files = 0
         self.jpg_files = 0
         self.psx = False
+        self.ortho = False
         self.ply = False
         self.cams = False
         self.meta = False
@@ -62,7 +63,7 @@ class Timepoint(object):
             if (os.path.isdir(modelpart_path) & modelpart_file.endswith('.raw')):
                 self.raw_files = len(glob.glob(modelpart_path + '/*.CR2'))
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.photos')):
-                self.jpg_files = len(glob.glob(modelpart_path + '/*.jpg'))
+                self.jpg_files = len(glob.glob(modelpart_path + '/*.jpg'))  
             elif modelpart_file.endswith('.psx'):
                 self.psx = True
                 p_files += "PSX   "
@@ -75,6 +76,9 @@ class Timepoint(object):
             elif modelpart_file.endswith('.meta.json'):
                 self.meta = True
                 p_files += "MET   "
+            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
+                self.ortho = True
+                p_files += "ORTHO "  
         print("│   │   ├──{:28s} CR2:{:4d} JPG: {:4d}   {}".format(short_name, 
                                                                self.raw_files,
                                                                self.jpg_files,
