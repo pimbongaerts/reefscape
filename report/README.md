@@ -32,7 +32,8 @@
 │   │   ├──cur_sna_20m_20200303         CR2:   0 JPG:  940   PSX   PLY   CAM   MET   ORTHO 
 │   │   ├──cur_sna_20m_20191111         CR2:   0 JPG:  929   PSX   PLY   CAM   MET   ORTHO PLY   PLY   
 │   │   ├──@eaDir                       CR2:   0 JPG:    0   
-│   │   ├──cur_sna_20m_20201202         CR2:1356 JPG:    0   
+│   │   ├──cur_sna_20m_20201202         CR2:1356 JPG: 1356   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_20m_20210305         CR2:1132 JPG: 1132   PSX   
 │   ├──cur_sna_10m
 │   │   ├──cur_sna_10m_20200303         CR2:   0 JPG: 1164   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_10m_20190305         CR2:   0 JPG: 1048   PSX   PLY   CAM   MET   ORTHO 
@@ -44,10 +45,11 @@
 │   │   ├──cur_sna_05m_20191110         CR2:   0 JPG:  612   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_05m_20201202         CR2:1187 JPG:    0   
 │   ├──cur_sna_40m
-│   │   ├──cur_sna_40m_20200216         CR2:   0 JPG:  807   PSX   PLY   CAM   MET   
+│   │   ├──cur_sna_40m_20200216         CR2:   0 JPG:  807   PSX   PLY   MET   
 │   │   ├──cur_sna_40m_20190222         CR2:   0 JPG:  645   PSX   PLY   CAM   MET   
-│   │   ├──cur_sna_40m_20191110         CR2:   0 JPG:  918   PSX   PLY   CAM   MET   
-│   │   ├──cur_sna_40m_20201205         CR2:1107 JPG: 1107   PSX   
+│   │   ├──cur_sna_40m_20191110         CR2:   0 JPG:  918   PSX   CAM   PLY   MET   
+│   │   ├──cur_sna_40m_20201205         CR2:1107 JPG:    0   
+│   │   ├──cur_sna_40m_20210307         CR2: 900 JPG:  369   PSX   
 │   ├──cur_sna_60m
 │   │   ├──cur_sna_60m_20200216         CR2:   0 JPG:  804   PSX   PLY   CAM   MET   
 │   │   ├──cur_sna_60m_20191111         CR2:   0 JPG:  838   PSX   PLY   CAM   MET   
