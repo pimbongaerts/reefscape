@@ -121,7 +121,7 @@ def start_next_step(message, log_file):
   print(formatted_message)
   log_file.write(formatted_message)
 
-def main(project_path, camera_extension, aligned_camera_threshold):
+def main(camera_extension, aligned_camera_threshold):
 
     global start_time
     start_time = time.time()
@@ -226,9 +226,6 @@ def main(project_path, camera_extension, aligned_camera_threshold):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('-p', '--project_path', dest='project_path',
-                        metavar='project_path', default='[pwd]',
-                        help='project path (default: present working directory)')
     parser.add_argument('-c', '--camera_extension', dest='camera_extension',
                         metavar='camera_extension', default='jpg',
                         help='extension/format of converted cameras (default: jpg)')
@@ -236,4 +233,4 @@ if __name__ == '__main__':
                         metavar='aligned_camera_threshold', default=0.8, type=float,
                         help='minimum threshold of aligned cameras (default 0.8)')
     args = parser.parse_args()
-    main(args.project_path, args.camera_extension, args.aligned_camera_threshold)
+    main(args.camera_extension, args.aligned_camera_threshold)

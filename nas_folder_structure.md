@@ -59,7 +59,7 @@ For focal plots - the following naming conventions are used:
 |   |   |		├── cur_kal_05m_20190203.photos	# Photos (JPEG version)
 |   |   |		├── cur_kal_05m_20190203.files	# Agisoft Project files
 |   |   |		├── cur_kal_05m_20190203.psx		# Agisoft Project
-|   |   |		├── cur_kal_05m_20190203.pty		# Exported dense point cloud
+|   |   |		├── cur_kal_05m_20190203.ply		# Exported dense point cloud
 |   |   |		├── cur_kal_05m_20190203.cams.xml		# Exported cameras
 |   |   |		├── cur_kal_05m_20190203.meta.json	# Exported metadata
 ```
@@ -78,5 +78,24 @@ For large area plots - the following naming conventions are used:
 |       ├── cur_sna_Q2_20190203
 |       ├── cur_sna_Q3_20190203
 |       └── cur_sna_Q4_20190203
+```
+
+New naming conventions:
+
+```shell
+.
+├── curacao_focal
+│   ├── cur_kal_05m
+|   |   ├── cur_kal_05m_20190203
+|   |   |		├── cur_kal_05m_20190203.raw		# Photos (RAW/CR2)
+|   |   |		|   ├──
+|   |   |		├── cur_kal_05m_20190203.photos	# Photos (Converted JPEG version)
+|   |   |		|   ├──
+|   |   |		├── cur_kal_05m_20190203.files	# Agisoft Project files
+|   |   |		|   ├──
+|   |   |		├── cur_kal_05m_20190203.psx		# Agisoft Project
+|   |   |		├── cur_kal_05m_20190203.ply		# Exported dense point cloud
+|   |   |		├── cur_kal_05m_20190203.cams.xml		# Exported cameras
+|   |   |		├── cur_kal_05m_20190203.meta.json	# Exported metadata
 ```
 

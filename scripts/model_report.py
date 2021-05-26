@@ -57,6 +57,7 @@ class Timepoint(object):
         self.ply = False
         self.cams = False
         self.meta = False
+        self.vis = False
         p_files = ""
         for modelpart_file in os.listdir(self.path):
             modelpart_path = os.path.join(self.path, modelpart_file)
@@ -78,7 +79,10 @@ class Timepoint(object):
                 p_files += "MET   "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
                 self.ortho = True
-                p_files += "ORTHO "  
+                p_files += "ORTHO "
+            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
+                self.vis = True
+                p_files += "VIS "
         print("│   │   ├──{:28s} CR2:{:4d} JPG: {:4d}   {}".format(short_name, 
                                                                self.raw_files,
                                                                self.jpg_files,
