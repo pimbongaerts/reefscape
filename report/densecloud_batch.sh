@@ -10,8 +10,6 @@ cd /mnt/coral3d/focal_plots/cur_kal/cur_kal_60m/cur_kal_60m_20201214
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
 cd /mnt/coral3d/focal_plots/cur_sna/cur_sna_05m/cur_sna_05m_20201202
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
-cd /mnt/coral3d/focal_plots/cur_sna/cur_sna_40m/cur_sna_40m_20201205
-~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
 cd /mnt/coral3d/focal_plots/cur_sna/cur_sna_60m/cur_sna_60m_20201227
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_10m/cur_sea_10m_20201210
