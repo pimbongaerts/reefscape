@@ -9,7 +9,11 @@
 │   │   ├──cur_kal_40m_20190224         CR2:   0 JPG:  488   PSX   PLY   CAM   MET   ORTHO VIS 
 │   │   ├──cur_kal_40m_20191113         CR2:   0 JPG: 1024   PSX   PLY   CAM   MET   ORTHO VIS 
 │   │   ├──cur_kal_40m_20200214         CR2:   0 JPG:  900   PSX   PLY   CAM   MET   ORTHO VIS 
+<<<<<<< HEAD
 │   │   ├──cur_kal_40m_20201214         CR2:1086 JPG: 1086   PSX   PLY   CAM   MET   
+=======
+│   │   ├──cur_kal_40m_20201214         CR2:1086 JPG: 1086   PSX   
+>>>>>>> 1fd2ac8d95bfe1524e55127fe052cf3370393c39
 │   ├──cur_kal_10m
 │   │   ├──cur_kal_10m_20190309         CR2:   0 JPG: 1345   PSX   PLY   CAM   MET   ORTHO VIS 
 │   │   ├──cur_kal_10m_20191113         CR2:   0 JPG: 1204   PSX   PLY   CAM   MET   ORTHO VIS 
