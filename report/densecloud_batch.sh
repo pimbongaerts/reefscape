@@ -1,9 +1,3 @@
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_20m/cur_dir_20m_20201219
-~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_20m/cur_dir_20m_20201130
-~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_40m/cur_dir_40m_20201219
-~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
 cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20201219
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20201201
