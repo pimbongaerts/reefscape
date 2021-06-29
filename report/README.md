@@ -92,22 +92,22 @@
 │   │   ├──cur_dir_20m_20201130         CR2:1438 JPG: 1438   PSX   PLY   CAM   MET   
 │   ├──cur_dir_40m
 │   │   ├──cur_dir_40m_20200227         CR2:   0 JPG: 1199   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_dir_40m_20201219         CR2:1131 JPG: 1131   PSX   
+│   │   ├──cur_dir_40m_20201219         CR2:1131 JPG: 1131   PSX   PLY   CAM   MET   
 │   ├──cur_dir_60m
 │   │   ├──cur_dir_60m_20200227         CR2:   0 JPG: 1094   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_dir_60m_20201219         CR2:1472 JPG:    0   
+│   │   ├──cur_dir_60m_20201219         CR2:1472 JPG: 1472   PSX   PLY   CAM   MET   
 ├── cur_wat
 │   ├──cur_wat_05m
 │   │   ├──cur_wat_05m_20200225         CR2:   0 JPG:  861   CAM   PLY   PSX   MET   VIS 
 │   │   ├──cur_wat_05m_20210218         CR2:   0 JPG:    0   
 │   │   ├──cur_wat_05m_20210218_temp    CR2:   0 JPG:    0   PSX   
-│   │   ├──cur_wat_05m_20201201         CR2:1180 JPG:    0   
+│   │   ├──cur_wat_05m_20201201         CR2:1180 JPG: 1180   PSX   PLY   CAM   MET   
 │   ├──cur_wat_10m
 │   │   ├──cur_wat_10m_20200225         CR2:   0 JPG:  864   CAM   MET   PLY   PSX   VIS 
-│   │   ├──cur_wat_10m_20201201         CR2:1390 JPG:    0   
+│   │   ├──cur_wat_10m_20201201         CR2:1390 JPG: 1390   PSX   PLY   CAM   MET   
 │   ├──cur_wat_20m
 │   │   ├──cur_wat_20m_20200225         CR2:   0 JPG:  915   CAM   MET   PLY   PSX   VIS 
-│   │   ├──cur_wat_20m_20201201         CR2:1203 JPG:    0   
+│   │   ├──cur_wat_20m_20201201         CR2:1203 JPG: 1203   PSX   PLY   CAM   MET   
 │   ├──cur_wat_40m
 │   │   ├──cur_wat_40m_20200225         CR2:   0 JPG:  878   PSX   PLY   CAM   MET   VIS 
 │   ├──cur_wat_60m
@@ -115,14 +115,14 @@
 ├── cur_hul
 │   ├──cur_hul_05m
 │   │   ├──cur_hul_05m_20200301         CR2:   0 JPG:  766   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_hul_05m_20201206         CR2:1321 JPG:    0   
+│   │   ├──cur_hul_05m_20201206         CR2:1321 JPG: 1321   PSX   PLY   CAM   MET   
 │   ├──cur_hul_10m
 │   │   ├──cur_hul_10m_20200301         CR2:   0 JPG: 1042   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_hul_10m_20201206         CR2:1552 JPG:    0   
+│   │   ├──cur_hul_10m_20201206         CR2:1552 JPG: 1552   PSX   PLY   CAM   MET   
 │   ├──cur_hul_20m
 │   │   ├──cur_hul_20m_20200301         CR2:   0 JPG: 1391   PSX   PLY   CAM   MET   VIS 
 │   │   ├──@eaDir                       CR2:   0 JPG:    0   
-│   │   ├──cur_hul_20m_20201206         CR2:1304 JPG:    0   
+│   │   ├──cur_hul_20m_20201206         CR2:1304 JPG: 1304   PSX   
 │   ├──cur_hul_40m
 │   │   ├──cur_hul_40m_20200301         CR2:   0 JPG: 1345   PSX   PLY   CAM   MET   VIS 
 │   ├──cur_hul_60m
