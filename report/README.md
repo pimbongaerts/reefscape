@@ -122,7 +122,7 @@
 │   ├──cur_hul_20m
 │   │   ├──cur_hul_20m_20200301         CR2:   0 JPG: 1391   PSX   PLY   CAM   MET   VIS 
 │   │   ├──@eaDir                       CR2:   0 JPG:    0   
-│   │   ├──cur_hul_20m_20201206         CR2:1304 JPG: 1304   PSX   
+│   │   ├──cur_hul_20m_20201206         CR2:1304 JPG: 1304   PSX   PLY   CAM   MET   
 │   ├──cur_hul_40m
 │   │   ├──cur_hul_40m_20200301         CR2:   0 JPG: 1345   PSX   PLY   CAM   MET   VIS 
 │   ├──cur_hul_60m
@@ -131,13 +131,13 @@
 ├── cur_est
 │   ├──cur_est_05m
 │   │   ├──cur_est_05m_20200219         CR2:   0 JPG: 1021   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_est_05m_20201127         CR2:1422 JPG:    0   
+│   │   ├──cur_est_05m_20201127         CR2:1422 JPG: 1422   PSX   PLY   CAM   MET   
 │   ├──cur_est_10m
 │   │   ├──cur_est_10m_20200219         CR2:   0 JPG: 1281   PSX   PLY   CAM   MET   VIS 
 │   │   ├──cur_est_10m_20201127         CR2:1709 JPG: 1709   PSX   
 │   ├──cur_est_20m
 │   │   ├──cur_est_20m_20200219         CR2:   0 JPG: 1287   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_est_20m_20201127         CR2:1220 JPG:    0   
+│   │   ├──cur_est_20m_20201127         CR2:1220 JPG: 1220   PSX   PLY   CAM   MET   
 │   ├──cur_est_40m
 │   │   ├──cur_est_40m_20200219         CR2:1362 JPG: 1362   PSX   
 │   ├──cur_est_60m
@@ -154,10 +154,10 @@
 ├── cur_cas
 │   ├──cur_cas_05m
 │   │   ├──cur_cas_05m_20190401         CR2:   0 JPG:  730   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_cas_05m_20201212         CR2: 879 JPG:    0   
+│   │   ├──cur_cas_05m_20201212         CR2: 879 JPG:  879   PSX   PLY   CAM   MET   
 │   ├──cur_cas_10m
 │   │   ├──cur_cas_10m_20190401         CR2:   0 JPG:  824   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_cas_10m_20201212         CR2: 893 JPG:    0   
+│   │   ├──cur_cas_10m_20201212         CR2: 893 JPG:  893   PSX   
 │   ├──cur_cas_20m
 │   │   ├──cur_cas_20m_20190331         CR2:   0 JPG: 1237   PSX   PLY   CAM   MET   VIS 
 │   │   ├──cur_cas_20m_20201212         CR2: 949 JPG:    0   
@@ -170,4 +170,14 @@
 │   │   ├──cur_seb_20m_20190319_copy    CR2:1000 JPG: 1000   PSX   PLY   CAM   MET   
 │   │   ├──cur_seb_20m_20201210         CR2: 713 JPG:    0   
 ├── @eaDir
+├── org
+│   ├──org
+│   ├──org.aux
+│   │   ├──bk                           CR2:   0 JPG:    0   
+│   │   ├──repl_p                       CR2:   0 JPG:    0   
+│   │   ├──image_cache                  CR2:   0 JPG:    0   
+│   │   ├──share                        CR2:   0 JPG:    0   
+│   │   ├──web                          CR2:   0 JPG:    0   
+│   ├──org.rugo
+│   │   ├──r0                           CR2:   0 JPG:    0   
 ```
