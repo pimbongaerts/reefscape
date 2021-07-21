@@ -157,18 +157,18 @@
 │   │   ├──cur_cas_05m_20201212         CR2: 879 JPG:  879   PSX   PLY   CAM   MET   
 │   ├──cur_cas_10m
 │   │   ├──cur_cas_10m_20190401         CR2:   0 JPG:  824   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_cas_10m_20201212         CR2: 893 JPG:  893   PSX   
+│   │   ├──cur_cas_10m_20201212         CR2: 893 JPG:  893   PSX   PLY   CAM   MET   
 │   ├──cur_cas_20m
 │   │   ├──cur_cas_20m_20190331         CR2:   0 JPG: 1237   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_cas_20m_20201212         CR2: 949 JPG:    0   
+│   │   ├──cur_cas_20m_20201212         CR2: 949 JPG:  949   PSX   PLY   CAM   MET   
 ├── cur_seb
 │   ├──cur_seb_10m
 │   │   ├──cur_seb_10m_20190319         CR2:   0 JPG: 1265   PSX   PLY   CAM   MET   VIS 
-│   │   ├──cur_seb_10m_20201210         CR2: 605 JPG:    0   
+│   │   ├──cur_seb_10m_20201210         CR2: 605 JPG:  605   PSX   PLY   CAM   MET   
 │   ├──cur_seb_20m
 │   │   ├──cur_seb_20m_20190319         CR2:   0 JPG: 1000   PSX   PLY   CAM   MET   ORTHO VIS 
 │   │   ├──cur_seb_20m_20190319_copy    CR2:1000 JPG: 1000   PSX   PLY   CAM   MET   
-│   │   ├──cur_seb_20m_20201210         CR2: 713 JPG:    0   
+│   │   ├──cur_seb_20m_20201210         CR2: 713 JPG:  713   PSX   PLY   CAM   MET   
 ├── @eaDir
 ├── org
 │   ├──org
