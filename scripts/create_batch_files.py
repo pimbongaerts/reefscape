@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """
-
+Creates a bash script to generate dense clouds for models that have not yet been processed
+(based on README.md generated with model_report.py script) & convert to Viscore for those that are ready.
 """
 import argparse
 
