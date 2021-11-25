@@ -70,16 +70,16 @@ class Timepoint(object):
                 assets += "JPG:{0:4d}".format(self.jpg_files)
             elif modelpart_file.endswith('.psx'):
                 self.psx = True
-                assets += "PSX   "
+                assets += "PSX "
             elif modelpart_file.endswith('.ply'):
                 self.ply = True
-                assets += "PLY   "
+                assets += "PLY "
             elif modelpart_file.endswith('.cams.xml'):
                 self.cams = True
-                assets += "CAM   "
+                assets += "CAM "
             elif modelpart_file.endswith('.meta.json'):
                 self.meta = True
-                assets += "MET   "
+                assets += "MET "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
                 self.ortho = True
                 assets += "ORTHO "
@@ -89,7 +89,7 @@ class Timepoint(object):
                 assets += self.__get_viscore_status(modelpart_path)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.markers')):
                 self.markers = len(glob.glob(modelpart_path + '/*.jpg'))
-                assets += "REF_IMG:{0:2d}".format(self.markers)
+                assets += "REF_IMG:{0:2d} ".format(self.markers)
 
         print("│   │   ├──{:28s} {}".format(short_name, assets))
         
@@ -99,17 +99,22 @@ class Timepoint(object):
         viscore_assets = ''
         if os.path.exists(aux_filepath):
             subsets = json.load(open(aux_filepath))
-            subsets_model = subsets['d']['{0}/{0}'.format(self.short_name)]['c']
+            if '{0}/{0}'.format(self.short_name) in subsets['d']:
+                subsets_model = subsets['d']['{0}/{0}'.format(self.short_name)]['c']
+            elif self.short_name in subsets['d']:
+                subsets_model = subsets['d'][self.short_name]['c']
+            else:
+                return
             # Determine number of scalers
             try:
                 scalers = len(subsets_model["scaler"]["s"])
-                viscore_assets += "SCALE:{0:2d})".format(scalers)
+                viscore_assets += "SCALE:{0:2d} ".format(scalers)
             except:
                 pass
             # Determine number of orientation markers
             try:
                 orienters = len(subsets_model["ortho"]["ref"])
-                viscore_assets += "REF:{0:2d})".format(orienters)
+                viscore_assets += "REF:{0:2d} ".format(orienters)
             except:
                 pass
         return viscore_assets
