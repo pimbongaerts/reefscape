@@ -4,6 +4,7 @@
 import argparse
 import os
 import glob
+import json
 
 focal_plots_path = "/mnt/coral3d/focal_plots/"
 PLY = "PLY"
@@ -58,35 +59,60 @@ class Timepoint(object):
         self.cams = False
         self.meta = False
         self.vis = False
-        p_files = ""
+        assets = ""
         for modelpart_file in os.listdir(self.path):
             modelpart_path = os.path.join(self.path, modelpart_file)
             if (os.path.isdir(modelpart_path) & modelpart_file.endswith('.raw')):
                 self.raw_files = len(glob.glob(modelpart_path + '/*.CR2'))
+                assets += "CR2:{0:4d}".format(self.raw_files)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.photos')):
-                self.jpg_files = len(glob.glob(modelpart_path + '/*.jpg'))  
+                self.jpg_files = len(glob.glob(modelpart_path + '/*.jpg'))
+                assets += "JPG:{0:4d}".format(self.jpg_files)
             elif modelpart_file.endswith('.psx'):
                 self.psx = True
-                p_files += "PSX   "
+                assets += "PSX   "
             elif modelpart_file.endswith('.ply'):
                 self.ply = True
-                p_files += "PLY   "
+                assets += "PLY   "
             elif modelpart_file.endswith('.cams.xml'):
                 self.cams = True
-                p_files += "CAM   "
+                assets += "CAM   "
             elif modelpart_file.endswith('.meta.json'):
                 self.meta = True
-                p_files += "MET   "
+                assets += "MET   "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
                 self.ortho = True
-                p_files += "ORTHO "
+                assets += "ORTHO "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
                 self.vis = True
-                p_files += "VIS "
-        print("│   │   ├──{:28s} CR2:{:4d} JPG: {:4d}   {}".format(short_name, 
-                                                               self.raw_files,
-                                                               self.jpg_files,
-                                                               p_files))
+                assets += "VIS "
+                assets += self.__get_viscore_status(modelpart_path)
+            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.markers')):
+                self.markers = len(glob.glob(modelpart_path + '/*.jpg'))
+                assets += "REF_IMG:{0:2d}".format(self.markers)
+
+        print("│   │   ├──{:28s} {}".format(short_name, assets))
+        
+    def __get_viscore_status(self, viscore_path):
+        """ Get viscore project info from subsets.json file """
+        aux_filepath = '{0}/{1}.aux/subsets.json'.format(viscore_path, self.short_name)
+        viscore_assets = ''
+        if os.path.exists(aux_filepath):
+            subsets = json.load(open('/Users/pbongaerts/Dropbox/Data/viscore/examples/subsets.json'))
+            subsets_model = subsets['d']['{0}/{0}'.format(self.short_name)]['c']
+            # Determine number of scalers
+            try:
+                scalers = len(subsets_model["scaler"]["s"])
+                viscore_assets += "SCALE:{0:2d})".format(scalers)
+            except:
+                pass
+            # Determine number of orientation markers
+            try:
+                orienters = len(subsets_model["ortho"]["ref"])
+                viscore_assets += "REF:{0:2d})".format(orienters)
+            except:
+                pass
+        return viscore_assets
 
 
 def main():
