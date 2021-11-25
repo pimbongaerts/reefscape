@@ -98,7 +98,7 @@ class Timepoint(object):
         aux_filepath = '{0}/{1}.aux/subsets.json'.format(viscore_path, self.short_name)
         viscore_assets = ''
         if os.path.exists(aux_filepath):
-            subsets = json.load(open('/Users/pbongaerts/Dropbox/Data/viscore/examples/subsets.json'))
+            subsets = json.load(open(aux_filepath))
             subsets_model = subsets['d']['{0}/{0}'.format(self.short_name)]['c']
             # Determine number of scalers
             try:
