@@ -64,10 +64,12 @@ class Timepoint(object):
             modelpart_path = os.path.join(self.path, modelpart_file)
             if (os.path.isdir(modelpart_path) & modelpart_file.endswith('.raw')):
                 self.raw_files = len(glob.glob(modelpart_path + '/*.CR2'))
-                assets += "CR2:{0:04d} ".format(self.raw_files)
+                if self.raw_files > 0:
+                    assets += "CR2:{0:04d} ".format(self.raw_files)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.photos')):
                 self.jpg_files = len(glob.glob(modelpart_path + '/*.jpg'))
-                assets += "JPG:{0:04d} ".format(self.jpg_files)
+                if self.jpg_files > 0:
+                    assets += "JPG:{0:04d} ".format(self.jpg_files)
             elif modelpart_file.endswith('.psx'):
                 self.psx = True
                 assets += "PSX "
@@ -99,6 +101,9 @@ class Timepoint(object):
         viscore_assets = ''
         if os.path.exists(aux_filepath):
             subsets = json.load(open(aux_filepath))
+            # Determine number of aligned models
+            viscore_assets += "VIS:{0:02d} ".format(len(subsets['d']))
+            # Determine key of primary model
             if '{0}/{0}'.format(self.short_name) in subsets['d']:
                 subsets_model = subsets['d']['{0}/{0}'.format(self.short_name)]['c']
             elif self.short_name in subsets['d']:
@@ -110,13 +115,13 @@ class Timepoint(object):
                 scalers = len(subsets_model["scaler"]["s"])
                 viscore_assets += "SCALE:{0:02d} ".format(scalers)
             except:
-                pass
+                viscore_assets += "SCALE:00 "
             # Determine number of orientation markers
             try:
                 orienters = len(subsets_model["ortho"]["ref"])
-                viscore_assets += "REF:{0:02d} ".format(orienters)
+                viscore_assets += "DEPTH:{0:02d} ".format(orienters)
             except:
-                pass
+                viscore_assets += "DEPTH:00 "
         return viscore_assets
 
 
