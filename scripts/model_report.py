@@ -42,7 +42,7 @@ class Plot(object):
         print("│   ├──{}".format(short_name))
         for timepoint_folder in os.listdir(self.path):
             timepoint_path = os.path.join(self.path, timepoint_folder)
-            if os.path.isdir(timepoint_path):
+            if os.path.isdir(timepoint_path) and not '@eaDir' in  timepoint_path:
                 self.timepoints[timepoint_folder] = Timepoint(timepoint_folder, 
                                                               timepoint_path)
 
@@ -90,7 +90,7 @@ class Timepoint(object):
                 assets += self.__get_viscore_status(modelpart_path)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.markers')):
                 self.markers = len(glob.glob(modelpart_path + '/*.*'))
-                assets += "REF_IMG:{0:02d} ".format(self.markers)
+                assets += "D_IMG:{0:02d} ".format(self.markers)
 
         print("│   │   ├──{:28s} {}".format(short_name, assets))
         
@@ -125,6 +125,16 @@ class Timepoint(object):
 
 
 def main():
+    print('PSX:   Agisoft file present')
+    print('CR2:   Number of unconverted cameras (CR2)')
+    print('PLY:   Explorted PLY present')
+    print('CAM:   Camera position file (for viscore) present')
+    print('MET:   Camera metadata file (for viscore) present')
+    print('VIS:   Viscore file present & number of aligned models (>1 means reference)')
+    print('SCALE: Number of Viscore scalers')
+    print('DEPTH: Number of Viscore depth markers for orientation')
+    print('D_IMG: Number of images for depth markers')
+
     print('```shell')
     focal_plots = Focal_plots(focal_plots_path)
     print('```')
