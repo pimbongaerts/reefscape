@@ -64,10 +64,10 @@ class Timepoint(object):
             modelpart_path = os.path.join(self.path, modelpart_file)
             if (os.path.isdir(modelpart_path) & modelpart_file.endswith('.raw')):
                 self.raw_files = len(glob.glob(modelpart_path + '/*.CR2'))
-                assets += "CR2:{0:4d}".format(self.raw_files)
+                assets += "CR2:{0:04d} ".format(self.raw_files)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.photos')):
                 self.jpg_files = len(glob.glob(modelpart_path + '/*.jpg'))
-                assets += "JPG:{0:4d}".format(self.jpg_files)
+                assets += "JPG:{0:04d} ".format(self.jpg_files)
             elif modelpart_file.endswith('.psx'):
                 self.psx = True
                 assets += "PSX "
@@ -89,7 +89,7 @@ class Timepoint(object):
                 assets += self.__get_viscore_status(modelpart_path)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.markers')):
                 self.markers = len(glob.glob(modelpart_path + '/*.jpg'))
-                assets += "REF_IMG:{0:2d} ".format(self.markers)
+                assets += "REF_IMG:{0:02d} ".format(self.markers)
 
         print("│   │   ├──{:28s} {}".format(short_name, assets))
         
@@ -108,13 +108,13 @@ class Timepoint(object):
             # Determine number of scalers
             try:
                 scalers = len(subsets_model["scaler"]["s"])
-                viscore_assets += "SCALE:{0:2d} ".format(scalers)
+                viscore_assets += "SCALE:{0:02d} ".format(scalers)
             except:
                 pass
             # Determine number of orientation markers
             try:
                 orienters = len(subsets_model["ortho"]["ref"])
-                viscore_assets += "REF:{0:2d} ".format(orienters)
+                viscore_assets += "REF:{0:02d} ".format(orienters)
             except:
                 pass
         return viscore_assets
