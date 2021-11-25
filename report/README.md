@@ -1,28 +1,28 @@
 ```shell
 ├── cur_kal
 │   ├──cur_kal_20m
-│   │   ├──cur_kal_20m_20190308         PSX JPG:1196 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:04 
-│   │   ├──cur_kal_20m_20200214         PSX JPG:1053 PLY CAM MET ORTHO VIS:04 SCALE:02 DEPTH:04 
-│   │   ├──cur_kal_20m_20191113         PSX JPG:1048 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:04 
+│   │   ├──cur_kal_20m_20190308         PSX JPG:1196 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
+│   │   ├──cur_kal_20m_20200214         PSX JPG:1053 PLY CAM MET VIS:04 SCALE:02 DEPTH:04 
+│   │   ├──cur_kal_20m_20191113         PSX JPG:1048 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
 │   │   ├──cur_kal_20m_20201209         PSX JPG:1241 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
 │   │   ├──cur_kal_20m_20210219         CR2:1183 PSX 
 │   ├──cur_kal_40m
-│   │   ├──cur_kal_40m_20190224         PSX JPG:0488 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:04 
-│   │   ├──cur_kal_40m_20191113         PSX JPG:1024 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:04 
-│   │   ├──cur_kal_40m_20200214         PSX JPG:0900 PLY CAM MET ORTHO VIS:04 SCALE:02 DEPTH:04 
+│   │   ├──cur_kal_40m_20190224         PSX JPG:0488 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
+│   │   ├──cur_kal_40m_20191113         PSX JPG:1024 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
+│   │   ├──cur_kal_40m_20200214         PSX JPG:0900 PLY CAM MET VIS:04 SCALE:02 DEPTH:04 
 │   │   ├──cur_kal_40m_20201214         PSX JPG:1086 PLY CAM MET VIS:01 SCALE:01 DEPTH:04 
 │   │   ├──cur_kal_40m_20210214         CR2:1066 PSX JPG:1066 PLY CAM MET 
 │   ├──cur_kal_10m
-│   │   ├──cur_kal_10m_20190309         PSX JPG:1345 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:09 
-│   │   ├──cur_kal_10m_20191113         PSX JPG:1204 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:10 
-│   │   ├──cur_kal_10m_20200214         PSX JPG:1106 PLY CAM MET ORTHO VIS:04 SCALE:02 DEPTH:10 
-│   │   ├──cur_kal_10m_20201209         PSX JPG:1825 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 REF_IMG:00 
+│   │   ├──cur_kal_10m_20190309         PSX JPG:1345 PLY CAM MET VIS:01 SCALE:02 DEPTH:09 
+│   │   ├──cur_kal_10m_20191113         PSX JPG:1204 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 
+│   │   ├──cur_kal_10m_20200214         PSX JPG:1106 PLY CAM MET VIS:04 SCALE:02 DEPTH:10 
+│   │   ├──cur_kal_10m_20201209         PSX JPG:1825 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 REF_IMG:11 
 │   │   ├──cur_kal_10m_20210219         CR2:1507 PSX JPG:1507 PLY CAM MET 
 │   ├──cur_kal_05m
 │   │   ├──cur_kal_05m_20190309         PSX JPG:0494 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
 │   │   ├──cur_kal_05m_20200214         PSX JPG:0809 PLY CAM MET VIS:04 SCALE:02 DEPTH:05 
 │   │   ├──cur_kal_05m_20191113         PSX JPG:0914 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
-│   │   ├──cur_kal_05m_20201209         PSX JPG:1401 PLY CAM MET VIS:01 SCALE:02 DEPTH:05 REF_IMG:00 
+│   │   ├──cur_kal_05m_20201209         PSX JPG:1401 PLY CAM MET VIS:01 SCALE:02 DEPTH:05 REF_IMG:05 
 │   │   ├──cur_kal_05m_20210219         CR2:1057 PSX JPG:1057 PLY CAM MET 
 │   ├──cur_kal_60m
 │   │   ├──cur_kal_60m_20190224         PSX JPG:0512 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
@@ -32,23 +32,23 @@
 │   │   ├──cur_kal_60m_20210214         CR2:1093 PSX JPG:1093 PLY CAM MET 
 ├── cur_sna
 │   ├──cur_sna_20m
-│   │   ├──cur_sna_20m_20190310         PSX JPG:1121 PLY CAM MET ORTHO VIS:02 SCALE:02 DEPTH:04 
-│   │   ├──cur_sna_20m_20200303         PSX PLY CAM MET JPG:0940 ORTHO VIS:03 SCALE:02 DEPTH:04 
-│   │   ├──cur_sna_20m_20191111         PSX JPG:0929 PLY CAM MET ORTHO VIS:03 SCALE:02 DEPTH:04 PLY PLY 
+│   │   ├──cur_sna_20m_20190310         PSX JPG:1121 PLY CAM MET VIS:02 SCALE:02 DEPTH:04 
+│   │   ├──cur_sna_20m_20200303         PSX PLY CAM MET JPG:0940 VIS:03 SCALE:02 DEPTH:04 
+│   │   ├──cur_sna_20m_20191111         PSX JPG:0929 PLY CAM MET VIS:03 SCALE:02 DEPTH:04 PLY PLY 
 │   │   ├──@eaDir                       
 │   │   ├──cur_sna_20m_20201202         PSX JPG:1356 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sna_20m_20210305         PSX JPG:1132 PLY CAM MET 
 │   ├──cur_sna_10m
 │   │   ├──cur_sna_10m_20200303         PSX JPG:1164 PLY CAM MET VIS:04 SCALE:02 DEPTH:12 
-│   │   ├──cur_sna_10m_20190305         PSX JPG:1048 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:10 
+│   │   ├──cur_sna_10m_20190305         PSX JPG:1048 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 
 │   │   ├──cur_sna_10m_20191111         PSX JPG:0864 PLY CAM MET VIS:01 SCALE:03 DEPTH:12 
-│   │   ├──cur_sna_10m_20201202         PSX JPG:1249 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 REF_IMG:00 
+│   │   ├──cur_sna_10m_20201202         PSX JPG:1249 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 REF_IMG:13 
 │   │   ├──cur_sna_10m_20210305         CR2:1339 PSX JPG:1339 
 │   ├──cur_sna_05m
-│   │   ├──cur_sna_05m_20190307         PSX JPG:0951 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:06 
+│   │   ├──cur_sna_05m_20190307         PSX JPG:0951 PLY CAM MET VIS:01 SCALE:02 DEPTH:06 
 │   │   ├──cur_sna_05m_20200303         PSX JPG:0699 PLY CAM MET VIS:04 SCALE:01 DEPTH:10 
 │   │   ├──cur_sna_05m_20191110         PSX JPG:0612 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 
-│   │   ├──cur_sna_05m_20201202         PSX JPG:1187 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 REF_IMG:00 
+│   │   ├──cur_sna_05m_20201202         PSX JPG:1187 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 REF_IMG:11 
 │   │   ├──cur_sna_05m_20210305         CR2:1399 
 │   ├──cur_sna_40m
 │   │   ├──cur_sna_40m_20200216         PSX JPG:0807 PLY MET VIS:01 SCALE:02 DEPTH:00 
@@ -69,7 +69,7 @@
 │   │   ├──cur_sea_10m_20200221         PSX JPG:0833 PLY CAM MET VIS:03 SCALE:02 DEPTH:11 
 │   │   ├──cur_sea_10m_20191112         PSX JPG:0985 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 
 │   │   ├──cur_sea_10m_20190319         PSX JPG:1270 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
-│   │   ├──cur_sea_10m_20201210         PSX JPG:1228 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 REF_IMG:00 
+│   │   ├──cur_sea_10m_20201210         PSX JPG:1228 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 REF_IMG:13 
 │   │   ├──cur_sea_10m_20210302         CR2:1662 
 │   ├──cur_sea_20m
 │   │   ├──cur_sea_20m_20200221         PSX JPG:0883 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 
@@ -91,12 +91,12 @@
 ├── cur_dir
 │   ├──cur_dir_05m
 │   │   ├──cur_dir_05m_20200227         PSX JPG:0816 PLY CAM MET VIS:02 SCALE:02 DEPTH:12 
-│   │   ├──cur_dir_05m_20201219         PSX JPG:0761 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 REF_IMG:00 
+│   │   ├──cur_dir_05m_20201219         PSX JPG:0761 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 REF_IMG:13 
 │   │   ├──cur_dir_05m_20201130         PSX JPG:1737 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_dir_05m_20210221         CR2:1199 
 │   ├──cur_dir_10m
 │   │   ├──cur_dir_10m_20200227         PSX JPG:1006 PLY CAM MET VIS:03 SCALE:02 DEPTH:09 
-│   │   ├──cur_dir_10m_20201219         PSX JPG:0577 PLY CAM MET VIS:01 SCALE:02 DEPTH:09 REF_IMG:00 
+│   │   ├──cur_dir_10m_20201219         PSX JPG:0577 PLY CAM MET VIS:01 SCALE:02 DEPTH:09 REF_IMG:12 
 │   │   ├──cur_dir_10m_20201130         PSX JPG:1716 PLY CAM MET VIS:01 SCALE:02 DEPTH:09 
 │   │   ├──cur_dir_10m_20210221         CR2:1402 
 │   ├──cur_dir_20m
@@ -117,10 +117,10 @@
 │   │   ├──cur_wat_05m_20200225         JPG:0861 CAM PLY PSX MET VIS:02 SCALE:02 DEPTH:15 
 │   │   ├──cur_wat_05m_20210218         JPG:0954 CR2:0954 
 │   │   ├──cur_wat_05m_20210218_temp    PSX 
-│   │   ├──cur_wat_05m_20201201         PSX JPG:1180 PLY CAM MET VIS:01 SCALE:02 DEPTH:15 REF_IMG:00 
+│   │   ├──cur_wat_05m_20201201         PSX JPG:1180 PLY CAM MET VIS:01 SCALE:02 DEPTH:15 REF_IMG:16 
 │   ├──cur_wat_10m
 │   │   ├──cur_wat_10m_20200225         JPG:0864 CAM MET PLY PSX VIS:02 SCALE:02 DEPTH:09 
-│   │   ├──cur_wat_10m_20201201         PSX JPG:1390 PLY CAM MET VIS:01 SCALE:02 DEPTH:09 REF_IMG:00 
+│   │   ├──cur_wat_10m_20201201         PSX JPG:1390 PLY CAM MET VIS:01 SCALE:02 DEPTH:09 REF_IMG:10 
 │   │   ├──cur_wat_10m_20210218         CR2:1135 
 │   ├──cur_wat_20m
 │   │   ├──cur_wat_20m_20200225         JPG:0915 CAM MET PLY PSX VIS:01 SCALE:02 DEPTH:00 
@@ -133,11 +133,11 @@
 ├── cur_hul
 │   ├──cur_hul_05m
 │   │   ├──cur_hul_05m_20200301         PSX JPG:0766 PLY CAM MET VIS:02 SCALE:02 DEPTH:07 
-│   │   ├──cur_hul_05m_20201206         PSX JPG:1321 PLY CAM MET VIS:01 SCALE:02 DEPTH:07 REF_IMG:00 REF_IMG:00 
+│   │   ├──cur_hul_05m_20201206         PSX JPG:1321 PLY CAM MET VIS:01 SCALE:02 DEPTH:07 REF_IMG:07 REF_IMG:07 
 │   │   ├──cur_hul_05m_20210223         CR2:1090 
 │   ├──cur_hul_10m
 │   │   ├──cur_hul_10m_20200301         PSX JPG:1042 PLY CAM MET VIS:02 SCALE:02 DEPTH:14 
-│   │   ├──cur_hul_10m_20201206         PSX JPG:1552 PLY CAM MET VIS:01 SCALE:02 DEPTH:14 REF_IMG:00 
+│   │   ├──cur_hul_10m_20201206         PSX JPG:1552 PLY CAM MET VIS:01 SCALE:02 DEPTH:14 REF_IMG:15 
 │   │   ├──cur_hul_10m_20210223         CR2:1336 
 │   ├──cur_hul_20m
 │   │   ├──cur_hul_20m_20200301         PSX JPG:1391 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
@@ -156,7 +156,7 @@
 │   │   ├──cur_est_05m_20210216         CR2:0974 
 │   ├──cur_est_10m
 │   │   ├──cur_est_10m_20200219         PSX JPG:1281 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
-│   │   ├──cur_est_10m_20201127         JPG:1709 PSX CR2:1709 REF_IMG:00 
+│   │   ├──cur_est_10m_20201127         JPG:1709 PSX CR2:1709 REF_IMG:08 
 │   │   ├──cur_est_10m_20210216         CR2:1278 
 │   ├──cur_est_20m
 │   │   ├──cur_est_20m_20200219         PSX JPG:1287 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
@@ -178,7 +178,7 @@
 ├── cur_cas
 │   ├──cur_cas_05m
 │   │   ├──cur_cas_05m_20190401         PSX JPG:0730 PLY CAM MET VIS:01 SCALE:02 DEPTH:05 
-│   │   ├──cur_cas_05m_20201212         PSX JPG:0879 PLY CAM MET VIS:02 SCALE:02 DEPTH:05 REF_IMG:00 
+│   │   ├──cur_cas_05m_20201212         PSX JPG:0879 PLY CAM MET VIS:02 SCALE:02 DEPTH:05 REF_IMG:06 
 │   │   ├──cur_cas_05m_20210225         CR2:1122 
 │   ├──cur_cas_10m
 │   │   ├──cur_cas_10m_20190401         PSX JPG:0824 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
@@ -194,7 +194,7 @@
 │   │   ├──cur_seb_10m_20201210         PSX JPG:0605 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
 │   │   ├──cur_seb_10m_20210302         CR2:0895 
 │   ├──cur_seb_20m
-│   │   ├──cur_seb_20m_20190319         PSX JPG:1000 PLY CAM MET ORTHO VIS:01 SCALE:00 DEPTH:00 
+│   │   ├──cur_seb_20m_20190319         PSX JPG:1000 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
 │   │   ├──cur_seb_20m_20190319_copy    CR2:1000 PSX JPG:1000 PLY CAM MET 
 │   │   ├──cur_seb_20m_20201210         PSX JPG:0713 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
 │   │   ├──cur_seb_20m_20210302         CR2:0720 
