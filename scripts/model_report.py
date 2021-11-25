@@ -87,7 +87,6 @@ class Timepoint(object):
                 assets += "ORTHO "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
                 self.vis = True
-                assets += "VIS "
                 assets += self.__get_viscore_status(modelpart_path)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.markers')):
                 self.markers = len(glob.glob(modelpart_path + '/*.jpg'))
