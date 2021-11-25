@@ -82,14 +82,14 @@ class Timepoint(object):
             elif modelpart_file.endswith('.meta.json'):
                 self.meta = True
                 assets += "MET "
-            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
-                self.ortho = True
-                assets += "ORTHO "
+#            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
+#                self.ortho = True
+#                assets += "ORTHO "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
                 self.vis = True
                 assets += self.__get_viscore_status(modelpart_path)
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.markers')):
-                self.markers = len(glob.glob(modelpart_path + '/*.jpg'))
+                self.markers = len(glob.glob(modelpart_path + '/*.*'))
                 assets += "REF_IMG:{0:02d} ".format(self.markers)
 
         print("│   │   ├──{:28s} {}".format(short_name, assets))
