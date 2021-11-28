@@ -51,13 +51,13 @@ D_IMG: Number of images for depth markers
 │   │   ├──cur_sna_10m_20190305         PSX JPG:1048 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 
 │   │   ├──cur_sna_10m_20191111         PSX JPG:0864 PLY CAM MET VIS:01 SCALE:03 DEPTH:12 
 │   │   ├──cur_sna_10m_20201202         PSX JPG:1249 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 D_IMG:13 
-│   │   ├──cur_sna_10m_20210305         CR2:1339 PSX JPG:1339 
+│   │   ├──cur_sna_10m_20210305         CR2:1339 PSX JPG:1339 PLY CAM MET 
 │   ├──cur_sna_05m
 │   │   ├──cur_sna_05m_20190307         PSX JPG:0951 PLY CAM MET VIS:01 SCALE:02 DEPTH:06 
 │   │   ├──cur_sna_05m_20200303         PSX JPG:0699 PLY CAM MET VIS:04 SCALE:01 DEPTH:10 
 │   │   ├──cur_sna_05m_20191110         PSX JPG:0612 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 
 │   │   ├──cur_sna_05m_20201202         PSX JPG:1187 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 D_IMG:11 
-│   │   ├──cur_sna_05m_20210305         CR2:1399 
+│   │   ├──cur_sna_05m_20210305         CR2:1399 PSX JPG:1399 PLY CAM MET 
 │   ├──cur_sna_40m
 │   │   ├──cur_sna_40m_20200216         PSX JPG:0807 PLY MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sna_40m_20190222         PSX JPG:0645 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
@@ -70,6 +70,7 @@ D_IMG: Number of images for depth markers
 │   │   ├──cur_sna_60m_20190222         PSX JPG:0497 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sna_60m_20201205         JPG:0757 PSX CR2:0757 
 │   │   ├──cur_sna_60m_20201227         PSX JPG:1140 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 
+│   │   ├──cur_sna_60m_20210307         CR2:0752 
 │   ├──@eaDir
 ├── cur_sea
 │   ├──cur_sea_10m
@@ -77,30 +78,30 @@ D_IMG: Number of images for depth markers
 │   │   ├──cur_sea_10m_20191112         PSX JPG:0985 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 
 │   │   ├──cur_sea_10m_20190319         PSX JPG:1270 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sea_10m_20201210         PSX JPG:1228 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 D_IMG:13 
-│   │   ├──cur_sea_10m_20210302         CR2:1662 
+│   │   ├──cur_sea_10m_20210302         CR2:1662 PSX JPG:1662 PLY CAM MET 
 │   ├──cur_sea_20m
 │   │   ├──cur_sea_20m_20200221         PSX JPG:0883 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 
 │   │   ├──cur_sea_20m_20191112         PSX JPG:1020 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sea_20m_20201210         PSX JPG:0990 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
-│   │   ├──cur_sea_20m_20210302         CR2:1244 
+│   │   ├──cur_sea_20m_20210302         CR2:1244 PSX JPG:1244 PLY CAM MET 
 │   ├──cur_sea_40m
 │   │   ├──cur_sea_40m_20200221         PSX JPG:0929 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 
 │   │   ├──cur_sea_40m_20190220         PSX JPG:0483 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sea_40m_20191112         PSX JPG:0869 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sea_40m_20201223         PSX JPG:0945 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 
-│   │   ├──cur_sea_40m_20210228         CR2:1249 
+│   │   ├──cur_sea_40m_20210228         CR2:1249 PSX JPG:1249 PLY CAM MET 
 │   ├──cur_sea_60m
 │   │   ├──cur_sea_60m_20191112         PSX JPG:0819 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sea_60m_20200221         CR2:0829 CAM MET PLY PSX VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sea_60m_20190219         PSX JPG:0504 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_sea_60m_20201223         PSX JPG:0991 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 
-│   │   ├──cur_sea_60m_20210228         CR2:1269 
+│   │   ├──cur_sea_60m_20210228         CR2:1269 PSX JPG:1269 PLY CAM MET 
 ├── cur_dir
 │   ├──cur_dir_05m
 │   │   ├──cur_dir_05m_20200227         PSX JPG:0816 PLY CAM MET VIS:02 SCALE:02 DEPTH:12 
 │   │   ├──cur_dir_05m_20201219         PSX JPG:0761 PLY CAM MET VIS:01 SCALE:02 DEPTH:12 D_IMG:13 
 │   │   ├──cur_dir_05m_20201130         PSX JPG:1737 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
-│   │   ├──cur_dir_05m_20210221         CR2:1199 
+│   │   ├──cur_dir_05m_20210221         CR2:1199 PSX JPG:1199 
 │   ├──cur_dir_10m
 │   │   ├──cur_dir_10m_20200227         PSX JPG:1006 PLY CAM MET VIS:03 SCALE:02 DEPTH:09 
 │   │   ├──cur_dir_10m_20201219         PSX JPG:0577 PLY CAM MET VIS:01 SCALE:02 DEPTH:09 D_IMG:12 
