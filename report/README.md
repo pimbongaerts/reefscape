@@ -44,7 +44,7 @@ D_IMG: Number of images for depth markers
 │   │   ├──cur_sna_20m_20190310         PSX JPG:1121 PLY CAM MET VIS:02 SCALE:02 DEPTH:04 
 │   │   ├──cur_sna_20m_20200303         PSX PLY CAM MET JPG:0940 VIS:03 SCALE:02 DEPTH:04 
 │   │   ├──cur_sna_20m_20191111         PSX JPG:0929 PLY CAM MET VIS:03 SCALE:02 DEPTH:04 PLY PLY 
-│   │   ├──cur_sna_20m_20201202         PSX JPG:1356 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
+│   │   ├──cur_sna_20m_20201202         PSX JPG:1356 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
 │   │   ├──cur_sna_20m_20210305         PSX JPG:1132 PLY CAM MET 
 │   ├──cur_sna_10m
 │   │   ├──cur_sna_10m_20200303         PSX JPG:1164 PLY CAM MET VIS:04 SCALE:02 DEPTH:12 
@@ -194,17 +194,17 @@ D_IMG: Number of images for depth markers
 │   ├──cur_cas_20m
 │   │   ├──cur_cas_20m_20190331         PSX JPG:1237 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
 │   │   ├──cur_cas_20m_20201212         PSX JPG:0949 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 
-│   │   ├──cur_cas_20m_20210225         CR2:1070 PSX JPG:1069 
+│   │   ├──cur_cas_20m_20210225         CR2:1070 PSX JPG:1069 PLY CAM MET 
 ├── cur_seb
 │   ├──cur_seb_10m
 │   │   ├──cur_seb_10m_20190319         PSX JPG:1265 PLY CAM MET 
 │   │   ├──cur_seb_10m_20201210         PSX JPG:0605 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
-│   │   ├──cur_seb_10m_20210302         CR2:0895 
+│   │   ├──cur_seb_10m_20210302         CR2:0895 PSX JPG:0895 PLY CAM MET 
 │   ├──cur_seb_20m
 │   │   ├──cur_seb_20m_20190319         PSX JPG:1000 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
 │   │   ├──cur_seb_20m_20190319_copy    CR2:1000 PSX JPG:1000 PLY CAM MET 
 │   │   ├──cur_seb_20m_20201210         PSX JPG:0713 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
-│   │   ├──cur_seb_20m_20210302         CR2:0720 
+│   │   ├──cur_seb_20m_20210302         CR2:0720 PSX JPG:0720 PLY CAM MET 
 ├── @eaDir
 ├── org
 │   ├──org
