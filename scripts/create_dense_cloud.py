@@ -42,7 +42,7 @@ def convert_cameras(camera_extension):
     
     if os.path.exists(photo_camera_path):
       camera_count = len([filename for filename in os.listdir('.') if filename.endswith(camera_extension)])
-      for filename in os.listdir(raw_camera_path):
+      for filename in os.listdir(photo_camera_path):
         if filename.endswith('.' + camera_extension):
             filepath = os.path.join(photo_camera_path, filename)
             camera_list.append(filepath)
