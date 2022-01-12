@@ -33,16 +33,30 @@ def get_windows_model_viscore_path(model_name):
     return '{0}\\{1}\\{2}\\{3}\\{3}.vis'.format(BASE_PATH_WINDOWS, model_name[0:7],
                                                 model_name[0:11], model_name[0:20])
 
+def get_int_behind_string(line, search_string):
+    """ Get 4-digit int value behind a particular string """
+    pos = line.find(search_string)
+    if pos == -1:
+        return 0
+    else:
+        try:
+            return int(line[pos+len(search_string)+1:pos+len(search_string)+5])
+        except:
+            print('error:', line)
+            exit()
+
+
 def main(README_filename):
     readme_file = open(README_filename, 'r')
     densecloud_batch_file = open('densecloud_batch.sh', 'w')
     viscore_batch_file = open('viscore_batch.bat', 'w')
     for line in readme_file:
         model_name = line[11:40].strip()
-        if len(model_name) == 20:  # Exclude models with longer names than 20 characters
+        if len(model_name) == 20:  # Ignore models with names other than 20 characters
             if ('CR2' in line) and ('PSX' not in line) and ('@ea' not in line):
-                CR2_count = int(line[44:48])
-                JPG_count = int(line[54:58])
+                CR2_count = get_int_behind_string(line, 'CR2')
+                JPG_count = get_int_behind_string(line, 'JPG')
+
                 if CR2_count > MIN_IMG or JPG_count > MIN_IMG:
                     densecloud_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
                     densecloud_batch_file.write('{0}\n'.format(DENSECLOUD_SCRIPT))
