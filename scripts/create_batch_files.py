@@ -33,8 +33,8 @@ def get_windows_model_viscore_path(model_name):
     return '{0}\\{1}\\{2}\\{3}\\{3}.vis'.format(BASE_PATH_WINDOWS, model_name[0:7],
                                                 model_name[0:11], model_name[0:20])
 
-def main():
-    readme_file = open('README.md', 'r')
+def main(README_filename):
+    readme_file = open(README_filename, 'r')
     densecloud_batch_file = open('densecloud_batch.sh', 'w')
     viscore_batch_file = open('viscore_batch.bat', 'w')
     for line in readme_file:
@@ -60,5 +60,7 @@ def main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('README_filename', 
+                        metavar='README_filename')
     args = parser.parse_args()
-    main()
+    main(args.README_filename)
