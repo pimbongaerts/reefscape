@@ -2,32 +2,73 @@
 
 Workflow for the reconstruction of our high-resolution 100m2 photogrammetry plots ("photoplots"). 
 
-## Organize images
+## Connect to server and check NAS mount
 
-**1 - Access the server** (using `ssh` and from within the network or using VPN) and set up a `screen` session:
+Connect to one of the lab servers using `ssh`:
 
 ```shell
-# SSH into server and start a new SCREEN session with ZSH
-$ ssh deepcat@deepseal # or `deepcat1`
-$ screen -S photoplot zsh
-# Ensure that NAS volumes with raw data & reconstructions are mounted
-$ sudo mount deepcat2:/volume1/curacao_raw /home/deepcat/mounts/deepseal/curacao_raw
-$ sudo mount deepcat2:/volume2/coral3d /home/deepcat/mounts/deepseal/coral3d
+# Make sure to be connected to the CAS network (using VPN or on site)
+# Connect to the desired server as the `deepcat` user
+$ ssh deepcat@deepseal # or `deepcat1`, `deepsquid` etc.
+# Double-check that the `coral3d` NAS volume is mounted
+$ ls /mnt/coral3d
 ```
 
-**2 - Copy across the RAW photographs** to be extracted:
+## Copy across raw images
+
+Copy across all the raw images for each plot, using the naming convention explained in [nas_folder_structure.md](nas_folder_structure.md):
 
 ```shell
-# Example: Curacao - Playa Kalki 40m 2020mar
-$ cd ~/mounts/coral3d/focal_plots/cur_kal/cur_kal_40m
-# Check date that photographs were taken
-# using sl function (which is: ls -lha [folder] | head)
-$ sl ~/mounts/curacao_raw/[folder]/
-# Create folder for specific timepoint of focal plot
+# Start a new SCREEN session on the server with ZSH
+$ screen -S copy_images zsh
+# For example, a new timepoint (14-Feb-2020) of cur_kal_40m
+$ cd /mnt/coral3d/focal_plots/cur_kal/cur_kal_40m
+# Check date that photographs were taken using sl function
+# (which is: ls -lha [folder] | head)
+$ sl [path_to_images_on_external_drive]
+# Use that date to create a folder for that specific timepoint of focal plot
 $ mkdir cur_kal_40m_20200214 && cd "$_"
+# Create a subfolder to store the raw images
+$ mkdir cur_kal_40m_20200214.raw && cd "$_"
 # Copy over the RAW photographs
-$ cp ~/mounts/curacao_raw/[folder]/*.CR2 .
+$ cp [path_to_images_on_external_drive]/*.CR2 .
+# remember to use CTRL/CMD-A-D to detach screen
+$ screen -r copy_images  # to re-attach
+# ... repeat for every plot
+$ exit # screen
 ```
+
+## Generate the "model report"
+
+Run the [model_report.py](scripts/model_report.py) script and output to [README.md](report/README.md) file for github repository:
+
+```shell
+# Launch zsh (to ensure access to modelreport function)
+$ zsh
+$ modelreport
+```
+
+See below the contents of the `modelreport` function:
+
+```shell
+cd ~/reefscape/scripts/
+model_report.py > ~/reefscape/report/README.md
+git --git-dir=/home/deepcat/reefscape/.git/ --work-tree=/home/deepcat/reefscape/ commit -am 'Automatic report update'
+git push
+```
+
+## Create batch job scripts for newly added timepoints
+
+text
+
+```shell
+$ cd  ~/reefscape/report/
+$ ./create_batch_files.py
+```
+
+
+
+
 
 **3 - Build dense cloud in Agisoft Metascan using [create_dense_cloud.py](scripts/create_dense_cloud.py) script **:
 
@@ -49,6 +90,12 @@ $ densecloud -c png
 Targets with colors: 49.9cm
 
 Targets with ruler: 50.0cm
+
+#
+
+
+
+
 
 ## Remote Viscore workstation
 
