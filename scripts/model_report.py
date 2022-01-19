@@ -121,8 +121,10 @@ class Timepoint(object):
                 viscore_assets += "DEPTH:{0:02d} ".format(orienters)
             except:
                 viscore_assets += "DEPTH:00 "
-        return viscore_assets
+        elif:
 
+        return viscore_assets
+            viscore_assets += "VIS "
 
 def main():
     print('PSX:   Agisoft file present')

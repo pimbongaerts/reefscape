@@ -35,74 +35,73 @@ $ cp [path_to_images_on_external_drive]/*.CR2 .
 # remember to use CTRL/CMD-A-D to detach screen
 $ screen -r copy_images  # to re-attach
 # ... repeat for every plot
-$ exit # screen
+$ exit # exit screen when finished
 ```
 
 ## Generate the "model report"
 
-Run the [model_report.py](scripts/model_report.py) script and output to [README.md](report/README.md) file for github repository:
+Use the `modelreport` function to run the [model_report.py](scripts/model_report.py) script, output to [README.md](report/README.md) file, and then push updated report to the github repository:
 
 ```shell
-# Launch zsh (to ensure access to modelreport function)
-$ zsh
+$ zsh # launch zsh to get access to modelreport function
 $ modelreport
 ```
 
-See below the contents of the `modelreport` function:
+## Create/run batch jobs for newly added timepoints
+
+Use the `create_batch_job` function to run the [create_batch_files.py](scripts/create_batch_files.py) script, to output batch/windows scripts to run remaining tasks:
 
 ```shell
-cd ~/reefscape/scripts/
-model_report.py > ~/reefscape/report/README.md
-git --git-dir=/home/deepcat/reefscape/.git/ --work-tree=/home/deepcat/reefscape/ commit -am 'Automatic report update'
-git push
+$ zsh # launch zsh to get access to create_batch_job function)
+$ create_batch_job
 ```
 
-## Create batch job scripts for newly added timepoints
-
-text
+To run the created `~/reefscape/current_batch_jobs/densecloud_batch.sh` for converting images (to JPG) and reconstructing dense point clouds (using Agisoft Metashape):
 
 ```shell
-$ cd  ~/reefscape/report/
-$ ./create_batch_files.py
+# Preferably on `deepseal` server (as deepcat user)
+$ cd ~/reefscape
+$ screen -S densecloud_batch zsh
+# Make batch job executable & run
+$ chmod +x densecloud_batch.sh
+$ ~/reefscape/current_batch_jobs/densecloud_batch.sh
+# Check that Agisoft recognizes both GPUs:
+Agisoft Metashape Professional Version: 1.6.4 build 10928 (64 bit)
+Platform: Linux
+CPU: Intel(R) Core(TM) i9-10900K CPU @ 3.70GHz (desktop)
+CPU family: 6 model: 165 signature: A0655h
+RAM: 125.6 GB
+Found 2 GPUs in 0.112043 sec (CUDA: 0.085559 sec, OpenCL: 0.026468 sec)
+...
+# remember to use CTRL/CMD-A-D to detach screen
+$ screen -r densecloud_batch  # to re-attach
+$ exit # exit screen when finished
 ```
 
+To run the created `~/reefscape/current_batch_jobs/viscore_batch.bat` for batch conversion of models to Viscore (on `wdizg-viscore` server):
 
-
-
-
-**3 - Build dense cloud in Agisoft Metascan using [create_dense_cloud.py](scripts/create_dense_cloud.py) script **:
-
-```shell
-# Ensure you are using zsh and are inside the right folder
-# e.g. ../cur_kal/cur_kal_40m/cur_kal_40m_20200214
-# Then run the create_dense_cloud.py script (using alias):
-$ densecloud
+```powershell
+# Connect to wdizg-viscore using Microsoft Remote Desktop
+# Start Powershell
+> cd C:\Users\deepcat\reefscape\
+# Update git repo to get newest batch job file
+> git pull
+> cd current_batch_jobs
+> ./viscore_batch.bat
+# Watch that "Writing snip.." does not give any errors
+# Close Microsoft Remote Desktop instance & check in occasionally
 ```
 
-With some of the Mar-2019 plots there are some issues with the original CR2 files - for these we will need to do non-lossy conversion to  PNGs first:
+#### To-do:
 
-```shell
-$  find . -type f -iname "*.CR2" | parallel -j 30 mogrify -format png -set colorspace RGB -colorspace sRGB -quality 100 -resize 2880x1920 {}
-# Then run densecloud with specification of the camera format (-c)
-$ densecloud -c png
-```
+Post-agisoft:
 
-Targets with colors: 49.9cm
+* Batch decimate all the PLYs to 2-3 different resolutions, and upload to G-Drive
+* Batch video of all images used for plot
+* Copy decimated PLYs across to Google Drive
+* Upload representative PLY for each plot to Sketchfab
 
-Targets with ruler: 50.0cm
+Post-viscore:
 
-#
-
-
-
-
-
-## Remote Viscore workstation
-
-
-
-```shell
-$ scp pim@deepcat2:/volume2/coral3d/focal_plots/cur_sna/cur_sna_20m/cur_sna_20m_20200303/cur_sna_20m_20200303.ply .
-
-```
-
+* Batch ortho-projection of PLY using Open3D
+* 
