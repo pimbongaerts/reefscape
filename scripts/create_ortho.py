@@ -49,6 +49,13 @@ def main():
     camera_transform_mean = np.mean( np.array(camera_transforms), axis=0)
     projection.matrix = Metashape.Matrix(np.reshape(camera_transform_mean, (4,4)))
 
+    # Create 
+    chunk.buildModel(surface_type = Metashape.Arbitrary, 
+                     source_data = Metashape.DataSource.DenseCloudData,
+                     interpolation = Metashape.EnabledInterpolation,
+                     face_count = Metashape.FaceCount.MediumFaceCount)
+
+
     # Build orthomosaic
     chunk.buildOrthomosaic(surface_data = Metashape.DataSource.ModelData,
                            blending_mode = Metashape.BlendingMode.MosaicBlending,
