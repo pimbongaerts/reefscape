@@ -75,9 +75,11 @@ def main(README_filename):
                     decimate_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
                     decimate_batch_file.write('xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O {0}.ply -SS RANDOM 50000000\n'.format(model_name))
                     decimate_batch_file.write('mv {0}_RANDOM_SUBSAMPLED.ply {0}_dec50M.ply\n'.format(model_name))
-                    decimate_batch_file.write('xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O {0}_dec50M.ply -SS RANDOM 5000000\n'.format(model_name))
-                    decimate_batch_file.write('mv {0}_dec50M_RANDOM_SUBSAMPLED.ply {0}_dec5M.ply\n'.format(model_name))
-                
+                    decimate_batch_file.write('xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O {0}_dec50M.ply -SS RANDOM 7000000\n'.format(model_name))
+                    decimate_batch_file.write('mv {0}_dec50M_RANDOM_SUBSAMPLED.ply {0}_dec7M.ply\n'.format(model_name))
+                    decimate_batch_file.write('# Move {0} to Google Drive\n'.format(get_linux_model_folder(model_name)))
+                    decimate_batch_file.write('rclone copy {0}_dec50M.ply orthos:/focal_plots/ply_dec50M'.format(model_name))
+                    decimate_batch_file.write('rclone copy {0}_dec7M.ply orthos:/focal_plots/ply_dec7M'.format(model_name))
                 if ('ORTHO' not in line):
                     decimate_batch_file.write('# Ortho-generation of {0}\n'.format(get_linux_model_folder(model_name)))
 
