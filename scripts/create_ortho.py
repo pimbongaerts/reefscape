@@ -46,7 +46,7 @@ def main():
 
     # Calculate average transform matrix based on all cameras
     camera_transforms = [camera.transform for camera in chunk.cameras]
-    camera_transform_mean = np.mean( np.array(camera_transforms), axis=0 ) 
+    camera_transform_mean = np.mean( np.array(camera_transforms), axis=0, dtype=object) 
     projection.matrix = Metashape.Matrix(numpy.reshape(camera_transform_mean, (4,4)))
 
     # Build orthomosaic
