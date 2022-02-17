@@ -74,6 +74,9 @@ class Timepoint(object):
             elif modelpart_file.endswith('.psx'):
                 self.psx = True
                 assets += "PSX "
+            elif modelpart_file.endswith('dec50M.ply'):
+                self.dec = True
+                assets += "DEC "
             elif modelpart_file.endswith('.ply'):
                 self.ply = True
                 assets += "PLY "
@@ -86,9 +89,6 @@ class Timepoint(object):
             elif modelpart_file.endswith('_ortho.tif'):
                 self.ortho = True
                 assets += "ORTHO "
-            elif modelpart_file.endswith('dec50M.ply'):
-                self.dec = True
-                assets += "DEC "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
                 self.vis = True
                 assets += self.__get_viscore_status(modelpart_path)
