@@ -75,6 +75,7 @@ def main(README_filename):
                     decimate_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
                     decimate_batch_file.write('xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O {0}.ply -SS RANDOM 50000000\n'.format(model_name))
                     decimate_batch_file.write('mv {0}_RANDOM_SUBSAMPLED.ply {0}_dec50M.ply\n'.format(model_name))
+                    decimate_batch_file.write('sleep 10\n')
                     decimate_batch_file.write('xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O {0}_dec50M.ply -SS RANDOM 7000000\n'.format(model_name))
                     decimate_batch_file.write('mv {0}_dec50M_RANDOM_SUBSAMPLED.ply {0}_dec7M.ply\n'.format(model_name))
                     decimate_batch_file.write('rclone copy {0}_dec50M.ply orthos:/focal_plots/ply_dec50M\n'.format(model_name))
