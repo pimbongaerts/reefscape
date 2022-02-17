@@ -18,7 +18,7 @@ D_IMG: Number of images for depth markers
 │   ├──cur_kal_40m
 │   │   ├──cur_kal_40m_20190224         PSX JPG:0488 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 PLY 
 │   │   ├──cur_kal_40m_20191113         PSX JPG:1024 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 
-│   │   ├──cur_kal_40m_20200214         PSX JPG:0900 PLY CAM MET VIS:04 SCALE:02 DEPTH:04 PLY PLY PLY PLY 
+│   │   ├──cur_kal_40m_20200214         PSX JPG:0900 PLY CAM MET VIS:04 SCALE:02 DEPTH:04 DEC PLY 
 │   │   ├──cur_kal_40m_20201214         PSX JPG:1086 PLY CAM MET VIS:01 SCALE:01 DEPTH:04 
 │   │   ├──cur_kal_40m_20210214         CR2:1066 PSX JPG:1066 PLY CAM MET VIS 
 │   ├──cur_kal_10m
