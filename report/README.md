@@ -204,7 +204,7 @@ D_IMG: Number of images for depth markers
 │   │   ├──cur_seb_20m_20190319         PSX JPG:1000 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
 │   │   ├──cur_seb_20m_20190319_copy    CR2:1000 PSX JPG:1000 PLY CAM MET 
 │   │   ├──cur_seb_20m_20201210         PSX JPG:0713 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
-│   │   ├──cur_seb_20m_20210302         CR2:0720 PSX JPG:0720 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 
+│   │   ├──cur_seb_20m_20210302         CR2:0720 PSX JPG:0720 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 DEC PLY 
 ├── @eaDir
 ├── org
 │   ├──org
