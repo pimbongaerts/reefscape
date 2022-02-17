@@ -24,7 +24,7 @@ def get_linux_model_folder(model_name):
                                     model_name[0:11], model_name[0:20])
 
 def get_windows_model_ply_filepath(model_name):
-    """ Get folder name based on model name """
+    """ Get ply path based on model name """
     return '{0}\\{1}\\{2}\\{3}\\{3}.ply'.format(BASE_PATH_WINDOWS, model_name[0:7],
                                                 model_name[0:11], model_name[0:20])
 
@@ -50,6 +50,8 @@ def main(README_filename):
     readme_file = open(README_filename, 'r')
     densecloud_batch_file = open('densecloud_batch.sh', 'w')
     viscore_batch_file = open('viscore_batch.bat', 'w')
+    decimate_batch_file = open('decimate_batch.sh', 'w')
+    ortho_batch_file = open('ortho_batch.sh', 'w')
     for line in readme_file:
         model_name = line[11:40].strip()
         if len(model_name) == 20:  # Ignore models with names other than 20 characters
@@ -60,17 +62,30 @@ def main(README_filename):
                 if CR2_count > MIN_IMG or JPG_count > MIN_IMG:
                     densecloud_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
                     densecloud_batch_file.write('{0}\n'.format(DENSECLOUD_SCRIPT))
-            elif all(x in line for x in ['PLY', 'CAM', 'MET']) and ('VIS' not in line):
-                windows_model_viscore_path = get_windows_model_viscore_path(model_name)
-                viscore_batch_file.write('mkdir {0}\n'.format(windows_model_viscore_path))
-                viscore_batch_file.write('if exist {0}\\ ({1} {2} {0}\\{3})\n'.format(windows_model_viscore_path,
+            elif all(x in line for x in ['PLY', 'CAM', 'MET']):
+                if ('VIS' not in line):
+                    windows_model_viscore_path = get_windows_model_viscore_path(model_name)
+                    viscore_batch_file.write('mkdir {0}\n'.format(windows_model_viscore_path))
+                    viscore_batch_file.write('if exist {0}\\ ({1} {2} {0}\\{3})\n'.format(windows_model_viscore_path,
                                                                                   VISCORE_EXEC, 
                                                                                   get_windows_model_ply_filepath(model_name),
                                                                                   model_name))
+                if ('DEC' not in line):
+                    decimate_batch_file.write('# Decimation of {0}\n'.format(get_linux_model_folder(model_name)))
+                    decimate_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
+                    decimate_batch_file.write('xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O {0}.ply -SS RANDOM 50000000\n'.format(model_name))
+                    decimate_batch_file.write('mv {0}_RANDOM_SUBSAMPLED.ply {0}_dec50M.ply\n'.format(model_name))
+                    decimate_batch_file.write('xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O {0}_dec50M.ply -SS RANDOM 5000000\n'.format(model_name))
+                    decimate_batch_file.write('mv {0}_dec50M_RANDOM_SUBSAMPLED.ply {0}_dec5M.ply\n'.format(model_name))
+                
+                if ('ORTHO' not in line):
+                    decimate_batch_file.write('# Ortho-generation of {0}\n'.format(get_linux_model_folder(model_name)))
 
     readme_file.close()
     densecloud_batch_file.close()
     viscore_batch_file.close()
+    decimate_batch_file.close()
+    ortho_batch_file.close()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)

@@ -55,6 +55,7 @@ class Timepoint(object):
         self.jpg_files = 0
         self.psx = False
         self.ortho = False
+        self.dec = False
         self.ply = False
         self.cams = False
         self.meta = False
@@ -82,9 +83,12 @@ class Timepoint(object):
             elif modelpart_file.endswith('.meta.json'):
                 self.meta = True
                 assets += "MET "
-#            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
-#                self.ortho = True
-#                assets += "ORTHO "
+            elif modelpart_file.endswith('_ortho.tif'):
+                self.ortho = True
+                assets += "ORTHO "
+            elif modelpart_file.endswith('dec50M.ply'):
+                self.dec = True
+                assets += "DEC "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
                 self.vis = True
                 assets += self.__get_viscore_status(modelpart_path)
