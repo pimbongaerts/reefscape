@@ -79,8 +79,10 @@ def main(README_filename):
                     decimate_batch_file.write('mv {0}_dec50M_RANDOM_SUBSAMPLED.ply {0}_dec7M.ply\n'.format(model_name))
                     decimate_batch_file.write('rclone copy {0}_dec50M.ply orthos:/focal_plots/ply_dec50M\n'.format(model_name))
                     decimate_batch_file.write('rclone copy {0}_dec7M.ply orthos:/focal_plots/ply_dec7M\n'.format(model_name))
+                
                 if ('ORTHO' not in line):
-                    ortho_batch_file.write('# Ortho-generation of {0}\n'.format(get_linux_model_folder(model_name)))
+                    ortho_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
+                    ortho_batch_file.write('~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py')
 
     readme_file.close()
     densecloud_batch_file.close()
