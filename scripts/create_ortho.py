@@ -47,7 +47,8 @@ def main():
     # Calculate average transform matrix based on all cameras
     # np.warnings.filterwarnings('ignore', category=np.VisibleDeprecationWarning)    
     camera_transforms = [camera.transform for camera in chunk.cameras]
-    camera_transform_mean = np.mean(camera_transforms, axis=0)
+    camera_transforms_np = np.array(camera_transforms) 
+    camera_transform_mean = np.mean(camera_transforms_np, axis=0)
     projection.matrix = Metashape.Matrix(np.reshape(camera_transform_mean, (4,4)))
 
     # Create 
