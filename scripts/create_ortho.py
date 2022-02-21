@@ -78,10 +78,8 @@ def main(skip_build):
       except OSError:
         sys.exit('Could not create folder: {}'.format(ortho_filepath))
 
-    # Export transform matrix to file
-    transform_file = open('{0}_trans_ortho.txt'.format(ortho_basename), 'w')
-    transform_file.write(camera_transform_mean)
-    transform_file.close()
+    # Export transform matrix to csv file
+    np.savetxt('{0}_trans_ortho.csv'.format(ortho_basename), camera_transform_mean, delimiter=',')
 
     ## Export full orthomosaic (TIFF)
     #chunk.exportRaster(path = project_filepath.replace('.psx', '_max_ortho.tif'),
