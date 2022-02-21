@@ -11,7 +11,8 @@ __copyright__ = 'Copyright (C) 2021 Pim Bongaerts'
 __license__ = 'GPL'
 
 BASE_PATH_LINUX = '/mnt/coral3d/focal_plots'
-DENSECLOUD_SCRIPT = '~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py'
+DENSECLOUD_SCRIPT = '~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py'
+CREATE_ORTHO_SCRIPT = '~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py'
 
 BASE_PATH_WINDOWS = 'Y:\\focal_plots'
 VISCORE_EXEC = 'C:\\vid\\vcgo\\vc5.exe prep[goldi][splyfc]'
@@ -82,8 +83,13 @@ def main(README_filename):
                     decimate_batch_file.write('rclone copy {0}_dec7M.ply orthos:/focal_plots/ply_dec7M\n'.format(model_name))
                 
                 if ('ORTHO' not in line):
+                    ortho_batch_file.write('# Orthomosaic generation of {0}\n'.format(get_linux_model_folder(model_name)))
                     ortho_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
-                    ortho_batch_file.write('~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py')
+                    ortho_batch_file.write('{0}\n'.format(CREATE_ORTHO_SCRIPT))
+                    ortho_batch_file.write('rclone copy {0}.ortho/{0}_64K_ortho.tif orthos:/focal_plots/ortho_64K\n'.format(model_name))
+                    ortho_batch_file.write('rclone copy {0}.ortho/{0}_32K_ortho.tif orthos:/focal_plots/ortho_32K\n'.format(model_name))
+                    ortho_batch_file.write('rclone copy {0}.ortho/{0}_10K_ortho.png orthos:/focal_plots/ortho_10K\n'.format(model_name))
+                    ortho_batch_file.write('rclone copy {0}.ortho/{0}_02K_ortho.png orthos:/focal_plots/ortho_02K\n'.format(model_name))
 
     readme_file.close()
     densecloud_batch_file.close()
