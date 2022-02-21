@@ -79,7 +79,7 @@ def main(skip_build):
         sys.exit('Could not create folder: {}'.format(ortho_filepath))
 
     # Export transform matrix to file
-    transform_file = open(path = '{0}_trans_ortho.txt'.format(ortho_basename), 'w')
+    transform_file = open('{0}_trans_ortho.txt'.format(ortho_basename), 'w')
     transform_file.write(camera_transform_mean)
     transform_file.close()
 
