@@ -26,51 +26,72 @@ def get_project_filepath():
   """ ~/plots/seaquarium_40m_2020mar --> ~/plots/seaquarium_40m_2020mar/seaquarium_40m_2020mar.psx """
   return '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
 
-def main():
-    project_filepath = get_project_filepath()
-    
+def get_ortho_filepath():
+  """ Retrieve current path and use directory name as project name """
+  return '{0}/{1}.ortho'.format(os.getcwd(), os.path.basename(os.getcwd()))
+
+def get_ortho_basename():
+  """ Retrieve current path and use directory name as project name """
+  return '{0}/{1}.ortho/{1}'.format(os.getcwd(), os.path.basename(os.getcwd()))
+
+def main(skip_build):
     # Enable all GPUs
     Metashape.app.gpu_mask = 2 ** (len(Metashape.app.enumGPUDevices())) - 1
 
     # Open document
     doc = Metashape.Document()
+    project_filepath = get_project_filepath()
     if os.path.isfile(project_filepath):
         doc.open(project_filepath)  # Open exisiting project
         chunk = doc.chunk
     else:
         sys.exit('Failed to open Metashape project')
 
-    # Create projection for orthomosaic
-    projection= Metashape.OrthoProjection()
-    projection.type= Metashape.OrthoProjection.Type.Planar
-
     # Calculate average transform matrix based on all aligned cameras
+    # and create projection for orthomosaic
+    projection = Metashape.OrthoProjection()
+    projection.type = Metashape.OrthoProjection.Type.Planar
     camera_transforms = [camera.transform for camera in chunk.cameras if camera.transform]
     camera_transform_mean = np.mean(np.array(camera_transforms), axis=0)
     projection.matrix = Metashape.Matrix(np.reshape(camera_transform_mean, (4,4)))
 
-    # Create 
-    chunk.buildModel(surface_type = Metashape.Arbitrary, 
-                     source_data = Metashape.DataSource.DenseCloudData,
-                     interpolation = Metashape.EnabledInterpolation,
-                     face_count = Metashape.FaceCount.MediumFaceCount)
+    if not skip_build:
+      # Build model (medium face count)
+      chunk.buildModel(surface_type = Metashape.Arbitrary, 
+                       source_data = Metashape.DataSource.DenseCloudData,
+                       interpolation = Metashape.EnabledInterpolation,
+                       face_count = Metashape.FaceCount.MediumFaceCount)
+      doc.save()
 
+      # Build orthomosaic under calculated projcetion
+      chunk.buildOrthomosaic(surface_data = Metashape.DataSource.ModelData,
+                             blending_mode = Metashape.BlendingMode.MosaicBlending,
+                             projection = projection)
+      doc.save()
 
-    # Build orthomosaic
-    chunk.buildOrthomosaic(surface_data = Metashape.DataSource.ModelData,
-                           blending_mode = Metashape.BlendingMode.MosaicBlending,
-                           projection = projection)
-    doc.save()
+    # Create ortho folder
+    ortho_filepath = get_ortho_filepath()
+    ortho_basename = get_ortho_basename()
+    if not os.path.exists(ortho_filepath):
+      try:
+        os.mkdir(ortho_filepath)
+      except OSError:
+        sys.exit('Could not create folder: {}'.format(ortho_filepath))
+
+    # Export transform matrix to file
+    transform_file = open(path = '{0}_trans_ortho.txt'.format(ortho_basename), 'w')
+    transform_file.write(camera_transform_mean)
+    transform_file.close()
 
     ## Export full orthomosaic (TIFF)
     #chunk.exportRaster(path = project_filepath.replace('.psx', '_max_ortho.tif'),
     #                   image_format = Metashape.ImageFormat.ImageFormatTIFF,
     #                   source_data = Metashape.DataSource.OrthomosaicData,
     #                   projection = projection)
-
+ 
     # Export orthomosaic (TIFF) with max resolution 32,767 x 32,767
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 65536
-    chunk.exportRaster(path = project_filepath.replace('.psx', '_62K_ortho.tif'),
+    chunk.exportRaster(path = '{0}_64K_ortho.tif'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatTIFF,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
@@ -78,7 +99,7 @@ def main():
 
     # Export orthomosaic (TIFF) with max resolution 32,767 x 32,767
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 32767
-    chunk.exportRaster(path = project_filepath.replace('.psx', '_32K_ortho.tif'),
+    chunk.exportRaster(path = '{0}_32K_ortho.tif'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatTIFF,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
@@ -86,7 +107,7 @@ def main():
     
     # Export orthomosaic (PNG) with max resolution 10,000 x 10,000
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 10000
-    chunk.exportRaster(path = project_filepath.replace('.psx', '_10K_ortho.png'),
+    chunk.exportRaster(path = '{0}_10K_ortho.png'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatPNG,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
@@ -94,7 +115,7 @@ def main():
 
     # Export orthomosaic (PNG) with max resolution 2,000 x 2,000
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 2000
-    chunk.exportRaster(path = project_filepath.replace('.psx', '_02K_ortho.png'),
+    chunk.exportRaster(path = '{0}_02K_ortho.png'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatPNG,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
@@ -102,5 +123,7 @@ def main():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('-s', '--skip_build', action='store_true',
+                        help='set flag to skip building of model and ortho')
     args = parser.parse_args()
-    main()
+    main(args.skip_build)

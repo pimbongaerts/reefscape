@@ -86,7 +86,7 @@ class Timepoint(object):
             elif modelpart_file.endswith('.meta.json'):
                 self.meta = True
                 assets += "MET "
-            elif modelpart_file.endswith('_ortho.tif'):
+            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
                 self.ortho = True
                 assets += "ORTHO "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
