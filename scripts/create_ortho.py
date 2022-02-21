@@ -48,6 +48,7 @@ def main():
     # np.warnings.filterwarnings('ignore', category=np.VisibleDeprecationWarning)    
     camera_transforms = [camera.transform for camera in chunk.cameras]
     camera_transforms_np = np.array(camera_transforms, dtype=object)
+    print(camera_transforms_np[0:4])
     camera_transform_mean = np.mean(camera_transforms_np, axis=0)
     projection.matrix = Metashape.Matrix(np.reshape(camera_transform_mean, (4,4)))
 
