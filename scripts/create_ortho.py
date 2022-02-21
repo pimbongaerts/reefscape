@@ -45,7 +45,7 @@ def main():
     projection.type= Metashape.OrthoProjection.Type.Planar
 
     # Calculate average transform matrix based on all aligned cameras
-    camera_transforms2 = [camera.transform for camera in chunk.cameras if camera.transform]
+    camera_transforms = [camera.transform for camera in chunk.cameras if camera.transform]
     camera_transform_mean = np.mean(np.array(camera_transforms), axis=0)
     projection.matrix = Metashape.Matrix(np.reshape(camera_transform_mean, (4,4)))
 
