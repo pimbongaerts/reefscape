@@ -46,6 +46,7 @@ def main():
 
     # Calculate average transform matrix based on all cameras
     camera_transforms = [camera.transform for camera in chunk.cameras]
+    print(camera_transforms)
     camera_transform_mean = np.mean( np.array(camera_transforms), axis=0)
     projection.matrix = Metashape.Matrix(np.reshape(camera_transform_mean, (4,4)))
 
