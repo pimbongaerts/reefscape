@@ -28,11 +28,11 @@ def get_project_filepath():
 
 def get_ortho_filepath():
   """ Retrieve current path and use directory name as project name """
-  return '{0}/{1}.ortho'.format(os.getcwd(), os.path.basename(os.getcwd()))
+  return '{0}/{1}.orthom'.format(os.getcwd(), os.path.basename(os.getcwd()))
 
 def get_ortho_basename():
   """ Retrieve current path and use directory name as project name """
-  return '{0}/{1}.ortho/{1}'.format(os.getcwd(), os.path.basename(os.getcwd()))
+  return '{0}/{1}.orthom/{1}'.format(os.getcwd(), os.path.basename(os.getcwd()))
 
 def main(skip_build):
     # Enable all GPUs
@@ -79,7 +79,7 @@ def main(skip_build):
         sys.exit('Could not create folder: {}'.format(ortho_filepath))
 
     # Export transform matrix to csv file
-    np.savetxt('{0}_trans_ortho.csv'.format(ortho_basename), camera_transform_mean, delimiter=',')
+    np.savetxt('{0}_trans_orthom.csv'.format(ortho_basename), camera_transform_mean, delimiter=',')
 
     ## Export full orthomosaic (TIFF)
     #chunk.exportRaster(path = project_filepath.replace('.psx', '_max_ortho.tif'),
@@ -89,7 +89,7 @@ def main(skip_build):
  
     # Export orthomosaic (TIFF) with max resolution 32,767 x 32,767
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 65536
-    chunk.exportRaster(path = '{0}_64K_ortho.tif'.format(ortho_basename),
+    chunk.exportRaster(path = '{0}_64K_orthom.tif'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatTIFF,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
@@ -97,7 +97,7 @@ def main(skip_build):
 
     # Export orthomosaic (TIFF) with max resolution 32,767 x 32,767
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 32767
-    chunk.exportRaster(path = '{0}_32K_ortho.tif'.format(ortho_basename),
+    chunk.exportRaster(path = '{0}_32K_orthom.tif'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatTIFF,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
@@ -105,7 +105,7 @@ def main(skip_build):
     
     # Export orthomosaic (PNG) with max resolution 10,000 x 10,000
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 10000
-    chunk.exportRaster(path = '{0}_10K_ortho.png'.format(ortho_basename),
+    chunk.exportRaster(path = '{0}_10K_orthom.png'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatPNG,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
@@ -113,7 +113,7 @@ def main(skip_build):
 
     # Export orthomosaic (PNG) with max resolution 2,000 x 2,000
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 2000
-    chunk.exportRaster(path = '{0}_02K_ortho.png'.format(ortho_basename),
+    chunk.exportRaster(path = '{0}_02K_orthom.png'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatPNG,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,

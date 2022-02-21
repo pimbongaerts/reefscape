@@ -54,7 +54,8 @@ class Timepoint(object):
         self.raw_files = 0
         self.jpg_files = 0
         self.psx = False
-        self.ortho = False
+        self.ortho = False      # Manual orthoprojection viscore
+        self.orthom = False     # Automatic orthomosaic
         self.dec = False
         self.ply = False
         self.cams = False
@@ -89,6 +90,9 @@ class Timepoint(object):
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.ortho')):
                 self.ortho = True
                 assets += "ORTHO "
+            elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.orthom')):
+                self.ortho = True
+                assets += "ORTHOM "
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.vis')):
                 self.vis = True
                 assets += self.__get_viscore_status(modelpart_path)
@@ -130,15 +134,17 @@ class Timepoint(object):
         return viscore_assets        
 
 def main():
-    print('PSX:   Agisoft file present')
-    print('CR2:   Number of unconverted cameras (CR2)')
-    print('PLY:   Explorted PLY present')
-    print('CAM:   Camera position file (for viscore) present')
-    print('MET:   Camera metadata file (for viscore) present')
-    print('VIS:   Viscore file present & number of aligned models (>1 means reference)')
-    print('SCALE: Number of Viscore scalers')
-    print('DEPTH: Number of Viscore depth markers for orientation')
-    print('D_IMG: Number of images for depth markers')
+    print('PSX:    Agisoft file present')
+    print('CR2:    Number of unconverted cameras (CR2)')
+    print('PLY:    Explorted PLY present')
+    print('CAM:    Camera position file (for viscore) present')
+    print('MET:    Camera metadata file (for viscore) present')
+    print('VIS:    Viscore file present & number of aligned models (>1 means reference)')
+    print('ORTHO:  Manually generate Viscore orthoprojection')
+    print('ORTHOM: Automatically generated orthomosaic')
+    print('SCALE:  Number of Viscore scalers')
+    print('DEPTH:  Number of Viscore depth markers for orientation')
+    print('D_IMG:  Number of images for depth markers')
 
     print('```shell')
     focal_plots = Focal_plots(focal_plots_path)
