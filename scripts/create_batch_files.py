@@ -82,7 +82,7 @@ def main(README_filename):
                     decimate_batch_file.write('rclone copy {0}_dec50M.ply orthos:/focal_plots/ply_dec50M\n'.format(model_name))
                     decimate_batch_file.write('rclone copy {0}_dec7M.ply orthos:/focal_plots/ply_dec7M\n'.format(model_name))
                 
-                if ('ORTHO' not in line):
+                if ('ORTHOM' not in line and '_20200' in line):
                     ortho_batch_file.write('# Orthomosaic generation of {0}\n'.format(get_linux_model_folder(model_name)))
                     ortho_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
                     ortho_batch_file.write('{0}\n'.format(CREATE_ORTHO_SCRIPT))
