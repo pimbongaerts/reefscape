@@ -1,12 +1,14 @@
-PSX:   Agisoft file present
-CR2:   Number of unconverted cameras (CR2)
-PLY:   Explorted PLY present
-CAM:   Camera position file (for viscore) present
-MET:   Camera metadata file (for viscore) present
-VIS:   Viscore file present & number of aligned models (>1 means reference)
-SCALE: Number of Viscore scalers
-DEPTH: Number of Viscore depth markers for orientation
-D_IMG: Number of images for depth markers
+PSX:    Agisoft file present
+CR2:    Number of unconverted cameras (CR2)
+PLY:    Explorted PLY present
+CAM:    Camera position file (for viscore) present
+MET:    Camera metadata file (for viscore) present
+VIS:    Viscore file present & number of aligned models (>1 means reference)
+ORTHO:  Manually generate Viscore orthoprojection
+ORTHOM: Automatically generated orthomosaic
+SCALE:  Number of Viscore scalers
+DEPTH:  Number of Viscore depth markers for orientation
+D_IMG:  Number of images for depth markers
 ```shell
 ├── cur_kal
 │   ├──cur_kal_20m
@@ -37,7 +39,7 @@ D_IMG: Number of images for depth markers
 │   │   ├──cur_kal_60m_20190224         PSX JPG:0512 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_kal_60m_20200214         PSX JPG:0949 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_kal_60m_20191113         PSX JPG:0708 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
-│   │   ├──cur_kal_60m_20201214         PSX JPG:1017 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 DEC PLY 
+│   │   ├──cur_kal_60m_20201214         PSX JPG:1017 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 DEC PLY ORTHOM 
 │   │   ├──cur_kal_60m_20210214         CR2:1093 PSX JPG:1093 PLY CAM MET VIS DEC PLY ORTHO 
 ├── cur_sna
 │   ├──cur_sna_20m
