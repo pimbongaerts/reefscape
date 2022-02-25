@@ -58,8 +58,6 @@ def main(model_id, coordinates_filename, max_cameras):
             camera_coords = proj[1]
             dist = get_distance_from_camera_center(camera_coords.coord.x, camera_coords.coord.y)
             camera_projs.append([dist, vector_label, vector[0], vector[1], vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y])
-            print(dist, vector_label, vector[0], vector[1], vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y)
-        print(camera_projs)
         # Sort by distance (sorted sorts lists of lists by first element)
         for camera_proj in sorted(camera_projs)[:int(max_cameras)]:
             print(camera_proj)
