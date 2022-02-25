@@ -5,6 +5,7 @@ Note: no whitespace allowed in coordinate labels
 """
 
 import Metashape
+import argparse
 
 BASEPATH = "/mnt/coral3d/focal_plots"
 
