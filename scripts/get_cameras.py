@@ -47,7 +47,7 @@ def main(model_id, coordinates_filename, max_cameras):
         for proj in projections:
             camera = proj[0]
             vector = proj[1]
-            print(vector, [camera.photo.path, vector.coord.x, vector.coord.y])
+            print(vector.key(), camera.photo.path, vector.coord.x, vector.coord.y)
         chunk.remove(marker)
 
 if __name__ == '__main__':
