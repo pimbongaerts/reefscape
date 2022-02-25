@@ -42,12 +42,13 @@ def main(model_id, coordinates_filename, max_cameras):
     vectors = get_vectors_from_file(coordinates_filename)
     for vector_label in vectors:
         cameras = []
-        marker = chunk.addMarker(T.inv().mulp(vectors[vector_label]))
+        vector = vectors[vector_label]
+        marker = chunk.addMarker(T.inv().mulp(vector))
         projections = marker.projections.items()
         for proj in projections:
             camera = proj[0]
-            vector = proj[1]
-            print(vector_label, camera.photo.path, vector.coord.x, vector.coord.y)
+            camera_coords = proj[1]
+            print(vector_label, vector[0], vector[1], vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y)
         chunk.remove(marker)
 
 if __name__ == '__main__':
