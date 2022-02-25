@@ -62,6 +62,7 @@ def main(model_id, coordinates_filename, max_cameras):
         for camera_proj in sorted(camera_projs)[:int(max_cameras)]:
             print(camera_proj)
         chunk.remove(marker)
+        break
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
