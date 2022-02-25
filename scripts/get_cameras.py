@@ -7,6 +7,7 @@ Note: no whitespace allowed in coordinate labels
 import Metashape
 import argparse
 import math
+import numpy
 
 BASEPATH = "/mnt/coral3d/focal_plots"
 CAM_WIDTH = 8734
@@ -48,15 +49,18 @@ def main(model_id, coordinates_filename, max_cameras):
 
     vectors = get_vectors_from_file(coordinates_filename)
     for vector_label in vectors:
-        cameras = []
         vector = vectors[vector_label]
         marker = chunk.addMarker(T.inv().mulp(vector))
         projections = marker.projections.items()
+        camera_projs = []
         for proj in projections:
             camera = proj[0]
             camera_coords = proj[1]
             dist = get_distance_from_camera_center(camera_coords.coord.x, camera_coords.coord.y)
-            print(vector_label, vector[0], vector[1], vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y, dist)
+            camera_projs.append([dist, vector_label, vector[0], vector[1], vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y])
+        # Sort by distance (sorted sorts lists of lists by first element)
+        for camera_proj in sorted(camera_projs)[:int(max_cameras)]:
+            print(camera_proj)
         chunk.remove(marker)
 
 if __name__ == '__main__':
