@@ -28,7 +28,7 @@ def main(model_id, coordinates_filename, max_cameras):
     Metashape.app.gpu_mask = 2 ** (len(Metashape.app.enumGPUDevices())) - 1 # Enable all GPUs
 
     project_path = get_project_path(model_id)
-    project_filepath = '{0}/{1}.psx'.format(project_path)
+    project_filepath = '{0}/{1}.psx'.format(project_path, model_id)
 
     doc = Metashape.Document()
     if os.path.isfile(project_filepath):
