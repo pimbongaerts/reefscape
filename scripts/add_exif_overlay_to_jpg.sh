@@ -22,7 +22,7 @@ convert -resize 1920 cr2:$filename $temp_filename #-auto-orient
 
 # Insert framestamp on image
 new_filename="$basename.jpg"
-ffmpeg -i $temp_filename -vf "drawtext=fontfile=Arial.ttf: text=$framestamp: x=100: y=h-(2*lh): fontcolor=black: fontsize=30: box=1: boxcolor=gray: boxborderw=5" -loglevel panic $new_filename
+ffmpeg -i $temp_filename -vf "scale=2000:1500,drawtext=fontfile=Arial.ttf: text=$framestamp: x=100: y=h-(2*lh): fontcolor=black: fontsize=30: box=1: boxcolor=gray: boxborderw=5" -loglevel panic $new_filename
 
 # Remove temporary file
 rm $temp_filename
