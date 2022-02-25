@@ -6,13 +6,20 @@ Note: no whitespace allowed in coordinate labels
 
 import Metashape
 import argparse
+import math
 
 BASEPATH = "/mnt/coral3d/focal_plots"
+CAM_WIDTH = 8734
+CAM_HEIGHT = 5856
 
 def get_project_path(model_id):
   """ Retrieve current path and use directory name as project name """
   """ ~/plots/seaquarium_40m_2020mar --> ~/plots/seaquarium_40m_2020mar/seaquarium_40m_2020mar.psx """
   return '{0}/{1}/{2}/{3}'.format(BASEPATH, model_id[0:7], model_id[0:11], model_id)
+
+def get_distance_from_camera_center(x, y):
+    """ Calculates distance between point and camera center """
+    return math.sqrt(abs((CAM_WIDTH / 2) - x) ** 2 + abs((CAM_HEIGHT / 2) - y) ** 2)
 
 def get_vectors_from_file(coordinates_filename):
     vectors = {}
@@ -48,7 +55,8 @@ def main(model_id, coordinates_filename, max_cameras):
         for proj in projections:
             camera = proj[0]
             camera_coords = proj[1]
-            print(vector_label, vector[0], vector[1], vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y)
+            dist = get_distance_from_camera_center(camera_coords.coord.x, camera_coords.coord.y)
+            print(vector_label, vector[0], vector[1], vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y, dist)
         chunk.remove(marker)
 
 if __name__ == '__main__':
