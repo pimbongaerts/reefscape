@@ -89,8 +89,11 @@ def main(skip_build):
  
     # Export orthomosaic (TIFF) with max resolution 32,767 x 32,767
     output_resolution = max(chunk.orthomosaic.width, chunk.orthomosaic.height) * chunk.orthomosaic.resolution / 65536
+    compression = Metashape.ImageCompression()
+    compression.tiff_big = True  # Enable BigTiff compression for exceptionally large orthos
     chunk.exportRaster(path = '{0}_64K_orthom.tif'.format(ortho_basename),
                        image_format = Metashape.ImageFormat.ImageFormatTIFF,
+                       image_compression = compression,
                        source_data = Metashape.DataSource.OrthomosaicData,
                        projection = projection,
                        resolution = output_resolution)
