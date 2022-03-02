@@ -20,6 +20,7 @@ CAM_WIDTH = 8734
 CAM_HEIGHT = 5856
 ANN_SQ_SIZE = 20
 CROP_SIZE = 1000
+NO_IMG_PATH = '/home/deepcat/reefscape/no_img.jpg'
 
 def get_project_path(model_id):
   """ Retrieve current path and use directory name as project name """
@@ -80,7 +81,14 @@ def main(model_id, annotations_filename, max_cameras):
             dist = get_distance_from_camera_center(camera_coords.coord.x, camera_coords.coord.y)
             camera_projs.append([dist, annotation_id, annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y])
         if len(camera_projs) == 0:
-            sys.exit('Error - no cameras found: {0} {1} {2} {3}'.format(annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2]))
+            # Output dummy image if no cameras found (e.g. outside plot)
+            img_text = 'no images! {0}_{1} x {2} y {3} z'.format(annotation_id, annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2])
+            output_file = '{0}/{1}_{2}_noimg'.format(output_folder, annotation_id, annotation_label)
+
+            ffmpeg_cmd = 'ffmpeg -i {0} -hide_banner -loglevel error -vf "scale={1}:{1},drawtext=fontfile=/Library/Fonts/Arial.ttf: text=\'{2}\': x=50: y=h-(2*lh): fontcolor=black: fontsize=20: box=1: boxcolor=gray: boxborderw=5" {3}'.format(NO_IMG_PATH, CROP_SIZE, img_text, output_file)
+            process = subprocess.Popen(ffmpeg_cmd, shell=True)
+            process.wait()
+            #sys.exit('Error - no cameras found: {0} {1} {2} {3}'.format(annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2]))
         else:
             # Sort by distance (sorted sorts lists of lists by first element)
             for camera_proj in sorted(camera_projs)[:int(max_cameras)]:
