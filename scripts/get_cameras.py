@@ -20,7 +20,7 @@ CAM_WIDTH = 8734
 CAM_HEIGHT = 5856
 ANN_SQ_SIZE = 20
 CROP_SIZE = 1000
-NO_IMG_PATH = '/home/deepcat/reefscape/no_img.jpg'
+NO_IMG_PATH = '/home/deepcat/reefscape/scripts/no_img.jpg'
 
 def get_project_path(model_id):
   """ Retrieve current path and use directory name as project name """
