@@ -58,7 +58,9 @@ def convert_cameras(camera_extension):
         temp_config_filepath = '{0}/{1}'.format(temp_config_path, 
                                 str(os.path.basename(filename).split('.')[0]))
         try:
-            os.mkdir('/tmp/' + str(os.path.basename(i).split('.')[0]))
+            cmd = 'mkdir {}'.format(temp_config_filepath)
+            print(cmd)
+            #os.mkdir('/tmp/' + temp_config_filepath)
         except  OSError:
             sys.exit('Could not create folder: {}'.format(temp_config_filepath))
 
