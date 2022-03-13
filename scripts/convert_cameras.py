@@ -58,7 +58,7 @@ def remove_RAW_folder(camera_extension):
 
     if raw_count == photo_count:
         try:
-            os.system("rm -rf {}}".format(raw_camera_path))
+            os.system('rm -rf {}'.format(raw_camera_path))
         except OSError:
             sys.exit('Could not remove RAW folder: {}'.format(raw_camera_path))
 
