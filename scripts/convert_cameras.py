@@ -23,6 +23,7 @@ def convert_cameras(camera_extension):
     photo_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
     camera_list = []
     
+    print('Converting cameras for {}'.format(photo_camera_path))
     if os.path.exists(photo_camera_path):
       camera_count = len([filename for filename in os.listdir('.') if filename.endswith(camera_extension)])
       for filename in os.listdir(photo_camera_path):
@@ -50,6 +51,7 @@ def convert_cameras(camera_extension):
             camera_list.append(new_filepath)
 
 def remove_RAW_folder(camera_extension):
+    
     raw_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), RAW_FOLDER_POSTFIX)
     photo_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
 
@@ -59,6 +61,7 @@ def remove_RAW_folder(camera_extension):
     if raw_count == photo_count:
         try:
             os.system('rm -rf {}'.format(raw_camera_path))
+            print('Removed RAW images and folder: {}'.format(raw_camera_path))
         except OSError:
             sys.exit('Could not remove RAW folder: {}'.format(raw_camera_path))
 
