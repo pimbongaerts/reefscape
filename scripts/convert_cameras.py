@@ -54,6 +54,7 @@ def convert_cameras(camera_extension):
 
     # Create batch command list for parallelization
     # and temporary config folders
+    cmds_list = []
     for filename in raw_images:
         temp_config_filepath = '{0}/{1}'.format(temp_config_path, 
                                 str(os.path.basename(filename).split('.')[0]))
