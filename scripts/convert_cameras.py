@@ -73,8 +73,7 @@ def convert_cameras(camera_extension):
             sys.exit('Could not create folder: {}'.format(temp_config_filepath))
 
         old_file_path = os.path.join(raw_camera_path, filename)
-        new_filename = filename.replace(RAW_EXTENSION, camera_extension)
-        temp_filepath = os.path.join(temp_photo_camera_path, new_filename)
+        temp_filepath = '{0}/{1}.{2}'.format(temp_photo_camera_path, str(os.path.basename(filename).split('.')[0]), camera_extension)
 
         cmds_list.append('darktable-cli {0} {1} --configdir {2}'.format(old_file_path, temp_filepath, temp_config_filepath))
 
