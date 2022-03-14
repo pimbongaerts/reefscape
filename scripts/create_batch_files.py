@@ -11,6 +11,7 @@ __copyright__ = 'Copyright (C) 2021 Pim Bongaerts'
 __license__ = 'GPL'
 
 BASE_PATH_LINUX = '/mnt/coral3d/focal_plots'
+CONVERT_CAMERAS_SCRIPT = 'python3 ~/reefscape/scripts/convert_cameras.py'
 DENSECLOUD_SCRIPT = '~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py'
 CREATE_ORTHO_SCRIPT = '~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py'
 
@@ -49,6 +50,7 @@ def get_int_behind_string(line, search_string):
 
 def main(README_filename):
     readme_file = open(README_filename, 'r')
+    camera_batch_file = open('camera_batch.sh', 'w')
     densecloud_batch_file = open('densecloud_batch.sh', 'w')
     viscore_batch_file = open('viscore_batch.bat', 'w')
     decimate_batch_file = open('decimate_batch.sh', 'w')
@@ -56,7 +58,10 @@ def main(README_filename):
     for line in readme_file:
         model_name = line[11:40].strip()
         if len(model_name) == 20:  # Ignore models with names other than 20 characters
-            if ('CR2' in line) and ('PSX' not in line) and ('@ea' not in line):
+            if ('CR2' in line) and ('JPG' not in line) and ('@ea' not in line):
+                camera_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
+                camera_batch_file.write('{0}\n'.format(CONVERT_CAMERAS_SCRIPT))               
+            elif ('JPG' in line) and ('PSX' not in line) and ('@ea' not in line):
                 CR2_count = get_int_behind_string(line, 'CR2')
                 JPG_count = get_int_behind_string(line, 'JPG')
 
@@ -92,6 +97,7 @@ def main(README_filename):
                     ortho_batch_file.write('rclone copy {0}.orthom/{0}_02K_orthom.png orthos:/focal_plots/orthom_02K\n'.format(model_name))
 
     readme_file.close()
+    camera_batch_file.close()
     densecloud_batch_file.close()
     viscore_batch_file.close()
     decimate_batch_file.close()
