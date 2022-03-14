@@ -74,9 +74,9 @@ def convert_cameras(camera_extension):
 
         old_file_path = os.path.join(raw_camera_path, filename)
         new_filename = filename.replace(RAW_EXTENSION, camera_extension)
-        temp_filepath = '{0}/{1}'.format(temp_photo_camera_path, new_filename)
+        temp_filepath = os.path.join(temp_photo_camera_path, new_filename)
 
-        cmds_list.append('darktable-cli {0} {1} --configdir {2}'.format(old_file_path, temp_filepath, temp_config_path))
+        cmds_list.append('darktable-cli {0} {1} --configdir {2}'.format(old_file_path, temp_filepath, temp_config_filepath))
 
     # Execute across all cores
     # pool = Pool(mp.cpu_count())
