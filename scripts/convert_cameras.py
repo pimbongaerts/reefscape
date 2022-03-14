@@ -52,11 +52,15 @@ def convert_cameras(camera_extension):
 
     print('Converting cameras for {}'.format(os.getcwd()))
 
-    # Create temporary output folder
+    # Create temporary output folderw
     try:
         os.mkdir(temp_photo_camera_path)
     except:
         sys.exit('Could not create folder: {}'.format(temp_photo_camera_path))
+    try:
+        os.mkdir(temp_config_path)
+    except:
+        sys.exit('Could not create folder: {}'.format(temp_config_path))
 
     # Create batch command list for parallelization
     # and temporary config folders
