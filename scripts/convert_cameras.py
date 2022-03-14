@@ -30,9 +30,9 @@ def call_proc(cmd):
 def convert_cameras(camera_extension):
     """ Get the paths for each camera """
     raw_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), RAW_FOLDER_POSTFIX)
-    temp_photo_camera_path = '{0}/{1}/{1}{2}'.format(TEMP_PHOTO_PATH, os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
     temp_config_path = '{0}/{1}'.format(TEMP_CONFIG_PATH, os.path.basename(os.getcwd()))
     photo_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
+    temp_photo_camera_path = '{0}/{1}{2}'.format(TEMP_PHOTO_PATH, os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
 
     if os.path.exists(raw_camera_path) and os.path.exists(photo_camera_path):
         raw_images = glob.glob('{0}/*.{1}'.format(raw_camera_path, RAW_EXTENSION))
