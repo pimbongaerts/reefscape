@@ -75,8 +75,9 @@ def convert_cameras(camera_extension):
 
         old_file_path = os.path.join(raw_camera_path, filename)
         temp_filepath = '{0}/{1}.{2}'.format(temp_photo_camera_path, str(os.path.basename(filename).split('.')[0]), camera_extension)
-
-        cmds_list.append('darktable-cli {0} {1} --configdir {2}'.format(old_file_path, temp_filepath, temp_config_filepath))
+        cmd = 'darktable-cli {0} {1} --configdir {2}'.format(old_file_path, temp_filepath, temp_config_filepath)
+        cmds_list.append(cmd)
+        print(cmd)
 
     # Execute across all cores
     pool = Pool(mp.cpu_count())
@@ -115,7 +116,7 @@ def remove_RAW_folder(camera_extension):
         except OSError:
             sys.exit('Could not remove RAW folder: {}'.format(raw_camera_path))
     else:
-        sys.exit('There was a mismatch betweeen RAW and converted images: {}'.format(raw_camera_path))
+        sys.exit('There was a mismatch between RAW and converted images: {}'.format(raw_camera_path))
 
 def main(camera_extension):
     convert_cameras(camera_extension)
