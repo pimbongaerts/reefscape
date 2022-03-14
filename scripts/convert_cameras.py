@@ -54,8 +54,7 @@ def convert_cameras(camera_extension):
 
     # Create temporary output folder
     try:
-        cmd = 'mkdir {}'.format(temp_photo_camera_path)
-        print(cmd)
+        os.mkdir(temp_photo_camera_path)
     except:
         sys.exit('Could not create folder: {}'.format(temp_photo_camera_path))
 
@@ -66,10 +65,8 @@ def convert_cameras(camera_extension):
         temp_config_filepath = '{0}/{1}'.format(temp_config_path, 
                                 str(os.path.basename(filename).split('.')[0]))
         try:
-            cmd = 'mkdir {}'.format(temp_config_filepath)
-            print(cmd)
-            #os.mkdir('/tmp/' + temp_config_filepath)
-        except  OSError:
+            os.mkdir(temp_config_filepath)
+        except OSError:
             sys.exit('Could not create folder: {}'.format(temp_config_filepath))
 
         old_file_path = os.path.join(raw_camera_path, filename)
@@ -78,25 +75,26 @@ def convert_cameras(camera_extension):
         cmds_list.append('darktable-cli {0} {1} --configdir {2}'.format(old_file_path, temp_filepath, temp_config_filepath))
 
     # Execute across all cores
-    # pool = Pool(mp.cpu_count())
-    # pool.map(call_proc, cmds_list)
-    # pool.close()
-    # pool.join()
-    print(cmds_list)
+    pool = Pool(mp.cpu_count())
+    pool.map(call_proc, cmds_list)
+    pool.close()
+    pool.join()
 
     # Move folder across
     try:
-        print('shutils '+temp_photo_camera_path+photo_camera_path)
-        #shutil.move(temp_photo_camera_path, photo_camera_path)
+        shutil.move(temp_photo_camera_path, photo_camera_path)
     except:
         sys.exit('Could not move folder: {0} to {1}'.format(temp_photo_camera_path, photo_camera_path))
 
-    # Delete temporary files
-    cmd = 'rm -rf {}'.format(temp_photo_camera_path)
-    print(cmd)
-    cmd = 'rm -rf {}'.format(temp_config_path)
-    print(cmd)
-    # os.system(cmd)
+    # Delete temporary fodlers/files
+    try:
+        os.system('rm -rf {}'.format(temp_photo_camera_path))
+    except OSError:
+        sys.exit('Could not remove folder: {}'.format(temp_photo_camera_path))
+    try:
+        os.system('rm -rf {}'.format(temp_config_path))
+    except OSError:
+        sys.exit('Could not remove folder: {}'.format(temp_config_path))
     
 def remove_RAW_folder(camera_extension):
     
@@ -108,9 +106,7 @@ def remove_RAW_folder(camera_extension):
 
     if raw_count == photo_count:
         try:
-            cmd = 'rm -rf {}'.format(raw_camera_path)
-            print(cmd)
-            #os.system('rm -rf {}'.format(raw_camera_path))
+            os.system('rm -rf {}'.format(raw_camera_path))
             print('Removed RAW images and folder: {}'.format(raw_camera_path))
         except OSError:
             sys.exit('Could not remove RAW folder: {}'.format(raw_camera_path))
