@@ -1,4 +1,6 @@
 mkdir Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20210219\cur_kal_20m_20210219.vis
 if exist Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20210219\cur_kal_20m_20210219.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20210219\cur_kal_20m_20210219.ply Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20210219\cur_kal_20m_20210219.vis\cur_kal_20m_20210219)
+mkdir Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20211127\cur_kal_40m_20211127.vis
+if exist Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20211127\cur_kal_40m_20211127.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20211127\cur_kal_40m_20211127.ply Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20211127\cur_kal_40m_20211127.vis\cur_kal_40m_20211127)
 mkdir Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20211204\cur_sna_40m_20211204.vis
 if exist Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20211204\cur_sna_40m_20211204.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20211204\cur_sna_40m_20211204.ply Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20211204\cur_sna_40m_20211204.vis\cur_sna_40m_20211204)
