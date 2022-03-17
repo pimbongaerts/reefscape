@@ -17,28 +17,28 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_kal_20m_20191113         PSX JPG:1048 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:04 DEC PLY 
 │   │   ├──cur_kal_20m_20201209         PSX JPG:1241 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 DEC PLY ORTHOM 
 │   │   ├──cur_kal_20m_20210219         JPG:1183 PSX PLY CAM MET DEC PLY 
-│   │   ├──cur_kal_20m_20211130         JPG:1098 
+│   │   ├──cur_kal_20m_20211130         JPG:1098 PSX PLY CAM MET 
 │   ├──cur_kal_40m
 │   │   ├──cur_kal_40m_20190224         PSX JPG:0488 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:04 PLY DEC PLY 
 │   │   ├──cur_kal_40m_20191113         PSX JPG:1024 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:04 DEC PLY 
 │   │   ├──cur_kal_40m_20200214         PSX JPG:0900 PLY CAM MET ORTHO VIS:04 SCALE:02 DEPTH:04 DEC PLY ORTHOM 
 │   │   ├──cur_kal_40m_20201214         PSX JPG:1086 PLY CAM MET VIS:01 SCALE:01 DEPTH:04 DEC PLY ORTHOM 
 │   │   ├──cur_kal_40m_20210214         CR2:1066 PSX JPG:1066 PLY CAM MET VIS DEC PLY ORTHOM 
-│   │   ├──cur_kal_40m_20211127         JPG:1263 PSX PLY CAM MET 
+│   │   ├──cur_kal_40m_20211127         JPG:1263 PSX PLY CAM MET ORTHOM 
 │   ├──cur_kal_10m
 │   │   ├──cur_kal_10m_20190309         PSX JPG:1345 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:09 DEC PLY 
 │   │   ├──cur_kal_10m_20191113         PSX JPG:1204 PLY CAM MET ORTHO VIS:01 SCALE:02 DEPTH:10 DEC PLY 
 │   │   ├──cur_kal_10m_20200214         PSX JPG:1106 PLY CAM MET ORTHO VIS:04 SCALE:02 DEPTH:10 DEC PLY ORTHOM 
 │   │   ├──cur_kal_10m_20201209         PSX JPG:1825 PLY CAM MET VIS:01 SCALE:02 DEPTH:10 D_IMG:11 DEC PLY ORTHOM 
 │   │   ├──cur_kal_10m_20210219         CR2:1507 PSX JPG:1507 PLY CAM MET VIS DEC PLY ORTHOM 
-│   │   ├──cur_kal_10m_20211130         JPG:1883 
+│   │   ├──cur_kal_10m_20211130         JPG:1883 PSX PLY CAM MET 
 │   ├──cur_kal_05m
 │   │   ├──cur_kal_05m_20190309         PSX JPG:0494 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 DEC PLY 
 │   │   ├──cur_kal_05m_20200214         PSX JPG:0809 PLY CAM MET VIS:04 SCALE:02 DEPTH:05 DEC PLY ORTHOM 
 │   │   ├──cur_kal_05m_20191113         PSX JPG:0914 PLY CAM MET VIS:01 SCALE:02 DEPTH:04 DEC PLY 
 │   │   ├──cur_kal_05m_20201209         PSX JPG:1401 PLY CAM MET VIS:01 SCALE:02 DEPTH:05 D_IMG:05 DEC PLY ORTHOM 
 │   │   ├──cur_kal_05m_20210219         CR2:1057 PSX JPG:1057 PLY CAM MET VIS DEC PLY ORTHOM 
-│   │   ├──cur_kal_05m_20211130         JPG:1265 
+│   │   ├──cur_kal_05m_20211130         JPG:1265 PSX 
 │   ├──cur_kal_60m
 │   │   ├──cur_kal_60m_20190224         PSX JPG:0512 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_kal_60m_20200214         PSX JPG:0949 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY ORTHOM 
@@ -104,7 +104,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sea_40m_20191112         PSX JPG:0869 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_sea_40m_20201223         PSX JPG:0945 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 DEC PLY ORTHOM 
 │   │   ├──cur_sea_40m_20210228         CR2:1249 PSX JPG:1249 PLY CAM MET VIS DEC PLY ORTHOM 
-│   │   ├──cur_sea_40m_20211215         JPG:1299 PSX 
+│   │   ├──cur_sea_40m_20211215         JPG:1299 PSX PLY CAM MET 
 │   ├──cur_sea_60m
 │   │   ├──cur_sea_60m_20191112         PSX JPG:0819 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_sea_60m_20200221         CAM MET PLY PSX VIS:01 SCALE:02 DEPTH:00 DEC PLY JPG:0829 
@@ -228,12 +228,12 @@ D_IMG:  Number of images for depth markers
 ├── cur_seb
 │   ├──cur_seb_10m
 │   │   ├──cur_seb_10m_20190319         PSX JPG:1265 PLY CAM MET VIS DEC PLY 
-│   │   ├──cur_seb_10m_20201210         PSX JPG:0605 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 DEC PLY 
+│   │   ├──cur_seb_10m_20201210         PSX JPG:0605 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_seb_10m_20210302         CR2:0895 PSX JPG:0895 PLY CAM MET VIS DEC PLY 
 │   ├──cur_seb_20m
 │   │   ├──cur_seb_20m_20190319         PSX JPG:1000 PLY CAM MET ORTHO VIS:01 SCALE:00 DEPTH:00 DEC PLY 
 │   │   ├──cur_seb_20m_20190319_copy    CR2:1000 PSX JPG:1000 PLY CAM MET 
-│   │   ├──cur_seb_20m_20201210         PSX JPG:0713 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 DEC PLY 
+│   │   ├──cur_seb_20m_20201210         PSX JPG:0713 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_seb_20m_20210302         CR2:0720 PSX JPG:0720 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 DEC PLY 
 ├── @eaDir
 ├── org
