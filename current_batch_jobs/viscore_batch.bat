@@ -30,6 +30,10 @@ mkdir Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20211202\cur_dir_05m_202112
 if exist Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20211202\cur_dir_05m_20211202.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20211202\cur_dir_05m_20211202.ply Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20211202\cur_dir_05m_20211202.vis\cur_dir_05m_20211202)
 mkdir Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20211202\cur_dir_10m_20211202.vis
 if exist Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20211202\cur_dir_10m_20211202.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20211202\cur_dir_10m_20211202.ply Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20211202\cur_dir_10m_20211202.vis\cur_dir_10m_20211202)
+mkdir Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20211202\cur_dir_20m_20211202.vis
+if exist Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20211202\cur_dir_20m_20211202.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20211202\cur_dir_20m_20211202.ply Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20211202\cur_dir_20m_20211202.vis\cur_dir_20m_20211202)
+mkdir Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20211128\cur_dir_40m_20211128.vis
+if exist Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20211128\cur_dir_40m_20211128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20211128\cur_dir_40m_20211128.ply Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20211128\cur_dir_40m_20211128.vis\cur_dir_40m_20211128)
 mkdir Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20211128\cur_dir_60m_20211128.vis
 if exist Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20211128\cur_dir_60m_20211128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20211128\cur_dir_60m_20211128.ply Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20211128\cur_dir_60m_20211128.vis\cur_dir_60m_20211128)
 mkdir Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20211126\cur_wat_05m_20211126.vis
