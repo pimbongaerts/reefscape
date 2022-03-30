@@ -159,13 +159,6 @@ rclone copy cur_sna_60m_20190222.orthom/cur_sna_60m_20190222_64K_orthom.tif orth
 rclone copy cur_sna_60m_20190222.orthom/cur_sna_60m_20190222_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_sna_60m_20190222.orthom/cur_sna_60m_20190222_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_sna_60m_20190222.orthom/cur_sna_60m_20190222_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sna/cur_sna_60m/cur_sna_60m_20211204
-cd /mnt/coral3d/focal_plots/cur_sna/cur_sna_60m/cur_sna_60m_20211204
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sna_60m_20211204
-rclone copy cur_sna_60m_20211204.orthom/cur_sna_60m_20211204_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_sna_60m_20211204.orthom/cur_sna_60m_20211204_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_sna_60m_20211204.orthom/cur_sna_60m_20211204_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_sna_60m_20211204.orthom/cur_sna_60m_20211204_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_10m/cur_sea_10m_20191112
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_10m/cur_sea_10m_20191112
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_10m_20191112
@@ -180,13 +173,6 @@ rclone copy cur_sea_10m_20190319.orthom/cur_sea_10m_20190319_64K_orthom.tif orth
 rclone copy cur_sea_10m_20190319.orthom/cur_sea_10m_20190319_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_sea_10m_20190319.orthom/cur_sea_10m_20190319_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_sea_10m_20190319.orthom/cur_sea_10m_20190319_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_10m/cur_sea_10m_20211125
-cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_10m/cur_sea_10m_20211125
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_10m_20211125
-rclone copy cur_sea_10m_20211125.orthom/cur_sea_10m_20211125_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_sea_10m_20211125.orthom/cur_sea_10m_20211125_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_sea_10m_20211125.orthom/cur_sea_10m_20211125_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_sea_10m_20211125.orthom/cur_sea_10m_20211125_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20191112
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20191112
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_20m_20191112
@@ -194,13 +180,6 @@ rclone copy cur_sea_20m_20191112.orthom/cur_sea_20m_20191112_64K_orthom.tif orth
 rclone copy cur_sea_20m_20191112.orthom/cur_sea_20m_20191112_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_sea_20m_20191112.orthom/cur_sea_20m_20191112_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_sea_20m_20191112.orthom/cur_sea_20m_20191112_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20211125
-cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20211125
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_20m_20211125
-rclone copy cur_sea_20m_20211125.orthom/cur_sea_20m_20211125_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_sea_20m_20211125.orthom/cur_sea_20m_20211125_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_sea_20m_20211125.orthom/cur_sea_20m_20211125_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_sea_20m_20211125.orthom/cur_sea_20m_20211125_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20190220
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20190220
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_40m_20190220
@@ -215,13 +194,6 @@ rclone copy cur_sea_40m_20191112.orthom/cur_sea_40m_20191112_64K_orthom.tif orth
 rclone copy cur_sea_40m_20191112.orthom/cur_sea_40m_20191112_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_sea_40m_20191112.orthom/cur_sea_40m_20191112_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_sea_40m_20191112.orthom/cur_sea_40m_20191112_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20211215
-cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20211215
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_40m_20211215
-rclone copy cur_sea_40m_20211215.orthom/cur_sea_40m_20211215_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_sea_40m_20211215.orthom/cur_sea_40m_20211215_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_sea_40m_20211215.orthom/cur_sea_40m_20211215_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_sea_40m_20211215.orthom/cur_sea_40m_20211215_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20191112
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20191112
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_60m_20191112
@@ -243,20 +215,6 @@ rclone copy cur_sea_60m_20190219.orthom/cur_sea_60m_20190219_64K_orthom.tif orth
 rclone copy cur_sea_60m_20190219.orthom/cur_sea_60m_20190219_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_sea_60m_20190219.orthom/cur_sea_60m_20190219_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_sea_60m_20190219.orthom/cur_sea_60m_20190219_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20211215
-cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20211215
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_sea_60m_20211215
-rclone copy cur_sea_60m_20211215.orthom/cur_sea_60m_20211215_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_sea_60m_20211215.orthom/cur_sea_60m_20211215_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_sea_60m_20211215.orthom/cur_sea_60m_20211215_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_sea_60m_20211215.orthom/cur_sea_60m_20211215_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20201219
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20201219
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_05m_20201219
-rclone copy cur_dir_05m_20201219.orthom/cur_dir_05m_20201219_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_05m_20201219.orthom/cur_dir_05m_20201219_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_05m_20201219.orthom/cur_dir_05m_20201219_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_05m_20201219.orthom/cur_dir_05m_20201219_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20201130
 cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20201130
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_05m_20201130
@@ -271,20 +229,6 @@ rclone copy cur_dir_05m_20210221.orthom/cur_dir_05m_20210221_64K_orthom.tif orth
 rclone copy cur_dir_05m_20210221.orthom/cur_dir_05m_20210221_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_dir_05m_20210221.orthom/cur_dir_05m_20210221_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_dir_05m_20210221.orthom/cur_dir_05m_20210221_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20211202
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20211202
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_05m_20211202
-rclone copy cur_dir_05m_20211202.orthom/cur_dir_05m_20211202_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_05m_20211202.orthom/cur_dir_05m_20211202_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_05m_20211202.orthom/cur_dir_05m_20211202_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_05m_20211202.orthom/cur_dir_05m_20211202_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_10m/cur_dir_10m_20201219
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_10m/cur_dir_10m_20201219
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_10m_20201219
-rclone copy cur_dir_10m_20201219.orthom/cur_dir_10m_20201219_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_10m_20201219.orthom/cur_dir_10m_20201219_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_10m_20201219.orthom/cur_dir_10m_20201219_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_10m_20201219.orthom/cur_dir_10m_20201219_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_10m/cur_dir_10m_20201130
 cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_10m/cur_dir_10m_20201130
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_10m_20201130
@@ -299,20 +243,6 @@ rclone copy cur_dir_10m_20210221.orthom/cur_dir_10m_20210221_64K_orthom.tif orth
 rclone copy cur_dir_10m_20210221.orthom/cur_dir_10m_20210221_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_dir_10m_20210221.orthom/cur_dir_10m_20210221_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_dir_10m_20210221.orthom/cur_dir_10m_20210221_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_10m/cur_dir_10m_20211202
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_10m/cur_dir_10m_20211202
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_10m_20211202
-rclone copy cur_dir_10m_20211202.orthom/cur_dir_10m_20211202_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_10m_20211202.orthom/cur_dir_10m_20211202_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_10m_20211202.orthom/cur_dir_10m_20211202_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_10m_20211202.orthom/cur_dir_10m_20211202_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_20m/cur_dir_20m_20201219
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_20m/cur_dir_20m_20201219
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_20m_20201219
-rclone copy cur_dir_20m_20201219.orthom/cur_dir_20m_20201219_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_20m_20201219.orthom/cur_dir_20m_20201219_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_20m_20201219.orthom/cur_dir_20m_20201219_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_20m_20201219.orthom/cur_dir_20m_20201219_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_20m/cur_dir_20m_20201130
 cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_20m/cur_dir_20m_20201130
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_20m_20201130
@@ -334,13 +264,6 @@ rclone copy cur_dir_20m_20211202.orthom/cur_dir_20m_20211202_64K_orthom.tif orth
 rclone copy cur_dir_20m_20211202.orthom/cur_dir_20m_20211202_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_dir_20m_20211202.orthom/cur_dir_20m_20211202_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_dir_20m_20211202.orthom/cur_dir_20m_20211202_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_40m/cur_dir_40m_20201219
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_40m/cur_dir_40m_20201219
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_40m_20201219
-rclone copy cur_dir_40m_20201219.orthom/cur_dir_40m_20201219_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_40m_20201219.orthom/cur_dir_40m_20201219_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_40m_20201219.orthom/cur_dir_40m_20201219_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_40m_20201219.orthom/cur_dir_40m_20201219_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_40m/cur_dir_40m_20210221
 cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_40m/cur_dir_40m_20210221
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_40m_20210221
@@ -355,13 +278,6 @@ rclone copy cur_dir_40m_20211128.orthom/cur_dir_40m_20211128_64K_orthom.tif orth
 rclone copy cur_dir_40m_20211128.orthom/cur_dir_40m_20211128_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_dir_40m_20211128.orthom/cur_dir_40m_20211128_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_dir_40m_20211128.orthom/cur_dir_40m_20211128_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20201219
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20201219
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_60m_20201219
-rclone copy cur_dir_60m_20201219.orthom/cur_dir_60m_20201219_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_60m_20201219.orthom/cur_dir_60m_20201219_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_60m_20201219.orthom/cur_dir_60m_20201219_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_60m_20201219.orthom/cur_dir_60m_20201219_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20210213
 cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20210213
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_60m_20210213
@@ -369,13 +285,6 @@ rclone copy cur_dir_60m_20210213.orthom/cur_dir_60m_20210213_64K_orthom.tif orth
 rclone copy cur_dir_60m_20210213.orthom/cur_dir_60m_20210213_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_dir_60m_20210213.orthom/cur_dir_60m_20210213_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_dir_60m_20210213.orthom/cur_dir_60m_20210213_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20211128
-cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20211128
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_dir_60m_20211128
-rclone copy cur_dir_60m_20211128.orthom/cur_dir_60m_20211128_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_dir_60m_20211128.orthom/cur_dir_60m_20211128_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_dir_60m_20211128.orthom/cur_dir_60m_20211128_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_dir_60m_20211128.orthom/cur_dir_60m_20211128_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20200225
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20200225
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_05m_20200225
@@ -390,20 +299,6 @@ rclone copy cur_wat_05m_20210218.orthom/cur_wat_05m_20210218_64K_orthom.tif orth
 rclone copy cur_wat_05m_20210218.orthom/cur_wat_05m_20210218_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_wat_05m_20210218.orthom/cur_wat_05m_20210218_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_wat_05m_20210218.orthom/cur_wat_05m_20210218_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20201201
-cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20201201
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_05m_20201201
-rclone copy cur_wat_05m_20201201.orthom/cur_wat_05m_20201201_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_wat_05m_20201201.orthom/cur_wat_05m_20201201_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_wat_05m_20201201.orthom/cur_wat_05m_20201201_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_wat_05m_20201201.orthom/cur_wat_05m_20201201_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20211126
-cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20211126
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_05m_20211126
-rclone copy cur_wat_05m_20211126.orthom/cur_wat_05m_20211126_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_wat_05m_20211126.orthom/cur_wat_05m_20211126_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_wat_05m_20211126.orthom/cur_wat_05m_20211126_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_wat_05m_20211126.orthom/cur_wat_05m_20211126_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20200225
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20200225
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_10m_20200225
@@ -411,13 +306,6 @@ rclone copy cur_wat_10m_20200225.orthom/cur_wat_10m_20200225_64K_orthom.tif orth
 rclone copy cur_wat_10m_20200225.orthom/cur_wat_10m_20200225_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_wat_10m_20200225.orthom/cur_wat_10m_20200225_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_wat_10m_20200225.orthom/cur_wat_10m_20200225_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20201201
-cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20201201
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_10m_20201201
-rclone copy cur_wat_10m_20201201.orthom/cur_wat_10m_20201201_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_wat_10m_20201201.orthom/cur_wat_10m_20201201_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_wat_10m_20201201.orthom/cur_wat_10m_20201201_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_wat_10m_20201201.orthom/cur_wat_10m_20201201_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20210218
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20210218
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_10m_20210218
@@ -425,13 +313,6 @@ rclone copy cur_wat_10m_20210218.orthom/cur_wat_10m_20210218_64K_orthom.tif orth
 rclone copy cur_wat_10m_20210218.orthom/cur_wat_10m_20210218_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_wat_10m_20210218.orthom/cur_wat_10m_20210218_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_wat_10m_20210218.orthom/cur_wat_10m_20210218_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20211126
-cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20211126
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_10m_20211126
-rclone copy cur_wat_10m_20211126.orthom/cur_wat_10m_20211126_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_wat_10m_20211126.orthom/cur_wat_10m_20211126_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_wat_10m_20211126.orthom/cur_wat_10m_20211126_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_wat_10m_20211126.orthom/cur_wat_10m_20211126_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20200225
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20200225
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_20m_20200225
@@ -439,13 +320,6 @@ rclone copy cur_wat_20m_20200225.orthom/cur_wat_20m_20200225_64K_orthom.tif orth
 rclone copy cur_wat_20m_20200225.orthom/cur_wat_20m_20200225_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_wat_20m_20200225.orthom/cur_wat_20m_20200225_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_wat_20m_20200225.orthom/cur_wat_20m_20200225_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20201201
-cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20201201
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_20m_20201201
-rclone copy cur_wat_20m_20201201.orthom/cur_wat_20m_20201201_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_wat_20m_20201201.orthom/cur_wat_20m_20201201_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_wat_20m_20201201.orthom/cur_wat_20m_20201201_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_wat_20m_20201201.orthom/cur_wat_20m_20201201_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20210218
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20210218
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_20m_20210218
@@ -453,13 +327,6 @@ rclone copy cur_wat_20m_20210218.orthom/cur_wat_20m_20210218_64K_orthom.tif orth
 rclone copy cur_wat_20m_20210218.orthom/cur_wat_20m_20210218_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_wat_20m_20210218.orthom/cur_wat_20m_20210218_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_wat_20m_20210218.orthom/cur_wat_20m_20210218_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20211126
-cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20211126
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_20m_20211126
-rclone copy cur_wat_20m_20211126.orthom/cur_wat_20m_20211126_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_wat_20m_20211126.orthom/cur_wat_20m_20211126_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_wat_20m_20211126.orthom/cur_wat_20m_20211126_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_wat_20m_20211126.orthom/cur_wat_20m_20211126_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_40m/cur_wat_40m_20200225
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_40m/cur_wat_40m_20200225
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_40m_20200225
@@ -481,13 +348,6 @@ rclone copy cur_hul_05m_20200301.orthom/cur_hul_05m_20200301_64K_orthom.tif orth
 rclone copy cur_hul_05m_20200301.orthom/cur_hul_05m_20200301_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_hul_05m_20200301.orthom/cur_hul_05m_20200301_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_hul_05m_20200301.orthom/cur_hul_05m_20200301_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_05m/cur_hul_05m_20201206
-cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_05m/cur_hul_05m_20201206
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_05m_20201206
-rclone copy cur_hul_05m_20201206.orthom/cur_hul_05m_20201206_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_hul_05m_20201206.orthom/cur_hul_05m_20201206_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_hul_05m_20201206.orthom/cur_hul_05m_20201206_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_hul_05m_20201206.orthom/cur_hul_05m_20201206_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_05m/cur_hul_05m_20210223
 cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_05m/cur_hul_05m_20210223
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_05m_20210223
@@ -495,13 +355,6 @@ rclone copy cur_hul_05m_20210223.orthom/cur_hul_05m_20210223_64K_orthom.tif orth
 rclone copy cur_hul_05m_20210223.orthom/cur_hul_05m_20210223_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_hul_05m_20210223.orthom/cur_hul_05m_20210223_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_hul_05m_20210223.orthom/cur_hul_05m_20210223_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_05m/cur_hul_05m_20211203
-cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_05m/cur_hul_05m_20211203
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_05m_20211203
-rclone copy cur_hul_05m_20211203.orthom/cur_hul_05m_20211203_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_hul_05m_20211203.orthom/cur_hul_05m_20211203_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_hul_05m_20211203.orthom/cur_hul_05m_20211203_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_hul_05m_20211203.orthom/cur_hul_05m_20211203_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20200301
 cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20200301
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_10m_20200301
@@ -509,13 +362,6 @@ rclone copy cur_hul_10m_20200301.orthom/cur_hul_10m_20200301_64K_orthom.tif orth
 rclone copy cur_hul_10m_20200301.orthom/cur_hul_10m_20200301_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_hul_10m_20200301.orthom/cur_hul_10m_20200301_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_hul_10m_20200301.orthom/cur_hul_10m_20200301_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20201206
-cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20201206
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_10m_20201206
-rclone copy cur_hul_10m_20201206.orthom/cur_hul_10m_20201206_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_hul_10m_20201206.orthom/cur_hul_10m_20201206_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_hul_10m_20201206.orthom/cur_hul_10m_20201206_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_hul_10m_20201206.orthom/cur_hul_10m_20201206_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20210223
 cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20210223
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_10m_20210223
@@ -523,13 +369,6 @@ rclone copy cur_hul_10m_20210223.orthom/cur_hul_10m_20210223_64K_orthom.tif orth
 rclone copy cur_hul_10m_20210223.orthom/cur_hul_10m_20210223_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_hul_10m_20210223.orthom/cur_hul_10m_20210223_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_hul_10m_20210223.orthom/cur_hul_10m_20210223_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20211203
-cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20211203
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_10m_20211203
-rclone copy cur_hul_10m_20211203.orthom/cur_hul_10m_20211203_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_hul_10m_20211203.orthom/cur_hul_10m_20211203_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_hul_10m_20211203.orthom/cur_hul_10m_20211203_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_hul_10m_20211203.orthom/cur_hul_10m_20211203_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20200301
 cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20200301
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_20m_20200301
@@ -537,13 +376,6 @@ rclone copy cur_hul_20m_20200301.orthom/cur_hul_20m_20200301_64K_orthom.tif orth
 rclone copy cur_hul_20m_20200301.orthom/cur_hul_20m_20200301_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_hul_20m_20200301.orthom/cur_hul_20m_20200301_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_hul_20m_20200301.orthom/cur_hul_20m_20200301_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20201206
-cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20201206
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_20m_20201206
-rclone copy cur_hul_20m_20201206.orthom/cur_hul_20m_20201206_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_hul_20m_20201206.orthom/cur_hul_20m_20201206_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_hul_20m_20201206.orthom/cur_hul_20m_20201206_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_hul_20m_20201206.orthom/cur_hul_20m_20201206_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20210223
 cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20210223
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_20m_20210223
@@ -551,13 +383,6 @@ rclone copy cur_hul_20m_20210223.orthom/cur_hul_20m_20210223_64K_orthom.tif orth
 rclone copy cur_hul_20m_20210223.orthom/cur_hul_20m_20210223_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_hul_20m_20210223.orthom/cur_hul_20m_20210223_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_hul_20m_20210223.orthom/cur_hul_20m_20210223_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20211203
-cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20211203
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_20m_20211203
-rclone copy cur_hul_20m_20211203.orthom/cur_hul_20m_20211203_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_hul_20m_20211203.orthom/cur_hul_20m_20211203_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_hul_20m_20211203.orthom/cur_hul_20m_20211203_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_hul_20m_20211203.orthom/cur_hul_20m_20211203_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_40m/cur_hul_40m_20200301
 cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_40m/cur_hul_40m_20200301
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_40m_20200301
@@ -691,13 +516,6 @@ rclone copy cur_cas_05m_20190401.orthom/cur_cas_05m_20190401_64K_orthom.tif orth
 rclone copy cur_cas_05m_20190401.orthom/cur_cas_05m_20190401_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_cas_05m_20190401.orthom/cur_cas_05m_20190401_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_cas_05m_20190401.orthom/cur_cas_05m_20190401_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_cas/cur_cas_05m/cur_cas_05m_20201212
-cd /mnt/coral3d/focal_plots/cur_cas/cur_cas_05m/cur_cas_05m_20201212
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_cas_05m_20201212
-rclone copy cur_cas_05m_20201212.orthom/cur_cas_05m_20201212_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_cas_05m_20201212.orthom/cur_cas_05m_20201212_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_cas_05m_20201212.orthom/cur_cas_05m_20201212_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_cas_05m_20201212.orthom/cur_cas_05m_20201212_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_cas/cur_cas_05m/cur_cas_05m_20210225
 cd /mnt/coral3d/focal_plots/cur_cas/cur_cas_05m/cur_cas_05m_20210225
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_cas_05m_20210225
@@ -712,13 +530,6 @@ rclone copy cur_cas_10m_20190401.orthom/cur_cas_10m_20190401_64K_orthom.tif orth
 rclone copy cur_cas_10m_20190401.orthom/cur_cas_10m_20190401_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_cas_10m_20190401.orthom/cur_cas_10m_20190401_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_cas_10m_20190401.orthom/cur_cas_10m_20190401_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_cas/cur_cas_10m/cur_cas_10m_20201212
-cd /mnt/coral3d/focal_plots/cur_cas/cur_cas_10m/cur_cas_10m_20201212
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_cas_10m_20201212
-rclone copy cur_cas_10m_20201212.orthom/cur_cas_10m_20201212_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_cas_10m_20201212.orthom/cur_cas_10m_20201212_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_cas_10m_20201212.orthom/cur_cas_10m_20201212_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_cas_10m_20201212.orthom/cur_cas_10m_20201212_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_cas/cur_cas_10m/cur_cas_10m_20210225
 cd /mnt/coral3d/focal_plots/cur_cas/cur_cas_10m/cur_cas_10m_20210225
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_cas_10m_20210225
@@ -733,13 +544,6 @@ rclone copy cur_cas_20m_20190331.orthom/cur_cas_20m_20190331_64K_orthom.tif orth
 rclone copy cur_cas_20m_20190331.orthom/cur_cas_20m_20190331_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_cas_20m_20190331.orthom/cur_cas_20m_20190331_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_cas_20m_20190331.orthom/cur_cas_20m_20190331_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_cas/cur_cas_20m/cur_cas_20m_20201212
-cd /mnt/coral3d/focal_plots/cur_cas/cur_cas_20m/cur_cas_20m_20201212
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_cas_20m_20201212
-rclone copy cur_cas_20m_20201212.orthom/cur_cas_20m_20201212_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_cas_20m_20201212.orthom/cur_cas_20m_20201212_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_cas_20m_20201212.orthom/cur_cas_20m_20201212_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_cas_20m_20201212.orthom/cur_cas_20m_20201212_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_cas/cur_cas_20m/cur_cas_20m_20210225
 cd /mnt/coral3d/focal_plots/cur_cas/cur_cas_20m/cur_cas_20m_20210225
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_cas_20m_20210225
@@ -754,13 +558,6 @@ rclone copy cur_seb_10m_20190319.orthom/cur_seb_10m_20190319_64K_orthom.tif orth
 rclone copy cur_seb_10m_20190319.orthom/cur_seb_10m_20190319_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_seb_10m_20190319.orthom/cur_seb_10m_20190319_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_seb_10m_20190319.orthom/cur_seb_10m_20190319_02K_orthom.png orthos:/focal_plots/orthom_02K
-# Orthomosaic generation of /mnt/coral3d/focal_plots/cur_seb/cur_seb_10m/cur_seb_10m_20201210
-cd /mnt/coral3d/focal_plots/cur_seb/cur_seb_10m/cur_seb_10m_20201210
-~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_seb_10m_20201210
-rclone copy cur_seb_10m_20201210.orthom/cur_seb_10m_20201210_64K_orthom.tif orthos:/focal_plots/orthom_64K
-rclone copy cur_seb_10m_20201210.orthom/cur_seb_10m_20201210_32K_orthom.tif orthos:/focal_plots/orthom_32K
-rclone copy cur_seb_10m_20201210.orthom/cur_seb_10m_20201210_10K_orthom.png orthos:/focal_plots/orthom_10K
-rclone copy cur_seb_10m_20201210.orthom/cur_seb_10m_20201210_02K_orthom.png orthos:/focal_plots/orthom_02K
 # Orthomosaic generation of /mnt/coral3d/focal_plots/cur_seb/cur_seb_10m/cur_seb_10m_20210302
 cd /mnt/coral3d/focal_plots/cur_seb/cur_seb_10m/cur_seb_10m_20210302
 ~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_seb_10m_20210302
