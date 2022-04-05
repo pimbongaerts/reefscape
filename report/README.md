@@ -130,12 +130,12 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_dir_20m_20201219         PSX JPG:0626 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY ORTHOM 
 │   │   ├──cur_dir_20m_20201130         PSX JPG:1438 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY 
 │   │   ├──cur_dir_20m_20210221         CR2:1201 PSX JPG:1201 PLY CAM MET VIS DEC PLY 
-│   │   ├──cur_dir_20m_20211202         JPG:1120 PSX PLY CAM MET 
+│   │   ├──cur_dir_20m_20211202         JPG:1120 PSX PLY CAM MET DEC PLY 
 │   ├──cur_dir_40m
 │   │   ├──cur_dir_40m_20200227         PSX JPG:1199 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY ORTHOM 
 │   │   ├──cur_dir_40m_20201219         PSX JPG:1131 PLY CAM MET VIS:01 SCALE:01 DEPTH:00 DEC PLY ORTHOM 
 │   │   ├──cur_dir_40m_20210221         CR2:1726 PSX JPG:1726 PLY CAM MET VIS DEC PLY 
-│   │   ├──cur_dir_40m_20211128         JPG:1369 PSX PLY CAM MET 
+│   │   ├──cur_dir_40m_20211128         JPG:1369 PSX PLY CAM MET DEC PLY 
 │   ├──cur_dir_60m
 │   │   ├──cur_dir_60m_20200227         PSX JPG:1094 PLY CAM MET VIS:01 SCALE:02 DEPTH:00 DEC PLY ORTHOM 
 │   │   ├──cur_dir_60m_20201219         PSX JPG:1472 PLY CAM MET VIS:01 SCALE:00 DEPTH:00 DEC PLY ORTHOM 
