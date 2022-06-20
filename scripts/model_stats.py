@@ -57,12 +57,12 @@ class Timepoint(object):
             doc = Metashape.Document()
             doc.open(project_filepath)  # Open exisiting project
             chunk = doc.chunk
-
             cameras_not_aligned = []
             for camera in chunk.cameras:
                 if not camera.transform:
                     cameras_not_aligned.append(camera)
-            pointcount = chunk.dense_cloud.point_count
+            if chunk.dense_cloud:
+                pointcount = chunk.dense_cloud.point_count
             model_stats = open('model_stats.csv', 'a')
             model_stats.write('{0},{1},{2},{3}\n'.format(short_name, len(cameras_not_aligned), 
                                                          len(chunk.cameras), pointcount))
