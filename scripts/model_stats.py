@@ -58,7 +58,7 @@ class Timepoint(object):
             doc.open(project_filepath)  # Open exisiting project
             chunk = doc.chunk
             cameras_not_aligned = []
-            if chunk.cameras:
+            if chunk:
                 for camera in chunk.cameras:
                     if not camera.transform:
                         cameras_not_aligned.append(camera)
