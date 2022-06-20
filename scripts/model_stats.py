@@ -75,6 +75,8 @@ class Timepoint(object):
             model_stats.close()
 
 def main():
+    model_stats = open('model_stats.csv', 'w')
+    model_stats.close()
     focal_plots = Focal_plots(focal_plots_path)
 
 if __name__ == '__main__':
