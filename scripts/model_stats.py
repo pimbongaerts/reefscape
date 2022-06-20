@@ -62,10 +62,13 @@ class Timepoint(object):
             for camera in chunk.cameras:
                 if not camera.transform:
                     cameras_not_aligned.append(camera)
-            print('{0},{1},{2}'.format(short_name, len(cameras_not_aligned), len(chunk.cameras)))
-            doc.close()
+            model_stats = open('model_stats.csv', 'a')
+            model_stats.write('{0},{1},{2}'.format(short_name, len(cameras_not_aligned), len(chunk.cameras)))
+            model_stats.close()
         else:
-            print('{0},NA,NA',format(short_name))
+            model_stats = open('model_stats.csv', 'a')
+            model_stats.write('{0},NA,NA',format(short_name))
+            model_stats.close()
 
 def main():
     focal_plots = Focal_plots(focal_plots_path)
