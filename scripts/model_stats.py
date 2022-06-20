@@ -63,6 +63,8 @@ class Timepoint(object):
                     cameras_not_aligned.append(camera)
             if chunk.dense_cloud:
                 pointcount = chunk.dense_cloud.point_count
+            else:
+                pointcount = 0
             model_stats = open('model_stats.csv', 'a')
             model_stats.write('{0},{1},{2},{3}\n'.format(short_name, len(cameras_not_aligned), 
                                                          len(chunk.cameras), pointcount))
