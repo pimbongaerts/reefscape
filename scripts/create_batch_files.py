@@ -88,7 +88,7 @@ def main(README_filename):
                     decimate_batch_file.write('rclone copy {0}_dec7M.ply orthos:/focal_plots/ply_dec7M\n'.format(model_name))
                 
                 if ('ORTHOM' not in line):
-                    ortho_batch_file.write('# Orthomosaic generation of {0}\n'.format(get_linux_model_folder(model_name)))
+                    ortho_batch_file.write('echo $(hostname) $(date -u) "Orthomosaic generation of {0}" >> /home/deepcat/deepcat_log.txt\n'.format(get_linux_model_folder(model_name)))
                     ortho_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
                     ortho_batch_file.write('{0} # {1}\n'.format(CREATE_ORTHO_SCRIPT, model_name))
                     ortho_batch_file.write('rclone copy {0}.orthom/{0}_64K_orthom.tif orthos:/focal_plots/orthom_64K\n'.format(model_name))

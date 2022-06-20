@@ -99,8 +99,10 @@ class Timepoint(object):
             elif (os.path.isdir(modelpart_path) & modelpart_file.endswith('.markers')):
                 self.markers = len(glob.glob(modelpart_path + '/*.*'))
                 assets += "D_IMG:{0:02d} ".format(self.markers)
-
-        print("│   │   ├──{:28s} {}".format(short_name, assets))
+        assets_list = assets.split(' ')
+        assets_list.sort()
+        assets_formatted = ' '.join(assets_list)
+        print("│   │   ├──{:28s} {}".format(short_name, assets_formatted))
         
     def __get_viscore_status(self, viscore_path):
         """ Get viscore project info from subsets.json file """
