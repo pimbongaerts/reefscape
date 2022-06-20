@@ -78,7 +78,7 @@ class Timepoint(object):
             model_stats.close()
         else:
             model_stats = open('model_stats.csv', 'a')
-            model_stats.write('{0},NA,NA,NA\n',format(short_name))
+            model_stats.write('{0},NA,NA,NA\n'.format(short_name))
             model_stats.close()
 
 def main():
