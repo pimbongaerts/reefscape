@@ -5,6 +5,7 @@ import argparse
 import os
 import glob
 import json
+import Metashape
 
 focal_plots_path = "/mnt/coral3d/focal_plots/"
 PLY = "PLY"
