@@ -76,7 +76,7 @@ class Timepoint(object):
                 markercount = 0
             model_stats = open('model_stats.csv', 'a')
             model_stats.write('{0},{1},{2},{3},{4}\n'.format(short_name, cams_not_aligned, 
-                                                         cams_total, pointcount, markercount))
+                                                         cams_total, pointcount, pointcount))
             model_stats.close()
         else:
             model_stats = open('model_stats.csv', 'a')
