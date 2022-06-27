@@ -68,17 +68,21 @@ class Timepoint(object):
                     pointcount = chunk.dense_cloud.point_count
                 else:
                     pointcount = 0
+                if chunk.markers:
+                    markercount = len(chunk.markers)
+                else:
+                    markercount = 0
             else:
                 cams_not_aligned = 0
                 cams_total = 0
                 pointcount = 0
             model_stats = open('model_stats.csv', 'a')
-            model_stats.write('{0},{1},{2},{3}\n'.format(short_name, cams_not_aligned, 
-                                                         cams_total, pointcount))
+            model_stats.write('{0},{1},{2},{3},{4}\n'.format(short_name, cams_not_aligned, 
+                                                         cams_total, pointcount, markercount))
             model_stats.close()
         else:
             model_stats = open('model_stats.csv', 'a')
-            model_stats.write('{0},NA,NA,NA\n'.format(short_name))
+            model_stats.write('{0},NA,NA,NA,NA\n'.format(short_name))
             model_stats.close()
 
 def main():
