@@ -68,10 +68,7 @@ class Timepoint(object):
                     pointcount = chunk.dense_cloud.point_count
                 else:
                     pointcount = 0
-                if chunk.markers:
-                    markercount = len(chunk.markers)
-                else:
-                    markercount = 0
+                markercount = len(chunk.markers)
             else:
                 cams_not_aligned = 0
                 cams_total = 0
