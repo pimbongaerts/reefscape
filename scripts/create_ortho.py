@@ -42,7 +42,10 @@ def main(skip_build):
     doc = Metashape.Document()
     project_filepath = get_project_filepath()
     if os.path.isfile(project_filepath):
-        doc.open(project_filepath)  # Open exisiting project
+        doc.open(project_filepath, read_only=True)  # Open project as read-only
+        doc.read_only = False                       # Turn off read-only in case it applies
+        doc = Metashape.Document()
+        doc.open(project_filepath, read_only=False) # Open project with writing access
         chunk = doc.chunk
     else:
         sys.exit('Failed to open Metashape project')
