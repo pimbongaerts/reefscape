@@ -58,6 +58,8 @@ class Timepoint(object):
         marker_filepath = '{0}/{1}_markers.csv'.format(path, short_name)
 
         if os.path.isfile(project_filepath):
+            print('Detecting and exporting markers for: {}'.format(short_name))
+            doc = Metashape.Document()
             doc.open(project_filepath, read_only=True)  # Open project as read-only
             doc.read_only = False                       # Turn off read-only in case it applies
             doc = Metashape.Document()
