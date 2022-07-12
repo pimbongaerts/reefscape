@@ -67,8 +67,8 @@ class Timepoint(object):
             chunk = doc.chunk
             if chunk:
                 # Create backup of current markers and remove from project
-                if len(doc.chunk.makers) > 0:
-                    self.__export_current_makers(doc, arker_backup_filepath)
+                if len(doc.chunk.markers) > 0:
+                    self.__export_current_markers(doc, marker_backup_filepath)
                     doc.chunk.remove(doc.chunk.markers)
                 # Find markers (circ 12-bit, tol 20, max 5)
                 doc.chunk.detectMarkers(target_type=CircularTarget12bit, 
@@ -79,11 +79,11 @@ class Timepoint(object):
                                         maximum_residual=5, 
                                         minimum_size=0, 
                                         minimum_dist=5)
-                if len(doc.chunk.makers) > 0:
-                    self.__export_current_makers(doc, marker_filepath)
+                if len(doc.chunk.markers) > 0:
+                    self.__export_current_markers(doc, marker_filepath)
             sys.exit()
 
-    def __export_current_makers(self, doc, filepath):
+    def __export_current_markers(self, doc, filepath):
         """ Get viscore project info from subsets.json file """
         marker_file = open(filepath, 'w')
         for i in doc.chunk.markers:
