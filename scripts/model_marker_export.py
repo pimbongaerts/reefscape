@@ -82,7 +82,7 @@ class Timepoint(object):
                 if len(doc.chunk.markers) > 0:
                     print('Exporting markers for: {}'.format(short_name))
                     self.__export_current_markers(doc, marker_filepath)
-            sys.exit()
+                    doc.save()
 
     def __export_current_markers(self, doc, filepath):
         """ Get viscore project info from subsets.json file """
