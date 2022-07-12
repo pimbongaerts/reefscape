@@ -58,7 +58,7 @@ class Timepoint(object):
         marker_filepath = '{0}/{1}_markers.csv'.format(path, short_name)
 
         if os.path.isfile(project_filepath):
-            print('Detecting and exporting markers for: {}'.format(short_name))
+            print('Detecting markers for: {}'.format(short_name))
             doc = Metashape.Document()
             doc.open(project_filepath, read_only=True)  # Open project as read-only
             doc.read_only = False                       # Turn off read-only in case it applies
@@ -80,14 +80,14 @@ class Timepoint(object):
                                         minimum_size=0, 
                                         minimum_dist=5)
                 if len(doc.chunk.markers) > 0:
+                    print('Exporting markers for: {}'.format(short_name))
                     self.__export_current_markers(doc, marker_filepath)
             sys.exit()
 
     def __export_current_markers(self, doc, filepath):
         """ Get viscore project info from subsets.json file """
         marker_file = open(filepath, 'w')
-        for i in doc.chunk.markers:
-            marker = doc.chunk.markers[i]
+        for marker in doc.chunk.markers:
             marker_file.write('{0},{1},{2},{3},{4}\n'.format(marker.key, 
                                                              marker.label, 
                                                              marker.position[0], 
