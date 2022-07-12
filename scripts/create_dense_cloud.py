@@ -136,7 +136,10 @@ def main(camera_extension, aligned_camera_threshold):
 
     doc = Metashape.Document()
     if os.path.isfile(project_filepath):
-        doc.open(project_filepath)  # Open exisiting project
+        doc.open(project_filepath, read_only=True)  # Open project as read-only
+        doc.read_only = False                       # Turn off read-only in case it applies
+        doc = Metashape.Document()
+        doc.open(project_filepath, read_only=False) # Open project with writing access
     else:
         doc.save(project_filepath)  # Create new project
 
