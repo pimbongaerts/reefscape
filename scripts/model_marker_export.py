@@ -74,7 +74,8 @@ class Timepoint(object):
                     self.__export_current_markers(doc, marker_backup_filepath)
                     doc.chunk.remove(doc.chunk.markers)
                 # Find markers (circ 12-bit, tol 20, max 5)
-                doc.chunk.detectMarkers(target_type=Metashape.CircularTarget12bit, 
+                try:
+                    doc.chunk.detectMarkers(target_type=Metashape.CircularTarget12bit, 
                                         tolerance=20, 
                                         filter_mask=False, 
                                         inverted=False, 
@@ -82,6 +83,8 @@ class Timepoint(object):
                                         maximum_residual=5, 
                                         minimum_size=0, 
                                         minimum_dist=5)
+                except Exception as e: print(e)
+
                 if len(doc.chunk.markers) > 0:
                     print('Exporting markers for: {}'.format(short_name))
                     self.__export_current_markers(doc, marker_filepath)
