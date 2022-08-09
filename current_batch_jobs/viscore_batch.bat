@@ -1,5 +1,3 @@
-mkdir Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20211130\cur_kal_05m_20211130.vis
-if exist Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20211130\cur_kal_05m_20211130.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20211130\cur_kal_05m_20211130.ply Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20211130\cur_kal_05m_20211130.vis\cur_kal_05m_20211130)
 mkdir Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20211203\cur_hul_05m_20211203.vis
 if exist Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20211203\cur_hul_05m_20211203.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20211203\cur_hul_05m_20211203.ply Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20211203\cur_hul_05m_20211203.vis\cur_hul_05m_20211203)
 mkdir Y:\focal_plots\cur_hul\cur_hul_10m\cur_hul_10m_20211203\cur_hul_10m_20211203.vis
