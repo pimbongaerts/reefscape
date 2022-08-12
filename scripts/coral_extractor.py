@@ -108,10 +108,10 @@ def compile_pdf(plot, temp_folder, annotations_filename):
     # Combine timepoints into single images
     for annotation_id in plot.annotations:
         print('Saving compilation image for: {0}...'.format(annotation_id))
-        convert_cmd = 'convert {0}{1}*_zoomout.png +append {2}{1}_zoomout.png'.format(temp_folder, annotation_id, temp_folder)
+        convert_cmd = 'convert {0}{1}_*_zoomout.png +append {2}{1}_zoomout.png'.format(temp_folder, annotation_id, temp_folder)
         process = subprocess.Popen(convert_cmd, shell=True)
         process.wait()
-        convert_cmd = 'convert {0}{1}*_zoomin.png +append {2}{1}_zoomin.png'.format(temp_folder, annotation_id, temp_folder)
+        convert_cmd = 'convert {0}{1}_*_zoomin.png +append {2}{1}_zoomin.png'.format(temp_folder, annotation_id, temp_folder)
         process = subprocess.Popen(convert_cmd, shell=True)
         process.wait()
 
@@ -145,8 +145,8 @@ def compile_pdf(plot, temp_folder, annotations_filename):
 
 def extract_corals_from_timepoint(plot, timepoint, temp_folder):
     """ """
-    print('Reading PLY file {0} ...'.format(timepoint.small_ply_filepath))
-    pcd = o3d.io.read_point_cloud(timepoint.small_ply_filepath)
+    print('Reading PLY file {0} ...'.format(timepoint.med_ply_filepath))
+    pcd = o3d.io.read_point_cloud(timepoint.med_ply_filepath)
     pcd.transform(plot.ref_timepoint.transforms[timepoint.id])
     print('Build KDTree for point cloud {0} ...'.format(timepoint.id))
     pcd_tree = o3d.geometry.KDTreeFlann(pcd)
