@@ -34,10 +34,7 @@ GDRIVEPATH = 'orthos:/focal_plots/coral_queries'
 
 def get_timepoint_id_from_filename(filename):
     """ Get timepoint from filename """
-    if '/' in filename:
-        return filename.rsplit('/', 1)[1][0:20]
-    else:
-        return filename[0:20]
+    return filename.rsplit('/', 1)[1][0:20]
 
 def capture_pointcloud(pcd, ls, output_filename):
     # Visualize Point Cloud
@@ -192,11 +189,11 @@ def extract_corals_from_timepoint(plot, timepoint, temp_folder, trial, medium):
         output_filename = '{0}{1}_{2}.png'.format(temp_folder, annotation.id, timepoint.id)
         capture_pointcloud(coral_pcd, axes_ls, output_filename)
 
-def check_plys(timepoints, medium, check):
+def check_ply_sizes(timepoints, medium, check):
     """ """
 
 
-    for timepoint_id in sorted(timepoints.keys()):
+    for timepoint_id in ['cur_sna_10m_20201202', 'cur_sna_10m_20210305', 'cur_sna_10m_20211124', 'cur_sna_10m_20220515']: #sorted(timepoints.keys()):
         timepoint = timepoints[timepoint_id]
         if medium:
             ply_filepath = timepoint.med_ply_filepath
@@ -206,23 +203,16 @@ def check_plys(timepoints, medium, check):
             else:
                 ply_filepath = timepoint.lrg_ply_filepath
 
-        # Check presence of ply files and sizes
         if os.path.exists(timepoint.full_ply_filepath):
             if os.path.getsize(timepoint.full_ply_filepath) >= float("55e9"):
                 if not os.path.exists(timepoint.lrg_ply_filepath):
                     sys.exit('Error: PLY file {0} is larger than maximum size, and {1} not present'.format(timepoint.full_ply_filepath,
                                                                                                     timepoint.lrg_ply_filepath))
-            # Check file by actually opening the file (if check flag is set)
             if check:
                 print('Test-reading PLY file {0} ... (RAM: {1}%) {2}'.format(ply_filepath, 
                                                                              psutil.virtual_memory()[2],
                                                                              datetime.datetime.now()))
-                pcd = o3d.io.read_point_cloud(ply_filepath)
-                print('Finished reading PLY file {0} ... (RAM: {1}%) {2}'.format(ply_filepath, 
-                                                            psutil.virtual_memory()[2],
-                                                            datetime.datetime.now()))
-                del pcd
-                time.sleep(3)
+                pcd = o3d.io.read_point_cloud(ply_filepath)        
         else:
             sys.exit('Error: original PLY file {0} not present'.format(timepoint.full_ply_filepath))
 
@@ -234,7 +224,7 @@ def main(annotations_filename, parallel, trial, check, medium):
     ref_timepoint_id = get_timepoint_id_from_filename(annotations_filename)
     plot = reefscape.Plot(ref_timepoint_id)
     
-    check_plys(plot.timepoints, medium, check)
+    check_ply_sizes(plot.timepoints, medium, check)
 
     if trial: print('NOTE: Running in in trial mode using 10 annotations ...')
     plot.load_annotations(annotations_filename, IGNORE_ANNOTATIONS, trial)

@@ -12,9 +12,11 @@ __license__ = 'GPL'
 VERBOSE = True
 
 SERVER_PATH = '/mnt/coral3d/focal_plots/'
+PSX_POSTFIX = '.psx'
 FULL_PLY_POSTFIX = '.ply'
 SMALL_PLY_POSTFIX = '_dec7M.ply'
 MED_PLY_POSTFIX = '_dec50M.ply'
+LRG_PLY_POSTFIX = '_dec1500M.ply'
 
 ANN_ID_COL = 0
 ANN_X_COL = 1
@@ -22,6 +24,8 @@ ANN_Y_COL = 2
 ANN_Z_COL = 3
 ANN_CAT_COL = 4
 ANN_COM_COL = 5
+
+TRIAL_LEN = 10
 
 class Plot(object):
     """ Plot metadata (parent of all timepoints) """
@@ -38,15 +42,18 @@ class Plot(object):
         self.timepoints = self.__get_all_timepoints()
         self.ref_timepoint = self.timepoints[ref_timepoint_id]
 
-    def load_annotations(self, annotations_filename, ignore_list):
+    def load_annotations(self, annotations_filename, ignore_list, is_trial=False):
         """ Read anotations from txt file """
         self.annotations = {}
         annotations_file = open(annotations_filename, 'r')
+        annotation_count = 0
         for line in annotations_file:
-            if any(flag in line for flag in ignore_list):
-                next
-            cols = line.rstrip().replace(',', ' ').split()
-            self.annotations[cols[0]] = Annotation(cols)
+            if not any(flag in line for flag in ignore_list):
+                cols = line.rstrip().replace(',', ' ').split()
+                self.annotations[cols[0]] = Annotation(cols)
+                annotation_count += 1
+            if is_trial and annotation_count >= TRIAL_LEN:
+                break
         annotations_file.close()
 
     def __get_all_timepoints(self):
@@ -70,7 +77,9 @@ class Timepoint(Plot):
         self.path = '{}/'.format(timepoint_path)
         self.ref_id = ref_timepoint_id
         self.__read_viscore_metadata()
+        self.psx_filepath = '{0}{1}{2}'.format(self.path, self.id, PSX_POSTFIX)
         self.full_ply_filepath = '{0}{1}{2}'.format(self.path, self.id, FULL_PLY_POSTFIX)
+        self.lrg_ply_filepath = '{0}{1}{2}'.format(self.path, self.id, LRG_PLY_POSTFIX)
         self.med_ply_filepath = '{0}{1}{2}'.format(self.path, self.id, MED_PLY_POSTFIX)
         self.small_ply_filepath = '{0}{1}{2}'.format(self.path, self.id, SMALL_PLY_POSTFIX)
 
@@ -82,28 +91,31 @@ class Timepoint(Plot):
         # Read information from subsets.json file
         subsets_json = json.load(open(self.viscore_subsets_filepath))
         subset = self.__get_json_key_for_timepoint(subsets_json, self.id)
-        subset_ortho = subset['c']['ortho']
+        self.scale = subsets_json['scale']
 
-        # Extract ortho information
-        self.dd = subset_ortho['dd']
-        self.scale_factor = subset_ortho['scale_factor']
-        self.r = subset_ortho['vecs']['r']
-        self.u = subset_ortho['vecs']['u']
-        self.n = subset_ortho['vecs']['n']
-        self.c = subset_ortho['vecs']['c']
-        self.cc = subset_ortho['vecs']['cc']
-        self.cam_up = subset_ortho['vecs']['cam']['up']
-        self.cam_eye = subset_ortho['vecs']['cam']['eye']
-        self.cam_target = subset_ortho['vecs']['cam']['target']
+        if self.id == self.ref_id:
+            subset_ortho = subset['c']['ortho']
 
-        # Extract tranformation matrices for all associated timepoints
-        self.transforms = {}
-        for id in subsets_json['d']:
-            if '/' in id:
-                formatted_id = id.rsplit('/', 1)[1]
-            else:
-                formatted_id = id
-            self.transforms[formatted_id] = subsets_json['d'][id]['m']
+            # Extract ortho information
+            self.dd = subset_ortho['dd']
+            self.scale_factor = subset_ortho['scale_factor']
+            self.r = subset_ortho['vecs']['r']
+            self.u = subset_ortho['vecs']['u']
+            self.n = subset_ortho['vecs']['n']
+            self.c = subset_ortho['vecs']['c']
+            self.cc = subset_ortho['vecs']['cc']
+            self.cam_up = subset_ortho['vecs']['cam']['up']
+            self.cam_eye = subset_ortho['vecs']['cam']['eye']
+            self.cam_target = subset_ortho['vecs']['cam']['target']
+
+            # Extract tranformation matrices for all associated timepoints
+            self.transforms = {}
+            for id in subsets_json['d']:
+                if '/' in id:
+                    formatted_id = id.rsplit('/', 1)[1]
+                else:
+                    formatted_id = id
+                self.transforms[formatted_id] = subsets_json['d'][id]['m']
 
     @staticmethod
     def __get_json_key_for_timepoint(subsets_json, timepoint_id):
@@ -119,5 +131,11 @@ class Annotation(object):
     """ Individual timepoints of a plot """
     def __init__(self, cols):
         self.id = cols[ANN_ID_COL]
-        self.coords = [float(cols[ANN_X_COL]), float(cols[ANN_Y_COL]), float(cols[ANN_Z_COL])]
-        self.category = cols[ANN_CAT_COL]
+        try:
+            self.coords = [float(cols[ANN_X_COL]), float(cols[ANN_Y_COL]), float(cols[ANN_Z_COL])]
+        except:
+            sys.exit('Error: annotation `{0}` has poorly formatted coordinates: {1}'.format(self.id, cols[ANN_X_COL:ANN_Z_COL]))
+        self.additional_cols = cols[ANN_CAT_COL:]
+
+    def set_alt_coords(self, alt_coords):
+        self.alt_coords = alt_coords
