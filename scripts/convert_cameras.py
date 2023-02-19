@@ -21,8 +21,8 @@ RAW_EXTENSION = 'CR2'
 RAW_FOLDER_POSTFIX = '.raw'
 PHOTO_FOLDER_POSTFIX = '.photos'
 MIN_PHOTOS = 200
-TEMP_CONFIG_PATH = '/data/tmp/config'
-TEMP_PHOTO_PATH = '/data/tmp/output'
+TEMP_CONFIG_PATH = '/home/deepcat/tmp/config'
+TEMP_PHOTO_PATH = '/home/deepcat/tmp/output'
 
 def call_proc(cmd):
     subprocess.run(shlex.split(cmd), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
