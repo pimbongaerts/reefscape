@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Constructs and exports dense point cloud from raw images,
-using the Metashape API.
+using the Metashape 2.0 API.
 
 Usage: 
 ./metashape.sh -platform offscreen -r create_dense_cloud.py
@@ -195,7 +195,7 @@ def main(camera_extension, aligned_camera_threshold):
     start_time = time.time()
     
     start_next_step("Build dense maps", log_file)
-    chunk.buildDenseCloud(point_colors = True,          # Enable point colors calculation
+    chunk.buildPointCloud(point_colors = True,          # Enable point colors calculation
                           point_confidence = True,      # Enable point confidence calculation
                           keep_depth = True,            # Enable store depth maps option
                           progress = progress_print)
@@ -204,7 +204,7 @@ def main(camera_extension, aligned_camera_threshold):
     start_time = time.time()
     
     start_next_step("Export points to PLY file", log_file)
-    chunk.exportPoints(path = project_filepath.replace('.psx', '.ply'),
+    chunk.ExportPointCloud(path = project_filepath.replace('.psx', '.ply'),
                        source_data = Metashape.DenseCloudData,
                        binary = True, 
                        save_normals = True, 
