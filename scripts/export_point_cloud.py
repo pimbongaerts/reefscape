@@ -88,7 +88,7 @@ def start_next_step(message, log_file):
   print(formatted_message)
   log_file.write(formatted_message)
 
-def main(camera_extension, aligned_camera_threshold):
+def main():
 
     global start_time
     start_time = time.time()
@@ -142,4 +142,4 @@ def main(camera_extension, aligned_camera_threshold):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     args = parser.parse_args()
-    main(args.camera_extension, args.aligned_camera_threshold)
+    main()
