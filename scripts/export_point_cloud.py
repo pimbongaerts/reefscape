@@ -115,7 +115,7 @@ def main():
     
     start_next_step("Export points to PLY file", log_file)
     chunk.exportPointCloud(path = project_filepath.replace('.psx', '.ply'),
-                       source_data = Metashape.DenseCloudData,
+                       source_data = Metashape.PointCloudData,
                        binary = True, 
                        save_normals = True, 
                        save_colors = True, 
@@ -123,7 +123,7 @@ def main():
                        save_confidence = True,
                        raster_transform = Metashape.RasterTransformNone,
                        colors_rgb_8bit = True,
-                       format = Metashape.PointsFormatPLY,
+                       format = Metashape.PointCloudFormatPLY,
                        split_in_blocks = False,
                        progress = progress_print)
     
