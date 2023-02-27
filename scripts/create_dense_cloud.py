@@ -204,7 +204,7 @@ def main(camera_extension, aligned_camera_threshold):
     start_time = time.time()
     
     start_next_step("Export points to PLY file", log_file)
-    chunk.ExportPointCloud(path = project_filepath.replace('.psx', '.ply'),
+    chunk.exportPointCloud(path = project_filepath.replace('.psx', '.ply'),
                        source_data = Metashape.DenseCloudData,
                        binary = True, 
                        save_normals = True, 
