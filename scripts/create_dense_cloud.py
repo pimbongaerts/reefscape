@@ -205,15 +205,15 @@ def main(camera_extension, aligned_camera_threshold):
     
     start_next_step("Export points to PLY file", log_file)
     chunk.exportPointCloud(path = project_filepath.replace('.psx', '.ply'),
-                       source_data = Metashape.DenseCloudData,
+                       source_data = Metashape.PointCloudData,
                        binary = True, 
-                       save_normals = True, 
-                       save_colors = True, 
-                       save_classes = False,
-                       save_confidence = True,
+                       save_point_normal = True, 
+                       save_point_color = True, 
+                       save_point_classification = False,
+                       save_point_confidence = True,
                        raster_transform = Metashape.RasterTransformNone,
                        colors_rgb_8bit = True,
-                       format = Metashape.PointsFormatPLY,
+                       format = Metashape.PointCloudFormatPLY,
                        split_in_blocks = False,
                        progress = progress_print)
     
