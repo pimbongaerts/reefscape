@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Create orthomosaic using the Metashape API.
+Create orthomosaic using the Metashape 2.0 API.
 
 Usage: 
 ./metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py
@@ -61,7 +61,7 @@ def main(skip_build):
     if not skip_build:
       # Build model (medium face count)
       chunk.buildModel(surface_type = Metashape.Arbitrary, 
-                       source_data = Metashape.DataSource.DenseCloudData,
+                       source_data = Metashape.DataSource.PointCloudData,
                        interpolation = Metashape.EnabledInterpolation,
                        face_count = Metashape.FaceCount.MediumFaceCount)
       doc.save()
