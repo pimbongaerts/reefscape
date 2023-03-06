@@ -1,10 +1,56 @@
-mkdir Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20211129\cur_est_20m_20211129.vis
-if exist Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20211129\cur_est_20m_20211129.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20211129\cur_est_20m_20211129.ply Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20211129\cur_est_20m_20211129.vis\cur_est_20m_20211129)
-mkdir Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20220511\cur_est_20m_20220511.vis
-if exist Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20220511\cur_est_20m_20220511.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20220511\cur_est_20m_20220511.ply Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20220511\cur_est_20m_20220511.vis\cur_est_20m_20220511)
-mkdir Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20200219\cur_est_40m_20200219.vis
-if exist Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20200219\cur_est_40m_20200219.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20200219\cur_est_40m_20200219.ply Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20200219\cur_est_40m_20200219.vis\cur_est_40m_20200219)
-mkdir Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20220511\cur_est_40m_20220511.vis
-if exist Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20220511\cur_est_40m_20220511.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20220511\cur_est_40m_20220511.ply Y:\focal_plots\cur_est\cur_est_40m\cur_est_40m_20220511\cur_est_40m_20220511.vis\cur_est_40m_20220511)
+mkdir Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20221206\cur_kal_20m_20221206.vis
+if exist Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20221206\cur_kal_20m_20221206.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20221206\cur_kal_20m_20221206.ply Y:\focal_plots\cur_kal\cur_kal_20m\cur_kal_20m_20221206\cur_kal_20m_20221206.vis\cur_kal_20m_20221206)
+mkdir Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20221217\cur_kal_40m_20221217.vis
+if exist Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20221217\cur_kal_40m_20221217.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20221217\cur_kal_40m_20221217.ply Y:\focal_plots\cur_kal\cur_kal_40m\cur_kal_40m_20221217\cur_kal_40m_20221217.vis\cur_kal_40m_20221217)
+mkdir Y:\focal_plots\cur_kal\cur_kal_10m\cur_kal_10m_20221206\cur_kal_10m_20221206.vis
+if exist Y:\focal_plots\cur_kal\cur_kal_10m\cur_kal_10m_20221206\cur_kal_10m_20221206.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_10m\cur_kal_10m_20221206\cur_kal_10m_20221206.ply Y:\focal_plots\cur_kal\cur_kal_10m\cur_kal_10m_20221206\cur_kal_10m_20221206.vis\cur_kal_10m_20221206)
+mkdir Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20221206\cur_kal_05m_20221206.vis
+if exist Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20221206\cur_kal_05m_20221206.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20221206\cur_kal_05m_20221206.ply Y:\focal_plots\cur_kal\cur_kal_05m\cur_kal_05m_20221206\cur_kal_05m_20221206.vis\cur_kal_05m_20221206)
+mkdir Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_20221217.vis
+if exist Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_20221217.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_20221217.ply Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_20221217.vis\cur_kal_60m_20221217)
+mkdir Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.vis
+if exist Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.ply Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.vis\cur_sna_20m_20221205)
+mkdir Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.vis
+if exist Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.ply Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.vis\cur_sna_05m_20221205)
+mkdir Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.vis
+if exist Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.ply Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.vis\cur_sna_40m_20221223)
+mkdir Y:\focal_plots\cur_sna\cur_sna_60m\cur_sna_60m_20221223\cur_sna_60m_20221223.vis
+if exist Y:\focal_plots\cur_sna\cur_sna_60m\cur_sna_60m_20221223\cur_sna_60m_20221223.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_60m\cur_sna_60m_20221223\cur_sna_60m_20221223.ply Y:\focal_plots\cur_sna\cur_sna_60m\cur_sna_60m_20221223\cur_sna_60m_20221223.vis\cur_sna_60m_20221223)
+mkdir Y:\focal_plots\cur_sea\cur_sea_10m\cur_sea_10m_20221125\cur_sea_10m_20221125.vis
+if exist Y:\focal_plots\cur_sea\cur_sea_10m\cur_sea_10m_20221125\cur_sea_10m_20221125.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sea\cur_sea_10m\cur_sea_10m_20221125\cur_sea_10m_20221125.ply Y:\focal_plots\cur_sea\cur_sea_10m\cur_sea_10m_20221125\cur_sea_10m_20221125.vis\cur_sea_10m_20221125)
+mkdir Y:\focal_plots\cur_sea\cur_sea_20m\cur_sea_20m_20221125\cur_sea_20m_20221125.vis
+if exist Y:\focal_plots\cur_sea\cur_sea_20m\cur_sea_20m_20221125\cur_sea_20m_20221125.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sea\cur_sea_20m\cur_sea_20m_20221125\cur_sea_20m_20221125.ply Y:\focal_plots\cur_sea\cur_sea_20m\cur_sea_20m_20221125\cur_sea_20m_20221125.vis\cur_sea_20m_20221125)
+mkdir Y:\focal_plots\cur_sea\cur_sea_40m\cur_sea_40m_20221202\cur_sea_40m_20221202.vis
+if exist Y:\focal_plots\cur_sea\cur_sea_40m\cur_sea_40m_20221202\cur_sea_40m_20221202.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sea\cur_sea_40m\cur_sea_40m_20221202\cur_sea_40m_20221202.ply Y:\focal_plots\cur_sea\cur_sea_40m\cur_sea_40m_20221202\cur_sea_40m_20221202.vis\cur_sea_40m_20221202)
+mkdir Y:\focal_plots\cur_sea\cur_sea_60m\cur_sea_60m_20221202\cur_sea_60m_20221202.vis
+if exist Y:\focal_plots\cur_sea\cur_sea_60m\cur_sea_60m_20221202\cur_sea_60m_20221202.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sea\cur_sea_60m\cur_sea_60m_20221202\cur_sea_60m_20221202.ply Y:\focal_plots\cur_sea\cur_sea_60m\cur_sea_60m_20221202\cur_sea_60m_20221202.vis\cur_sea_60m_20221202)
+mkdir Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20221129\cur_dir_05m_20221129.vis
+if exist Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20221129\cur_dir_05m_20221129.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20221129\cur_dir_05m_20221129.ply Y:\focal_plots\cur_dir\cur_dir_05m\cur_dir_05m_20221129\cur_dir_05m_20221129.vis\cur_dir_05m_20221129)
+mkdir Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20221129\cur_dir_10m_20221129.vis
+if exist Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20221129\cur_dir_10m_20221129.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20221129\cur_dir_10m_20221129.ply Y:\focal_plots\cur_dir\cur_dir_10m\cur_dir_10m_20221129\cur_dir_10m_20221129.vis\cur_dir_10m_20221129)
+mkdir Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20221129\cur_dir_20m_20221129.vis
+if exist Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20221129\cur_dir_20m_20221129.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20221129\cur_dir_20m_20221129.ply Y:\focal_plots\cur_dir\cur_dir_20m\cur_dir_20m_20221129\cur_dir_20m_20221129.vis\cur_dir_20m_20221129)
+mkdir Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20221203\cur_dir_40m_20221203.vis
+if exist Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20221203\cur_dir_40m_20221203.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20221203\cur_dir_40m_20221203.ply Y:\focal_plots\cur_dir\cur_dir_40m\cur_dir_40m_20221203\cur_dir_40m_20221203.vis\cur_dir_40m_20221203)
+mkdir Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_20221203.vis
+if exist Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_20221203.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_20221203.ply Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_20221203.vis\cur_dir_60m_20221203)
+mkdir Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.vis
+if exist Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.ply Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.vis\cur_wat_05m_20221128)
+mkdir Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.vis
+if exist Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.ply Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.vis\cur_wat_10m_20221128)
+mkdir Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.vis
+if exist Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.ply Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.vis\cur_wat_20m_20221128)
+mkdir Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20221208\cur_hul_05m_20221208.vis
+if exist Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20221208\cur_hul_05m_20221208.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20221208\cur_hul_05m_20221208.ply Y:\focal_plots\cur_hul\cur_hul_05m\cur_hul_05m_20221208\cur_hul_05m_20221208.vis\cur_hul_05m_20221208)
+mkdir Y:\focal_plots\cur_hul\cur_hul_10m\cur_hul_10m_20221208\cur_hul_10m_20221208.vis
+if exist Y:\focal_plots\cur_hul\cur_hul_10m\cur_hul_10m_20221208\cur_hul_10m_20221208.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_hul\cur_hul_10m\cur_hul_10m_20221208\cur_hul_10m_20221208.ply Y:\focal_plots\cur_hul\cur_hul_10m\cur_hul_10m_20221208\cur_hul_10m_20221208.vis\cur_hul_10m_20221208)
+mkdir Y:\focal_plots\cur_hul\cur_hul_20m\cur_hul_20m_20221208\cur_hul_20m_20221208.vis
+if exist Y:\focal_plots\cur_hul\cur_hul_20m\cur_hul_20m_20221208\cur_hul_20m_20221208.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_hul\cur_hul_20m\cur_hul_20m_20221208\cur_hul_20m_20221208.ply Y:\focal_plots\cur_hul\cur_hul_20m\cur_hul_20m_20221208\cur_hul_20m_20221208.vis\cur_hul_20m_20221208)
+mkdir Y:\focal_plots\cur_est\cur_est_05m\cur_est_05m_20221201\cur_est_05m_20221201.vis
+if exist Y:\focal_plots\cur_est\cur_est_05m\cur_est_05m_20221201\cur_est_05m_20221201.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_05m\cur_est_05m_20221201\cur_est_05m_20221201.ply Y:\focal_plots\cur_est\cur_est_05m\cur_est_05m_20221201\cur_est_05m_20221201.vis\cur_est_05m_20221201)
+mkdir Y:\focal_plots\cur_est\cur_est_10m\cur_est_10m_20221201\cur_est_10m_20221201.vis
+if exist Y:\focal_plots\cur_est\cur_est_10m\cur_est_10m_20221201\cur_est_10m_20221201.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_10m\cur_est_10m_20221201\cur_est_10m_20221201.ply Y:\focal_plots\cur_est\cur_est_10m\cur_est_10m_20221201\cur_est_10m_20221201.vis\cur_est_10m_20221201)
+mkdir Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20221201\cur_est_20m_20221201.vis
+if exist Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20221201\cur_est_20m_20221201.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20221201\cur_est_20m_20221201.ply Y:\focal_plots\cur_est\cur_est_20m\cur_est_20m_20221201\cur_est_20m_20221201.vis\cur_est_20m_20221201)
 mkdir Y:\focal_plots\cur_est\cur_est_60m\cur_est_60m_20220511\cur_est_60m_20220511.vis
 if exist Y:\focal_plots\cur_est\cur_est_60m\cur_est_60m_20220511\cur_est_60m_20220511.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_est\cur_est_60m\cur_est_60m_20220511\cur_est_60m_20220511.ply Y:\focal_plots\cur_est\cur_est_60m\cur_est_60m_20220511\cur_est_60m_20220511.vis\cur_est_60m_20220511)
