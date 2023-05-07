@@ -1,0 +1,10 @@
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20230415
+python3 ~/reefscape/scripts/convert_cameras.py
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_10m/cur_wat_10m_20230415
+python3 ~/reefscape/scripts/convert_cameras.py
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20230415
+python3 ~/reefscape/scripts/convert_cameras.py
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_40m/cur_wat_40m_20230415
+python3 ~/reefscape/scripts/convert_cameras.py
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_60m/cur_wat_60m_20230415
+python3 ~/reefscape/scripts/convert_cameras.py
