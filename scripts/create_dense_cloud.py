@@ -26,9 +26,8 @@ __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
 __license__ = 'GPL'
 
-RAW_EXTENSION = 'CR2'
-RAW_FOLDER_POSTFIX = '.raw'
 PHOTO_FOLDER_POSTFIX = '.photos'
+CLOSEUP_FOLDER_POSTFIX = '.closeup'
 MIN_PHOTOS = 200
 UPDATE_INTERVAL = 300       # in seconds (= 5min)
 
@@ -36,7 +35,6 @@ start_time = 0
 
 def get_cameras(camera_extension):
     """ Get the paths for each camera """
-    raw_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), RAW_FOLDER_POSTFIX)
     photo_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
     camera_list = []
     
@@ -49,25 +47,21 @@ def get_cameras(camera_extension):
       if len(camera_list) > MIN_PHOTOS:
         return camera_list
 
-    sys.exit('Please convert cameras first: {}'.format(photo_camera_path))
+    sys.exit('No / not enough cameras found: {}'.format(photo_camera_path))
+
+def get_closeup_cameras(camera_extension):
+    """ Get the paths for each camera """
+    closeup_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
+    camera_list = []
     
-    #else:
-    #  try:
-    #    os.mkdir(photo_camera_path)
-    #  except OSError:
-    #    sys.exit('Could not create folder: {}'.format(photo_camera_path))
-    # Camera conversion turned off
-    #for filename in os.listdir(raw_camera_path):
-    #    if filename.endswith(RAW_EXTENSION):
-    #        old_filepath = os.path.join(raw_camera_path, filename)
-    #        new_filename = filename.replace(RAW_EXTENSION, camera_extension)
-    #        new_filepath = '{0}/{1}'.format(photo_camera_path, new_filename)
-    #        print('Converting {0} to {1}...'.format(filename, new_filename))
-    #        process = subprocess.Popen('darktable-cli {0} {1}'.format(old_filepath, new_filepath), 
-    #                                   shell=True)
-    #        process.wait()
-    #        camera_list.append(new_filepath)
-    #return camera_list
+    if os.path.exists(closeup_camera_path):
+      camera_count = len([filename for filename in os.listdir('.') if filename.endswith(camera_extension)])
+      for filename in os.listdir(closeup_camera_path):
+        if filename.endswith('.' + camera_extension):
+            filepath = os.path.join(closeup_camera_path, filename)
+            camera_list.append(filepath)
+      if len(camera_list) > 0:
+        return camera_list
 
 def output_camera_metadata(meta_filepath, chunk):
   """ Export camera metadata for Viscore (from extract_meta.py script) """
@@ -149,8 +143,13 @@ def main(camera_extension, aligned_camera_threshold):
         chunk = doc.chunk
 
     if len(chunk.cameras) == 0:
+        # Get primary cameras
         camera_list = get_cameras(camera_extension)
         chunk.addPhotos(camera_list)
+        doc.save()
+        # Get additional close-up cameras
+        closeup_camera_list = get_closeup_cameras(camera_extension)
+        chunk.addPhotos(closeup_camera_list)
         doc.save()
 
     aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
