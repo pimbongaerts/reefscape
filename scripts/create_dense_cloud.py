@@ -23,7 +23,7 @@ import json
 import subprocess
 
 __author__ = 'Pim Bongaerts'
-__copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
+__copyright__ = 'Copyright (C) 2020-2023 Pim Bongaerts'
 __license__ = 'GPL'
 
 PHOTO_FOLDER_POSTFIX = '.photos'
@@ -51,7 +51,7 @@ def get_cameras(camera_extension):
 
 def get_closeup_cameras(camera_extension):
     """ Get the paths for each camera """
-    closeup_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), PHOTO_FOLDER_POSTFIX)
+    closeup_camera_path = '{0}/{1}{2}'.format(os.getcwd(), os.path.basename(os.getcwd()), CLOSEUP_FOLDER_POSTFIX)
     camera_list = []
     
     if os.path.exists(closeup_camera_path):
