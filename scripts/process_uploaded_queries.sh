@@ -19,9 +19,9 @@ while IFS= read -r file; do
     
     # Process the file
     echo "Processing file: $filename"
-    rclone copy "$REMOTE_PATH":"$filename" "$LOCAL_PATH"
+    rclone copy "$REMOTE_PATH/$filename" "$LOCAL_PATH"
     new_name="${filename%.*}_PROCESS.${filename##*.}"
-    rclone moveto "$REMOTE_PATH":"$filename" "$REMOTE_PATH":"$new_name"
+    rclone moveto "$REMOTE_PATH"/"$filename" "$REMOTE_PATH"/"$new_name"
     exit 0
 
 done <<< "$file_list"
