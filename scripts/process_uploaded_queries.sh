@@ -4,6 +4,7 @@ REMOTE_PATH="orthos:/focal_plots/queries_upload"
 LOCAL_PATH="/home/deepcat/queries_upload"
 
 file_list=$(rclone ls "$REMOTE_PATH")
+hostname=$(hostname)
 
 while IFS= read -r file; do
     filename=$(echo "$file" | awk '{print $NF}')
@@ -20,8 +21,23 @@ while IFS= read -r file; do
     # Process the file
     echo "Processing file: $filename"
     rclone copy "$REMOTE_PATH/$filename" "$LOCAL_PATH"
+    # Rename the remote file to mark it as being processed
     new_name="${filename%.*}_PROCESS.${filename##*.}"
     rclone moveto "$REMOTE_PATH"/"$filename" "$REMOTE_PATH"/"$new_name"
+    # Run script
+    plotname="${filename:0:20}"
+    if grep -q "getcams" <<< "$filename"; then
+        server_status="$hostname started processing the get_cameras query for: $filename"
+        curl -k -X POST -H 'Content-type: application/json' --data "{\"text\":\"$server_status\"}" https://hooks.slack.com/services/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
+        
+        ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/get_cameras.py "$plotname" "$LOCAL_PATH"/"$filename" 10
+        
+        server_status="$hostname finished processing the get_cameras query for: $filename"
+        curl -k -X POST -H 'Content-type: application/json' --data "{\"text\":\"$server_status\"}" https://hooks.slack.com/services/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
+    fi
+    # Rename the remote file to mark it as done
+    finish_name="${filename%.*}_FINISH.${filename##*.}"
+    rclone moveto "$REMOTE_PATH"/"$new_name" "$REMOTE_PATH"/"$finish_name"    
     exit 0
 
 done <<< "$file_list"
