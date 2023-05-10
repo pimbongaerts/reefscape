@@ -39,9 +39,9 @@ def get_cameras(camera_extension):
     camera_list = []
     
     if os.path.exists(photo_camera_path):
-      camera_count = len([filename for filename in os.listdir('.') if filename.endswith(camera_extension)])
+      camera_count = len([filename for filename in os.listdir('.') if filename.lower().endswith(camera_extension)])
       for filename in os.listdir(photo_camera_path):
-        if filename.endswith('.' + camera_extension):
+        if filename.lower().endswith('.' + camera_extension):
             filepath = os.path.join(photo_camera_path, filename)
             camera_list.append(filepath)
       if len(camera_list) > MIN_PHOTOS:
@@ -55,13 +55,12 @@ def get_closeup_cameras(camera_extension):
     camera_list = []
     
     if os.path.exists(closeup_camera_path):
-      camera_count = len([filename for filename in os.listdir('.') if filename.endswith(camera_extension)])
+      camera_count = len([filename for filename in os.listdir('.') if filename.lower().endswith(camera_extension)])
       for filename in os.listdir(closeup_camera_path):
-        if filename.endswith('.' + camera_extension):
+        if filename.lower().endswith('.' + camera_extension):
             filepath = os.path.join(closeup_camera_path, filename)
             camera_list.append(filepath)
-      if len(camera_list) > 0:
-        return camera_list
+    return camera_list
 
 def output_camera_metadata(meta_filepath, chunk):
   """ Export camera metadata for Viscore (from extract_meta.py script) """
@@ -149,8 +148,9 @@ def main(camera_extension, aligned_camera_threshold):
         doc.save()
         # Get additional close-up cameras
         closeup_camera_list = get_closeup_cameras(camera_extension)
-        chunk.addPhotos(closeup_camera_list)
-        doc.save()
+        if len(closeup_camera_list) > 0:
+           chunk.addPhotos(closeup_camera_list)
+           doc.save()
 
     aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
@@ -237,4 +237,4 @@ if __name__ == '__main__':
                         metavar='aligned_camera_threshold', default=0.8, type=float,
                         help='minimum threshold of aligned cameras (default 0.8)')
     args = parser.parse_args()
-    main(args.camera_extension, args.aligned_camera_threshold)
+    main(args.camera_extension.lower(), args.aligned_camera_threshold)
