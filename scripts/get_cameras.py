@@ -37,7 +37,7 @@ def get_annotations_from_file(annotations_filename):
     annotations_file = open(annotations_filename, 'r')
     line_id = 1
     for line in annotations_file:
-        cols = line.replace(',', ' ').replace('/', '_').split()
+        cols = line.replace('Point #', '').replace(',', ' ').replace('/', '_').split()
         annotations.append([line_id, cols[0], Metashape.Vector((float(cols[1]), float(cols[2]), float(cols[3])))])
         line_id += 1
     annotations_file.close()
