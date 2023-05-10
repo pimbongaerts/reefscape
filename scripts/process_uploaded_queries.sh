@@ -28,12 +28,12 @@ while IFS= read -r file; do
     plotname="${filename:0:20}"
     if grep -q "getcams" <<< "$filename"; then
         server_status="$hostname started processing the get_cameras query for: $filename"
-        curl -k -X POST -H 'Content-type: application/json' --data "{\"text\":\"$server_status\"}" https://hooks.slack.com/services/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
+        /home/deepcat/tools/local_scripts/post_to_slack.sh $server_status
         
         ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/get_cameras.py "$plotname" "$LOCAL_PATH"/"$filename" 10
         
         server_status="$hostname finished processing the get_cameras query for: $filename"
-        curl -k -X POST -H 'Content-type: application/json' --data "{\"text\":\"$server_status\"}" https://hooks.slack.com/services/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
+        /home/deepcat/tools/local_scripts/post_to_slack.sh $server_status
     fi
     # Rename the remote file to mark it as done
     finish_name="${filename%.*}_FINISH.${filename##*.}"
