@@ -146,14 +146,14 @@ def main(camera_extension, aligned_camera_threshold):
         camera_list = get_cameras(camera_extension)
         cameragroup1 = chunk.addCameraGroup()
         cameragroup1.label = 'photos'
-        chunk.addPhotos(camera_list, group = cameragroup1)
+        chunk.addPhotos(camera_list, group = 0)
         doc.save()
         # Get additional close-up cameras
         closeup_camera_list = get_closeup_cameras(camera_extension)
         if len(closeup_camera_list) > 0:
           cameragroup2 = chunk.addCameraGroup()
           cameragroup2.label = 'closeup'
-          chunk.addPhotos(closeup_camera_list, group = cameragroup2)
+          chunk.addPhotos(closeup_camera_list, group = 1)
           doc.save()
 
     aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
