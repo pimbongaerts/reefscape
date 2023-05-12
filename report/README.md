@@ -66,6 +66,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_20m_20211124          CAM DEC DEPTH:00 JPG:1171 MET ORTHOM PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_20m_20220515          CAM DEC DEPTH:04 JPG:0930 MET ORTHOM PLY PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_sna_20m_20221205          CAM JPG:1225 MET ORTHOM PLY PSX
+│   │   ├──cur_sna_20m_20230414          CR2:1052
 │   ├──cur_sna_10m
 │   │   ├──cur_sna_10m_20200303          CAM DEC DEPTH:16 JPG:1164 MET ORTHOM PLY PLY PLY PSX SCALE:02 VIS:07
 │   │   ├──cur_sna_10m_20190305          CAM DEC DEPTH:10 JPG:1048 MET ORTHO ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -75,6 +76,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_10m_20211124          CAM DEC DEPTH:00 JPG:1768 MET ORTHOM PLY PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_10m_20220515          CAM DEPTH:04 JPG:0813 MET ORTHOM PLY PLY PSX SCALE:01 VIS:01
 │   │   ├──cur_sna_10m_20221205          JPG:2250 PSX
+│   │   ├──cur_sna_10m_20230414          CR2:0901
 │   ├──cur_sna_05m
 │   │   ├──cur_sna_05m_20190307          CAM DEC DEPTH:06 JPG:0951 MET ORTHO ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_sna_05m_20200303          CAM DEC DEPTH:14 JPG:0699 MET ORTHOM PLY PLY PSX SCALE:01 VIS:07
@@ -93,6 +95,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_40m_20211204          CAM DEC DEPTH:04 JPG:1197 MET ORTHOM PLY PLY PSX SCALE:01 VIS:01
 │   │   ├──cur_sna_40m_20220515          CAM DEC DEPTH:04 JPG:0758 MET ORTHOM PLY PLY PLY PSX SCALE:01 VIS:01
 │   │   ├──cur_sna_40m_20221223          CAM JPG:1311 MET ORTHOM PLY PSX
+│   │   ├──cur_sna_40m_20230414          CR2:0890
 │   ├──cur_sna_60m
 │   │   ├──cur_sna_60m_20200216          CAM DEC DEPTH:04 JPG:0804 MET ORTHOM PLY PLY PSX SCALE:02 VIS:08
 │   │   ├──cur_sna_60m_20191111          CAM DEC DEPTH:00 JPG:0838 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -102,7 +105,10 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_60m_20211204          CAM DEC DEPTH:00 JPG:1082 MET ORTHOM PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_60m_20220515          CAM DEC DEPTH:00 JPG:0741 MET ORTHOM PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_60m_20221223          CAM JPG:1184 MET ORTHOM PLY PSX
+│   │   ├──cur_sna_60m_20230414          CR2:0900
 │   ├──@eaDir
+│   ├──cur_sna_5m
+│   │   ├──cur_sna_5m_20230414           CR2:0725
 ├── cur_sea
 │   ├──cur_sea_10m
 │   │   ├──cur_sea_10m_20200221          CAM DEC DEPTH:00 JPG:0833 MET ORTHOM PLY PLY PSX SCALE:00 VIS:08
