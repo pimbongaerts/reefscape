@@ -36,8 +36,12 @@ mkdir Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_202212
 if exist Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_20221203.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_20221203.ply Y:\focal_plots\cur_dir\cur_dir_60m\cur_dir_60m_20221203\cur_dir_60m_20221203.vis\cur_dir_60m_20221203)
 mkdir Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.vis
 if exist Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.ply Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20221128\cur_wat_05m_20221128.vis\cur_wat_05m_20221128)
+mkdir Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20230415\cur_wat_05m_20230415.vis
+if exist Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20230415\cur_wat_05m_20230415.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20230415\cur_wat_05m_20230415.ply Y:\focal_plots\cur_wat\cur_wat_05m\cur_wat_05m_20230415\cur_wat_05m_20230415.vis\cur_wat_05m_20230415)
 mkdir Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.vis
 if exist Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.ply Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20221128\cur_wat_10m_20221128.vis\cur_wat_10m_20221128)
+mkdir Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20230415\cur_wat_10m_20230415.vis
+if exist Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20230415\cur_wat_10m_20230415.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20230415\cur_wat_10m_20230415.ply Y:\focal_plots\cur_wat\cur_wat_10m\cur_wat_10m_20230415\cur_wat_10m_20230415.vis\cur_wat_10m_20230415)
 mkdir Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.vis
 if exist Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.ply Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20221128\cur_wat_20m_20221128.vis\cur_wat_20m_20221128)
 mkdir Y:\focal_plots\cur_wat\cur_wat_20m\cur_wat_20m_20230415\cur_wat_20m_20230415.vis
