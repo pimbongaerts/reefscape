@@ -66,7 +66,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_20m_20211124          CAM DEC DEPTH:00 JPG:1171 MET ORTHOM PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_20m_20220515          CAM DEC DEPTH:04 JPG:0930 MET ORTHOM PLY PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_sna_20m_20221205          CAM JPG:1225 MET ORTHOM PLY PSX
-│   │   ├──cur_sna_20m_20230414          CR2:1052
+│   │   ├──cur_sna_20m_20230414          JPG:1052
 │   ├──cur_sna_10m
 │   │   ├──cur_sna_10m_20200303          CAM DEC DEPTH:16 JPG:1164 MET ORTHOM PLY PLY PLY PSX SCALE:02 VIS:07
 │   │   ├──cur_sna_10m_20190305          CAM DEC DEPTH:10 JPG:1048 MET ORTHO ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -76,7 +76,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_10m_20211124          CAM DEC DEPTH:00 JPG:1768 MET ORTHOM PLY PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_10m_20220515          CAM DEPTH:04 JPG:0813 MET ORTHOM PLY PLY PSX SCALE:01 VIS:01
 │   │   ├──cur_sna_10m_20221205          JPG:2250 PSX
-│   │   ├──cur_sna_10m_20230414          CR2:0901
+│   │   ├──cur_sna_10m_20230414          JPG:0901
 │   ├──cur_sna_05m
 │   │   ├──cur_sna_05m_20190307          CAM DEC DEPTH:06 JPG:0951 MET ORTHO ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_sna_05m_20200303          CAM DEC DEPTH:14 JPG:0699 MET ORTHOM PLY PLY PSX SCALE:01 VIS:07
@@ -95,7 +95,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_40m_20211204          CAM DEC DEPTH:04 JPG:1197 MET ORTHOM PLY PLY PSX SCALE:01 VIS:01
 │   │   ├──cur_sna_40m_20220515          CAM DEC DEPTH:04 JPG:0758 MET ORTHOM PLY PLY PLY PSX SCALE:01 VIS:01
 │   │   ├──cur_sna_40m_20221223          CAM JPG:1311 MET ORTHOM PLY PSX
-│   │   ├──cur_sna_40m_20230414          CR2:0890
+│   │   ├──cur_sna_40m_20230414          JPG:0890
 │   ├──cur_sna_60m
 │   │   ├──cur_sna_60m_20200216          CAM DEC DEPTH:04 JPG:0804 MET ORTHOM PLY PLY PSX SCALE:02 VIS:08
 │   │   ├──cur_sna_60m_20191111          CAM DEC DEPTH:00 JPG:0838 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -105,7 +105,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_sna_60m_20211204          CAM DEC DEPTH:00 JPG:1082 MET ORTHOM PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_60m_20220515          CAM DEC DEPTH:00 JPG:0741 MET ORTHOM PLY PLY PSX SCALE:00 VIS:01
 │   │   ├──cur_sna_60m_20221223          CAM JPG:1184 MET ORTHOM PLY PSX
-│   │   ├──cur_sna_60m_20230414          CR2:0900
+│   │   ├──cur_sna_60m_20230414          JPG:0900
 │   ├──@eaDir
 │   ├──cur_sna_5m
 │   │   ├──cur_sna_5m_20230414           CR2:0725
@@ -197,7 +197,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_wat_05m_20211126          CAM DEC JPG:1469 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_wat_05m_20220516          JPG:0818 PSX
 │   │   ├──cur_wat_05m_20221128          CAM JPG:1098 MET ORTHOM PLY PSX
-│   │   ├──cur_wat_05m_20230415          JPG:0766
+│   │   ├──cur_wat_05m_20230415          CAM JPG:0766 MET PLY PSX
 │   ├──cur_wat_10m
 │   │   ├──cur_wat_10m_20200225          CAM DEC DEPTH:09 JPG:0864 MET ORTHOM PLY PLY PSX SCALE:02 VIS:02
 │   │   ├──cur_wat_10m_20201201          CAM DEC DEPTH:09 D_IMG:10 JPG:1390 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -205,7 +205,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_wat_10m_20211126          CAM DEC JPG:1489 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_wat_10m_20220516          JPG:0922 PSX
 │   │   ├──cur_wat_10m_20221128          CAM JPG:1290 MET ORTHOM PLY PSX
-│   │   ├──cur_wat_10m_20230415          JPG:0614
+│   │   ├──cur_wat_10m_20230415          CAM JPG:0614 MET PLY PSX
 │   ├──cur_wat_20m
 │   │   ├──cur_wat_20m_20200225          CAM DEC DEPTH:00 JPG:0915 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_wat_20m_20201201          CAM DEC DEPTH:00 JPG:1203 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -266,6 +266,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_est_10m_20211129          CAM DEC JPG:1421 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_est_10m_20220511          CAM DEC DEPTH:00 JPG:0897 MET ORTHOM PLY PLY PSX SCALE:01 VIS:01
 │   │   ├──cur_est_10m_20221201          CAM JPG:1312 MET ORTHOM PLY PSX
+│   │   ├──cur_est_10m_20230420          CR2:0803
 │   ├──cur_est_20m
 │   │   ├──cur_est_20m_20200219          CAM DEC DEPTH:00 JPG:1287 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_est_20m_20201127          CAM DEC DEPTH:00 JPG:1220 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -273,12 +274,17 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_est_20m_20211129          CAM DEC JPG:1196 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_est_20m_20220511          CAM DEC DEPTH:00 JPG:1095 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_est_20m_20221201          CAM JPG:1303 MET ORTHOM PLY PSX
+│   │   ├──cur_est_20m_20230420          CR2:0976
 │   ├──cur_est_40m
 │   │   ├──cur_est_40m_20200219          CAM CR2:1362 JPG:1362 MET ORTHOM PLY PSX VIS
 │   │   ├──cur_est_40m_20220511          CAM DEC DEPTH:00 JPG:0827 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
+│   │   ├──cur_est_40m_20230420          CR2:0961
 │   ├──cur_est_60m
 │   │   ├──cur_est_60m_20200302          CAM DEC DEPTH:00 JPG:1064 MET ORTHOM PLY PLY PSX SCALE:04 VIS:01
 │   │   ├──cur_est_60m_20220511          CAM DEC JPG:0963 MET ORTHOM PLY PLY PSX
+│   │   ├──cur_est_60m_20230420          CR2:0887
+│   ├──cur_est_5m
+│   │   ├──cur_est_5m_20230420           CR2:0658
 ├── cur_sam
 │   ├──cur_sam_05m
 │   │   ├──cur_sam_05m_20200222          CAM DEC JPG:0712 MET ORTHOM PLY PLY PSX VIS
