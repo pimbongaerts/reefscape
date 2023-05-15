@@ -13,8 +13,7 @@ __copyright__ = 'Copyright (C) 2023 Pim Bongaerts'
 __license__ = 'GPL'
 
 MIN_PHOTOS = 200
-DEPTHS = [60, 40, 20, 10, 5]
-TIME_THRESHOLD = 20
+DEPTHS = [60, 40, 20, 10, 5, 0, 0]
 
 
 def get_filetimestamps(directory):
@@ -28,14 +27,14 @@ def get_filetimestamps(directory):
                 file_list.append((file_path, datetime_obj))
     return file_list
 
-def is_less_than_threshold_apart(timestamp1, timestamp2):
+def is_less_than_threshold_apart(timestamp1, timestamp2, time_threshold):
     if timestamp1:
         time_diff = abs(timestamp1 - timestamp2)
-        return time_diff < datetime.timedelta(seconds=TIME_THRESHOLD)
+        return time_diff < datetime.timedelta(seconds=time_threshold)
     else:
         return False
 
-def get_files_by_depth(sorted_filetimestamps):
+def get_files_by_depth(sorted_filetimestamps, time_threshold):
     prev_timestamp = 0
     file_group = []
     depth_groups = {}
@@ -43,7 +42,7 @@ def get_files_by_depth(sorted_filetimestamps):
     for file, timestamp in sorted_filetimestamps:
         if len(file_group) == 0:
             file_group.append(file)
-        elif is_less_than_threshold_apart(prev_timestamp, timestamp):
+        elif is_less_than_threshold_apart(prev_timestamp, timestamp, time_threshold):
             file_group.append(file)
         elif len(file_group) > MIN_PHOTOS:
             depth_groups[DEPTHS[current_depth_group_id]] = file_group
@@ -76,11 +75,11 @@ def get_list_of_destination_folders(destination_path, location_id, model_datetim
     loc_folder = os.path.join(destination_path, location_id)
     dest_folders.append(loc_folder)
     for depth in depth_groups:
-        loc_dpt_folder = os.path.join(loc_folder, '{0}_{1}m'.format(location_id, depth))
+        loc_dpt_folder = os.path.join(loc_folder, '{0}_{1:02d}m'.format(location_id, depth))
         dest_folders.append(loc_dpt_folder)
-        loc_dpt_dat_folder = os.path.join(loc_dpt_folder, '{0}_{1}m_{2}'.format(location_id, depth, model_datetime))
+        loc_dpt_dat_folder = os.path.join(loc_dpt_folder, '{0}_{1:02d}m_{2}'.format(location_id, depth, model_datetime))
         dest_folders.append(loc_dpt_dat_folder)
-        loc_dpt_dat_photos_folder = os.path.join(loc_dpt_dat_folder, '{0}_{1}m_{2}.{3}'.format(location_id, depth, 
+        loc_dpt_dat_photos_folder = os.path.join(loc_dpt_dat_folder, '{0}_{1:02d}m_{2}.{3}'.format(location_id, depth, 
                                                                                                model_datetime, folder_type))
         dest_folders.append(loc_dpt_dat_photos_folder)
         depth_group_targets[depth] = loc_dpt_dat_photos_folder
@@ -108,7 +107,7 @@ def copy_files(depth_groups, depth_group_targets):
                 sys.exit('An error occurred while copying the file: {}'.format(file))
         print('Done.')
 
-def main(location_id, destination_path, folder_type):
+def main(location_id, destination_path, folder_type, time_threshold):
     # Get all the image files (CR2/JPG) in current folder and its subfolder
     current_directory = os.getcwd()
     filetimestamps = get_filetimestamps(current_directory)
@@ -116,7 +115,7 @@ def main(location_id, destination_path, folder_type):
     sorted_filetimestamps = sorted(filetimestamps, key=lambda x: x[1])
 
     # Find large sequences of files that are less than 10secs apart
-    depth_groups = get_files_by_depth(sorted_filetimestamps)
+    depth_groups = get_files_by_depth(sorted_filetimestamps, time_threshold)
 
     # Get model datetime code from first file in first sequence
     first_datetime = datetime.datetime.fromtimestamp(os.path.getmtime(depth_groups[DEPTHS[0]][0]))
@@ -144,5 +143,8 @@ if __name__ == '__main__':
                         help='destination path to copy photos to (e.g. /volume2/coral3d/focal_plots)')
     parser.add_argument('folder_type', metavar='folder_type',
                         help='destination folder type (e.g. raw or photos or closeup)')
+    parser.add_argument('-t', '--time_threshold', dest='time_threshold',
+                        metavar='time_threshold', default=20,
+                        help='maximum time in sec between photos to be considered a sequence (default = 20)')
     args = parser.parse_args()
-    main(args.location_id, args.destination_path, args.folder_type)
+    main(args.location_id, args.destination_path, args.folder_type, int(args.time_threshold))
