@@ -10,8 +10,12 @@ mkdir Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_202212
 if exist Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_20221217.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_20221217.ply Y:\focal_plots\cur_kal\cur_kal_60m\cur_kal_60m_20221217\cur_kal_60m_20221217.vis\cur_kal_60m_20221217)
 mkdir Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.vis
 if exist Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.ply Y:\focal_plots\cur_sna\cur_sna_20m\cur_sna_20m_20221205\cur_sna_20m_20221205.vis\cur_sna_20m_20221205)
+mkdir Y:\focal_plots\cur_sna\cur_sna_10m\cur_sna_10m_20230414\cur_sna_10m_20230414.vis
+if exist Y:\focal_plots\cur_sna\cur_sna_10m\cur_sna_10m_20230414\cur_sna_10m_20230414.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_10m\cur_sna_10m_20230414\cur_sna_10m_20230414.ply Y:\focal_plots\cur_sna\cur_sna_10m\cur_sna_10m_20230414\cur_sna_10m_20230414.vis\cur_sna_10m_20230414)
 mkdir Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.vis
 if exist Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.ply Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20221205\cur_sna_05m_20221205.vis\cur_sna_05m_20221205)
+mkdir Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20230414\cur_sna_05m_20230414.vis
+if exist Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20230414\cur_sna_05m_20230414.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20230414\cur_sna_05m_20230414.ply Y:\focal_plots\cur_sna\cur_sna_05m\cur_sna_05m_20230414\cur_sna_05m_20230414.vis\cur_sna_05m_20230414)
 mkdir Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.vis
 if exist Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.vis\ (C:\vid\vcgo\vc5.exe prep[goldi][splyfc] Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.ply Y:\focal_plots\cur_sna\cur_sna_40m\cur_sna_40m_20221223\cur_sna_40m_20221223.vis\cur_sna_40m_20221223)
 mkdir Y:\focal_plots\cur_sna\cur_sna_60m\cur_sna_60m_20221223\cur_sna_60m_20221223.vis
