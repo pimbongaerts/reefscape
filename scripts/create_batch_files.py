@@ -12,8 +12,8 @@ __license__ = 'GPL'
 
 BASE_PATH_LINUX = '/mnt/coral3d/focal_plots'
 CONVERT_CAMERAS_SCRIPT = 'python3 ~/reefscape/scripts/convert_cameras.py'
-DENSECLOUD_SCRIPT = '~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py'
-CREATE_ORTHO_SCRIPT = '~/tools/metashape-pro-1.8/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py'
+DENSECLOUD_SCRIPT = '~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py'
+CREATE_ORTHO_SCRIPT = '~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py'
 
 BASE_PATH_WINDOWS = 'Y:\\focal_plots'
 VISCORE_EXEC = 'C:\\vid\\vcgo\\vc5.exe prep[goldi][splyfc]'
