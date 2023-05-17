@@ -88,34 +88,36 @@ class Timepoint(Plot):
         self.viscore_path = '{0}/{1}.vis/'.format(self.path, self.id)
         self.viscore_subsets_filepath = '{0}{1}.aux/subsets.json'.format(self.viscore_path, 
                                                                          self.id)
-        # Read information from subsets.json file
-        subsets_json = json.load(open(self.viscore_subsets_filepath))
-        subset = self.__get_json_key_for_timepoint(subsets_json, self.id)
-        self.scale = subsets_json['scale']
+        # Read information from subsets.json file if present
+        if os.path.exists(self.viscore_subsets_filepath):
+            subsets_json = json.load(open(self.viscore_subsets_filepath))
+            subset = self.__get_json_key_for_timepoint(subsets_json, self.id)
+            self.scale = subsets_json['scale']
 
-        if self.id == self.ref_id:
-            subset_ortho = subset['c']['ortho']
+            if self.id == self.ref_id:
+                subset_ortho = subset['c']['ortho']
 
-            # Extract ortho information
-            self.dd = subset_ortho['dd']
-            self.scale_factor = subset_ortho['scale_factor']
-            self.r = subset_ortho['vecs']['r']
-            self.u = subset_ortho['vecs']['u']
-            self.n = subset_ortho['vecs']['n']
-            self.c = subset_ortho['vecs']['c']
-            self.cc = subset_ortho['vecs']['cc']
-            self.cam_up = subset_ortho['vecs']['cam']['up']
-            self.cam_eye = subset_ortho['vecs']['cam']['eye']
-            self.cam_target = subset_ortho['vecs']['cam']['target']
+                # Extract ortho information
+                self.dd = subset_ortho['dd']
+                self.scale_factor = subset_ortho['scale_factor']
+                self.r = subset_ortho['vecs']['r']
+                self.u = subset_ortho['vecs']['u']
+                self.n = subset_ortho['vecs']['n']
+                self.c = subset_ortho['vecs']['c']
+                self.cc = subset_ortho['vecs']['cc']
+                self.cam_up = subset_ortho['vecs']['cam']['up']
+                self.cam_eye = subset_ortho['vecs']['cam']['eye']
+                self.cam_target = subset_ortho['vecs']['cam']['target']
 
-            # Extract tranformation matrices for all associated timepoints
-            self.transforms = {}
-            for id in subsets_json['d']:
-                if '/' in id:
-                    formatted_id = id.rsplit('/', 1)[1]
-                else:
-                    formatted_id = id
-                self.transforms[formatted_id] = subsets_json['d'][id]['m']
+                # Extract tranformation matrices for all associated timepoints
+                self.transforms = {}
+                for id in subsets_json['d']:
+                    if '/' in id:
+                        formatted_id = id.rsplit('/', 1)[1]
+                    else:
+                        formatted_id = id
+                    self.transforms[formatted_id] = subsets_json['d'][id]['m']
+
 
     @staticmethod
     def __get_json_key_for_timepoint(subsets_json, timepoint_id):
