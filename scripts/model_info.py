@@ -12,9 +12,17 @@ __license__ = 'GPL'
 
 def main():
     file_name = '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
+    file_name_only = os.path.basename(file_name)
     doc = Metashape.app.document
-    doc.open(file_name)
-    chunk = doc.chunk
+    try:
+        doc.open(file_name)
+        chunk = doc.chunk
+    except:
+        slack_msg = 'There was an error opening {0}'.format(file_name_only)
+        print(slack_msg)
+        command = '/home/deepcat/tools/local_scripts/post_to_slack.sh "{0}"'.format(slack_msg)
+        process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        output, error = process.communicate()
 
     photos_not_aligned = 0
     photos_aligned = 0
@@ -39,7 +47,6 @@ def main():
 
 
     pointcloud_size = chunk.point_cloud.point_count
-    file_name_only = os.path.basename(file_name)
 
     slack_msg = '{0}: {1}/{2} photos aligned, {3}/{4} closeups aligned, {5:.3f}B points.'.format(
                                                                     file_name_only,
