@@ -124,6 +124,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_sna_40m_20221223_dec50M_RANDOM_SUBSAMPLED.ply cur_sna_40m_20221223_dec7M.ply
 rclone copy cur_sna_40m_20221223_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_sna_40m_20221223_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_sna/cur_sna_40m/cur_sna_40m_20230414
+cd /mnt/coral3d/focal_plots/cur_sna/cur_sna_40m/cur_sna_40m_20230414
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sna_40m_20230414.ply -SS RANDOM 50000000
+mv cur_sna_40m_20230414_RANDOM_SUBSAMPLED.ply cur_sna_40m_20230414_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sna_40m_20230414_dec50M.ply -SS RANDOM 7000000
+mv cur_sna_40m_20230414_dec50M_RANDOM_SUBSAMPLED.ply cur_sna_40m_20230414_dec7M.ply
+rclone copy cur_sna_40m_20230414_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_sna_40m_20230414_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_sna/cur_sna_60m/cur_sna_60m_20221223
 cd /mnt/coral3d/focal_plots/cur_sna/cur_sna_60m/cur_sna_60m_20221223
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sna_60m_20221223.ply -SS RANDOM 50000000
@@ -142,6 +151,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_sea_10m_20221125_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_10m_20221125_dec7M.ply
 rclone copy cur_sea_10m_20221125_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_sea_10m_20221125_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_10m/cur_sea_10m_20230419
+cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_10m/cur_sea_10m_20230419
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_10m_20230419.ply -SS RANDOM 50000000
+mv cur_sea_10m_20230419_RANDOM_SUBSAMPLED.ply cur_sea_10m_20230419_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_10m_20230419_dec50M.ply -SS RANDOM 7000000
+mv cur_sea_10m_20230419_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_10m_20230419_dec7M.ply
+rclone copy cur_sea_10m_20230419_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_sea_10m_20230419_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20221125
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20221125
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_20m_20221125.ply -SS RANDOM 50000000
@@ -151,6 +169,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_sea_20m_20221125_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_20m_20221125_dec7M.ply
 rclone copy cur_sea_20m_20221125_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_sea_20m_20221125_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20230419
+cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_20m/cur_sea_20m_20230419
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_20m_20230419.ply -SS RANDOM 50000000
+mv cur_sea_20m_20230419_RANDOM_SUBSAMPLED.ply cur_sea_20m_20230419_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_20m_20230419_dec50M.ply -SS RANDOM 7000000
+mv cur_sea_20m_20230419_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_20m_20230419_dec7M.ply
+rclone copy cur_sea_20m_20230419_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_sea_20m_20230419_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20221202
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20221202
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_40m_20221202.ply -SS RANDOM 50000000
@@ -160,6 +187,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_sea_40m_20221202_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_40m_20221202_dec7M.ply
 rclone copy cur_sea_40m_20221202_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_sea_40m_20221202_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20230419
+cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_40m/cur_sea_40m_20230419
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_40m_20230419.ply -SS RANDOM 50000000
+mv cur_sea_40m_20230419_RANDOM_SUBSAMPLED.ply cur_sea_40m_20230419_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_40m_20230419_dec50M.ply -SS RANDOM 7000000
+mv cur_sea_40m_20230419_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_40m_20230419_dec7M.ply
+rclone copy cur_sea_40m_20230419_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_sea_40m_20230419_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20221202
 cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20221202
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_60m_20221202.ply -SS RANDOM 50000000
@@ -169,6 +205,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_sea_60m_20221202_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_60m_20221202_dec7M.ply
 rclone copy cur_sea_60m_20221202_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_sea_60m_20221202_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20230419
+cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20230419
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_60m_20230419.ply -SS RANDOM 50000000
+mv cur_sea_60m_20230419_RANDOM_SUBSAMPLED.ply cur_sea_60m_20230419_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_sea_60m_20230419_dec50M.ply -SS RANDOM 7000000
+mv cur_sea_60m_20230419_dec50M_RANDOM_SUBSAMPLED.ply cur_sea_60m_20230419_dec7M.ply
+rclone copy cur_sea_60m_20230419_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_sea_60m_20230419_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20221129
 cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20221129
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_dir_05m_20221129.ply -SS RANDOM 50000000
@@ -322,6 +367,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_est_05m_20221201_dec50M_RANDOM_SUBSAMPLED.ply cur_est_05m_20221201_dec7M.ply
 rclone copy cur_est_05m_20221201_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_05m_20221201_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_05m/cur_est_05m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_05m/cur_est_05m_20230420
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_05m_20230420.ply -SS RANDOM 50000000
+mv cur_est_05m_20230420_RANDOM_SUBSAMPLED.ply cur_est_05m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_05m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_05m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_05m_20230420_dec7M.ply
+rclone copy cur_est_05m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_05m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20201127
 cd /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20201127
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_10m_20201127.ply -SS RANDOM 50000000
@@ -340,6 +394,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_est_10m_20221201_dec50M_RANDOM_SUBSAMPLED.ply cur_est_10m_20221201_dec7M.ply
 rclone copy cur_est_10m_20221201_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_10m_20221201_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20230420
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_10m_20230420.ply -SS RANDOM 50000000
+mv cur_est_10m_20230420_RANDOM_SUBSAMPLED.ply cur_est_10m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_10m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_10m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_10m_20230420_dec7M.ply
+rclone copy cur_est_10m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_10m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20221201
 cd /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20221201
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_20m_20221201.ply -SS RANDOM 50000000
@@ -349,6 +412,15 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_est_20m_20221201_dec50M_RANDOM_SUBSAMPLED.ply cur_est_20m_20221201_dec7M.ply
 rclone copy cur_est_20m_20221201_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_20m_20221201_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20230420
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_20m_20230420.ply -SS RANDOM 50000000
+mv cur_est_20m_20230420_RANDOM_SUBSAMPLED.ply cur_est_20m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_20m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_20m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_20m_20230420_dec7M.ply
+rclone copy cur_est_20m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_20m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20200219
 cd /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20200219
 xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_40m_20200219.ply -SS RANDOM 50000000
@@ -358,3 +430,21 @@ xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMES
 mv cur_est_40m_20200219_dec50M_RANDOM_SUBSAMPLED.ply cur_est_40m_20200219_dec7M.ply
 rclone copy cur_est_40m_20200219_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_40m_20200219_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20230420
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_40m_20230420.ply -SS RANDOM 50000000
+mv cur_est_40m_20230420_RANDOM_SUBSAMPLED.ply cur_est_40m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_40m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_40m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_40m_20230420_dec7M.ply
+rclone copy cur_est_40m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_40m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_60m/cur_est_60m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_60m/cur_est_60m_20230420
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_60m_20230420.ply -SS RANDOM 50000000
+mv cur_est_60m_20230420_RANDOM_SUBSAMPLED.ply cur_est_60m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_60m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_60m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_60m_20230420_dec7M.ply
+rclone copy cur_est_60m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_60m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
