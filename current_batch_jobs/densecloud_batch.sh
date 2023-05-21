@@ -1,3 +1,4 @@
+hostname=$(hostname)
 cd /mnt/coral3d/focal_plots/cur_kal/cur_kal_20m/cur_kal_20m_20230423
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: cur_kal_20m_20230423"
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py

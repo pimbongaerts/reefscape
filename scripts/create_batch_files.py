@@ -53,6 +53,7 @@ def main(README_filename):
     readme_file = open(README_filename, 'r')
     camera_batch_file = open('camera_batch.sh', 'w')
     densecloud_batch_file = open('densecloud_batch.sh', 'w')
+    densecloud_batch_file.write('hostname=$(hostname)\n')
     viscore_batch_file = open('viscore_batch.bat', 'w')
     decimate_batch_file = open('decimate_batch.sh', 'w')
     ortho_batch_file = open('ortho_batch.sh', 'w')
