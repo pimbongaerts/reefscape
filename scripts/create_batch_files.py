@@ -68,9 +68,9 @@ def main(README_filename):
 
                 if CR2_count > MIN_IMG or JPG_count > MIN_IMG:
                     densecloud_batch_file.write('cd {0}\n'.format(get_linux_model_folder(model_name)))
-                    densecloud_batch_file.write('/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: {0}"'.format(model_name))
+                    densecloud_batch_file.write('/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: {0}"\n'.format(model_name))
                     densecloud_batch_file.write('{0}\n'.format(DENSECLOUD_SCRIPT))
-                    densecloud_batch_file.write('/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: {0}"'.format(model_name))
+                    densecloud_batch_file.write('/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: {0}\n"'.format(model_name))
                     densecloud_batch_file.write('{0}\n'.format(MODELINFO_SCRIPT))
             elif all(x in line for x in ['PLY', 'CAM', 'MET']):
                 if ('VIS' not in line):
