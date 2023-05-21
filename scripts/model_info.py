@@ -3,33 +3,55 @@
 
 """
 import Metashape
-import argparse
+import os
+import subprocess
 
 __author__ = 'Pim Bongaerts'
 __copyright__ = 'Copyright (C) 2020 Pim Bongaerts'
 __license__ = 'GPL'
 
-def main(file_name):
+def main():
+    file_name = '{0}/{1}.psx'.format(os.getcwd(), os.path.basename(os.getcwd()))
     doc = Metashape.app.document
     doc.open(file_name)
     chunk = doc.chunk
 
-    cameras_not_aligned = []
+    photos_not_aligned = 0
+    photos_aligned = 0
+    closeups_not_aligned = 0
+    closeups_aligned = 0
+
     for camera in chunk.cameras:
-        if not camera.transform:
-            cameras_not_aligned.append(camera)
-    print('{0} out of {1} cameras not aligned'.format(len(cameras_not_aligned),
-                                                      len(chunk.cameras)))
-    print(chunk.dense_cloud.point_count)
-    print(chunk.meta)
-    print(chunk.depth_maps.meta)
-    print(chunk.dense_cloud.meta)
-    
+        if camera.group:
+            if camera.group.label == 'closeup' and not camera.transform:
+                closeups_not_aligned +=1
+            elif camera.group.label == 'closeup' and camera.transform:
+                closeups_aligned +=1
+            elif camera.group.label != 'closeup' and not camera.transform:
+                photos_not_aligned +=1
+            elif camera.group.label != 'closeup' and camera.transform:
+                photos_aligned +=1
+        else:
+            if not camera.transform:
+                photos_not_aligned +=1
+            else:
+                photos_aligned +=1            
+
+
+    pointcloud_size = chunk.point_cloud.point_count
+    file_name_only = os.path.basename(file_name)
+
+    slack_msg = '{0}: {1}/{2} photos aligned, {3}/{4} closeups aligned, {5:.3f}B points.'.format(
+                                                                    file_name_only,
+                                                                    photos_aligned,
+                                                                    photos_aligned+photos_not_aligned,
+                                                                    closeups_aligned,
+                                                                    closeups_aligned+closeups_not_aligned,
+                                                                    pointcloud_size / 1000000000)
+    print(slack_msg)
+    command = '/home/deepcat/tools/local_scripts/post_to_slack.sh "{0}"'.format(slack_msg)
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output, error = process.communicate()
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('-f', '--file_name', dest='file_name',
-                        metavar='file_name',
-                        help='Agisoft project filename')
-    args = parser.parse_args()
-    main(file_name)
+    main()
