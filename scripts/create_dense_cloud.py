@@ -165,8 +165,9 @@ def main(camera_extension, aligned_camera_threshold):
                           reference_preselection = False,   # Disable reference preselection
                           filter_mask = False,              # Disable filtering points by mask
                           mask_tiepoints = False,           # Disable applying mask filter to tie points
-                          keypoint_limit = 5000,            
-                          tiepoint_limit = 0,
+                          filter_stationary_points = False, # Exclude tie points which are stationary across images
+                          keypoint_limit = 40000,           # Increased from 5,000 (30-May-2023)
+                          tiepoint_limit = 10000,
                           keep_keypoints = False,           # Do not store keypoints in the project
                           guided_matching = False,          # Disable guided image matching
                           reset_matches = True,             # Resent current matches
@@ -176,9 +177,14 @@ def main(camera_extension, aligned_camera_threshold):
         
         start_time = time.time()
         start_next_step("Align photos", log_file)
-        chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
-                           reset_alignment = True,          # Reset current alignment
-                           progress = progress_print)
+        if len(closeup_camera_list) > 0:
+            chunk.alignCameras(adaptive_fitting = False,        # Disable adaptive fitting if using multiple lenses (30-May-2023)
+                               reset_alignment = True,          # Reset current alignment
+                               progress = progress_print)
+        else:
+            chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
+                               reset_alignment = True,          # Reset current alignment
+                               progress = progress_print)
         doc.save()
         start_time = time.time()
 
