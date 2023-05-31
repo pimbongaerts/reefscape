@@ -244,7 +244,7 @@ if __name__ == '__main__':
                         metavar='camera_extension', default='jpg',
                         help='extension/format of converted cameras (default: jpg)')
     parser.add_argument('-a', '--aligned_camera_threshold', dest='aligned_camera_threshold',
-                        metavar='aligned_camera_threshold', default=0.8, type=float,
-                        help='minimum threshold of aligned cameras (default 0.8)')
+                        metavar='aligned_camera_threshold', default=0.95, type=float,
+                        help='minimum threshold of aligned cameras (default 0.95)')
     args = parser.parse_args()
     main(args.camera_extension.lower(), args.aligned_camera_threshold)
