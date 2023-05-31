@@ -166,8 +166,8 @@ def main(camera_extension, aligned_camera_threshold):
                           filter_mask = False,              # Disable filtering points by mask
                           mask_tiepoints = False,           # Disable applying mask filter to tie points
                           filter_stationary_points = False, # Exclude tie points which are stationary across images
-                          keypoint_limit = 40000,           # Increased from 5,000 (30-May-2023)
-                          tiepoint_limit = 10000,
+                          keypoint_limit = 5000,
+                          tiepoint_limit = 0,
                           keep_keypoints = False,           # Do not store keypoints in the project
                           guided_matching = False,          # Disable guided image matching
                           reset_matches = True,             # Resent current matches
