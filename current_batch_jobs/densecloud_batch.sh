@@ -69,6 +69,31 @@ cd /mnt/coral3d/focal_plots/cur_sea/cur_sea_60m/cur_sea_60m_20230419
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: cur_sea_60m_20230419"
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/model_info.py
+cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_05m/cur_dir_05m_20230416
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: cur_dir_05m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: cur_dir_05m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/model_info.py
+cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_10m/cur_dir_10m_20230416
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: cur_dir_10m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: cur_dir_10m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/model_info.py
+cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_20m/cur_dir_20m_20230416
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: cur_dir_20m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: cur_dir_20m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/model_info.py
+cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_40m/cur_dir_40m_20230416
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: cur_dir_40m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: cur_dir_40m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/model_info.py
+cd /mnt/coral3d/focal_plots/cur_dir/cur_dir_60m/cur_dir_60m_20230416
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: cur_dir_60m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished densecloud generation for: cur_dir_60m_20230416"
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/model_info.py
 cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_05m/cur_wat_05m_20230415
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started densecloud generation for: cur_wat_05m_20230415"
 ~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_dense_cloud.py
