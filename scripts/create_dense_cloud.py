@@ -160,18 +160,32 @@ def main(camera_extension, aligned_camera_threshold):
 
     if len(aligned_cameras) == 0:
         start_next_step("Match photos", log_file)
-        chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
-                          generic_preselection = True,      # Enable generic preselection
-                          reference_preselection = False,   # Disable reference preselection
-                          filter_mask = False,              # Disable filtering points by mask
-                          mask_tiepoints = False,           # Disable applying mask filter to tie points
-                          filter_stationary_points = False, # Exclude tie points which are stationary across images
-                          keypoint_limit = 5000,
-                          tiepoint_limit = 0,
-                          keep_keypoints = False,           # Do not store keypoints in the project
-                          guided_matching = False,          # Disable guided image matching
-                          reset_matches = True,             # Resent current matches
-                          progress = progress_print)             
+        if len(closeup_camera_list) > 0:
+            chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
+                              generic_preselection = False,     # Enable generic preselection
+                              reference_preselection = False,   # Disable reference preselection
+                              filter_mask = False,              # Disable filtering points by mask
+                              mask_tiepoints = False,           # Disable applying mask filter to tie points
+                              filter_stationary_points = False, # Exclude tie points which are stationary across images
+                              keypoint_limit = 5000,
+                              tiepoint_limit = 0,
+                              keep_keypoints = False,           # Do not store keypoints in the project
+                              guided_matching = False,          # Disable guided image matching
+                              reset_matches = True,             # Resent current matches
+                              progress = progress_print)
+        else:
+            chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
+                              generic_preselection = True,      # Enable generic preselection
+                              reference_preselection = False,   # Disable reference preselection
+                              filter_mask = False,              # Disable filtering points by mask
+                              mask_tiepoints = False,           # Disable applying mask filter to tie points
+                              filter_stationary_points = False, # Exclude tie points which are stationary across images
+                              keypoint_limit = 5000,
+                              tiepoint_limit = 0,
+                              keep_keypoints = False,           # Do not store keypoints in the project
+                              guided_matching = False,          # Disable guided image matching
+                              reset_matches = True,             # Resent current matches
+                              progress = progress_print)                
 
         doc.save()
         
