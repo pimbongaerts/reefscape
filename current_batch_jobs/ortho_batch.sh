@@ -170,3 +170,48 @@ rclone copy cur_wat_10m_20230415.orthom/cur_wat_10m_20230415_64K_orthom.tif orth
 rclone copy cur_wat_10m_20230415.orthom/cur_wat_10m_20230415_32K_orthom.tif orthos:/focal_plots/orthom_32K
 rclone copy cur_wat_10m_20230415.orthom/cur_wat_10m_20230415_10K_orthom.png orthos:/focal_plots/orthom_10K
 rclone copy cur_wat_10m_20230415.orthom/cur_wat_10m_20230415_02K_orthom.png orthos:/focal_plots/orthom_02K
+echo $(hostname) $(date -u) "Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20230415" >> /home/deepcat/deepcat_log.txt
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is generating ortho for: cur_wat_20m_20230415"
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_20m/cur_wat_20m_20230415
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_20m_20230415
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying orthomosaics to Google drive: cur_wat_20m_20230415"
+rclone copy cur_wat_20m_20230415.orthom/cur_wat_20m_20230415_64K_orthom.tif orthos:/focal_plots/orthom_64K
+rclone copy cur_wat_20m_20230415.orthom/cur_wat_20m_20230415_32K_orthom.tif orthos:/focal_plots/orthom_32K
+rclone copy cur_wat_20m_20230415.orthom/cur_wat_20m_20230415_10K_orthom.png orthos:/focal_plots/orthom_10K
+rclone copy cur_wat_20m_20230415.orthom/cur_wat_20m_20230415_02K_orthom.png orthos:/focal_plots/orthom_02K
+echo $(hostname) $(date -u) "Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_40m/cur_wat_40m_20230415" >> /home/deepcat/deepcat_log.txt
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is generating ortho for: cur_wat_40m_20230415"
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_40m/cur_wat_40m_20230415
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_40m_20230415
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying orthomosaics to Google drive: cur_wat_40m_20230415"
+rclone copy cur_wat_40m_20230415.orthom/cur_wat_40m_20230415_64K_orthom.tif orthos:/focal_plots/orthom_64K
+rclone copy cur_wat_40m_20230415.orthom/cur_wat_40m_20230415_32K_orthom.tif orthos:/focal_plots/orthom_32K
+rclone copy cur_wat_40m_20230415.orthom/cur_wat_40m_20230415_10K_orthom.png orthos:/focal_plots/orthom_10K
+rclone copy cur_wat_40m_20230415.orthom/cur_wat_40m_20230415_02K_orthom.png orthos:/focal_plots/orthom_02K
+echo $(hostname) $(date -u) "Orthomosaic generation of /mnt/coral3d/focal_plots/cur_wat/cur_wat_60m/cur_wat_60m_20230415" >> /home/deepcat/deepcat_log.txt
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is generating ortho for: cur_wat_60m_20230415"
+cd /mnt/coral3d/focal_plots/cur_wat/cur_wat_60m/cur_wat_60m_20230415
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_wat_60m_20230415
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying orthomosaics to Google drive: cur_wat_60m_20230415"
+rclone copy cur_wat_60m_20230415.orthom/cur_wat_60m_20230415_64K_orthom.tif orthos:/focal_plots/orthom_64K
+rclone copy cur_wat_60m_20230415.orthom/cur_wat_60m_20230415_32K_orthom.tif orthos:/focal_plots/orthom_32K
+rclone copy cur_wat_60m_20230415.orthom/cur_wat_60m_20230415_10K_orthom.png orthos:/focal_plots/orthom_10K
+rclone copy cur_wat_60m_20230415.orthom/cur_wat_60m_20230415_02K_orthom.png orthos:/focal_plots/orthom_02K
+echo $(hostname) $(date -u) "Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20230422" >> /home/deepcat/deepcat_log.txt
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is generating ortho for: cur_hul_10m_20230422"
+cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_10m/cur_hul_10m_20230422
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_10m_20230422
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying orthomosaics to Google drive: cur_hul_10m_20230422"
+rclone copy cur_hul_10m_20230422.orthom/cur_hul_10m_20230422_64K_orthom.tif orthos:/focal_plots/orthom_64K
+rclone copy cur_hul_10m_20230422.orthom/cur_hul_10m_20230422_32K_orthom.tif orthos:/focal_plots/orthom_32K
+rclone copy cur_hul_10m_20230422.orthom/cur_hul_10m_20230422_10K_orthom.png orthos:/focal_plots/orthom_10K
+rclone copy cur_hul_10m_20230422.orthom/cur_hul_10m_20230422_02K_orthom.png orthos:/focal_plots/orthom_02K
+echo $(hostname) $(date -u) "Orthomosaic generation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20230422" >> /home/deepcat/deepcat_log.txt
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is generating ortho for: cur_hul_20m_20230422"
+cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_20m/cur_hul_20m_20230422
+~/tools/metashape-pro/metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py # cur_hul_20m_20230422
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying orthomosaics to Google drive: cur_hul_20m_20230422"
+rclone copy cur_hul_20m_20230422.orthom/cur_hul_20m_20230422_64K_orthom.tif orthos:/focal_plots/orthom_64K
+rclone copy cur_hul_20m_20230422.orthom/cur_hul_20m_20230422_32K_orthom.tif orthos:/focal_plots/orthom_32K
+rclone copy cur_hul_20m_20230422.orthom/cur_hul_20m_20230422_10K_orthom.png orthos:/focal_plots/orthom_10K
+rclone copy cur_hul_20m_20230422.orthom/cur_hul_20m_20230422_02K_orthom.png orthos:/focal_plots/orthom_02K
