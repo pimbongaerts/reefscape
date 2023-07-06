@@ -221,15 +221,15 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_wat_20m_20211126          CAM DEC JPG:1193 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_wat_20m_20220516          JPG:0946 PSX
 │   │   ├──cur_wat_20m_20221128          CAM JPG:0914 MET ORTHOM PLY PSX VIS
-│   │   ├──cur_wat_20m_20230415          CAM JPG:0948 MET PLY PSX
+│   │   ├──cur_wat_20m_20230415          CAM JPG:0948 MET PLY PSX VIS
 │   ├──cur_wat_40m
 │   │   ├──cur_wat_40m_20200225          CAM DEC DEPTH:00 JPG:0878 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_wat_40m_20220516          JPG:0943 PSX
-│   │   ├──cur_wat_40m_20230415          CAM JPG:0946 MET PLY PSX
+│   │   ├──cur_wat_40m_20230415          CAM JPG:0946 MET PLY PSX VIS
 │   ├──cur_wat_60m
 │   │   ├──cur_wat_60m_20200225          CAM DEC DEPTH:00 JPG:0802 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_wat_60m_20220516          CAM DEC JPG:0841 MET ORTHOM PLY PLY PSX VIS
-│   │   ├──cur_wat_60m_20230415          CAM JPG:0904 MET PLY PSX
+│   │   ├──cur_wat_60m_20230415          CAM JPG:0904 MET PLY PSX VIS
 ├── cur_hul
 │   ├──cur_hul_05m
 │   │   ├──cur_hul_05m_20200301          CAM DEC DEPTH:07 JPG:0766 MET ORTHOM PLY PLY PSX SCALE:02 VIS:02
@@ -246,7 +246,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_hul_10m_20211203          CAM DEC JPG:1290 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_hul_10m_20220519          CAM DEC JPG:0956 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_hul_10m_20221208          CAM JPG:1196 MET ORTHOM PLY PSX VIS
-│   │   ├──cur_hul_10m_20230422          CAM JPG:0922 MET PLY PSX
+│   │   ├──cur_hul_10m_20230422          CAM JPG:0922 MET PLY PSX VIS
 │   ├──cur_hul_20m
 │   │   ├──cur_hul_20m_20200301          CAM DEC DEPTH:00 JPG:1391 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_hul_20m_20201206          CAM DEC DEPTH:00 JPG:1304 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
@@ -254,7 +254,7 @@ D_IMG:  Number of images for depth markers
 │   │   ├──cur_hul_20m_20211203          CAM DEC JPG:1088 MET ORTHOM PLY PLY PSX VIS
 │   │   ├──cur_hul_20m_20220519          CAM DEC DEPTH:00 JPG:1253 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_hul_20m_20221208          CAM JPG:1145 MET ORTHOM PLY PSX VIS
-│   │   ├──cur_hul_20m_20230422          CAM JPG:0915 MET PLY PSX
+│   │   ├──cur_hul_20m_20230422          CAM JPG:0915 MET PLY PSX VIS
 │   ├──cur_hul_40m
 │   │   ├──cur_hul_40m_20200301          CAM DEC DEPTH:00 JPG:1345 MET ORTHOM PLY PLY PSX SCALE:02 VIS:01
 │   │   ├──cur_hul_40m_20220519          CAM DEC JPG:0934 MET ORTHOM PLY PLY PSX VIS
