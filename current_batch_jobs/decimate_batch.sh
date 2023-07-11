@@ -611,6 +611,30 @@ mv cur_hul_20m_20230422_dec50M_RANDOM_SUBSAMPLED.ply cur_hul_20m_20230422_dec7M.
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_hul_20m_20230422"
 rclone copy cur_hul_20m_20230422_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_hul_20m_20230422_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_40m/cur_hul_40m_20230422
+cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_40m/cur_hul_40m_20230422
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_hul_40m_20230422"
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_hul_40m_20230422.ply -SS RANDOM 50000000
+mv cur_hul_40m_20230422_RANDOM_SUBSAMPLED.ply cur_hul_40m_20230422_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_hul_40m_20230422_dec50M.ply -SS RANDOM 7000000
+mv cur_hul_40m_20230422_dec50M_RANDOM_SUBSAMPLED.ply cur_hul_40m_20230422_dec7M.ply
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished decimation for: cur_hul_40m_20230422"
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_hul_40m_20230422"
+rclone copy cur_hul_40m_20230422_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_hul_40m_20230422_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_hul/cur_hul_60m/cur_hul_60m_20230422
+cd /mnt/coral3d/focal_plots/cur_hul/cur_hul_60m/cur_hul_60m_20230422
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_hul_60m_20230422"
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_hul_60m_20230422.ply -SS RANDOM 50000000
+mv cur_hul_60m_20230422_RANDOM_SUBSAMPLED.ply cur_hul_60m_20230422_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_hul_60m_20230422_dec50M.ply -SS RANDOM 7000000
+mv cur_hul_60m_20230422_dec50M_RANDOM_SUBSAMPLED.ply cur_hul_60m_20230422_dec7M.ply
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished decimation for: cur_hul_60m_20230422"
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_hul_60m_20230422"
+rclone copy cur_hul_60m_20230422_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_hul_60m_20230422_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_05m/cur_est_05m_20221201
 cd /mnt/coral3d/focal_plots/cur_est/cur_est_05m/cur_est_05m_20221201
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_05m_20221201"
@@ -623,6 +647,18 @@ mv cur_est_05m_20221201_dec50M_RANDOM_SUBSAMPLED.ply cur_est_05m_20221201_dec7M.
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_05m_20221201"
 rclone copy cur_est_05m_20221201_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_05m_20221201_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_05m/cur_est_05m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_05m/cur_est_05m_20230420
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_05m_20230420"
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_05m_20230420.ply -SS RANDOM 50000000
+mv cur_est_05m_20230420_RANDOM_SUBSAMPLED.ply cur_est_05m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_05m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_05m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_05m_20230420_dec7M.ply
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished decimation for: cur_est_05m_20230420"
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_05m_20230420"
+rclone copy cur_est_05m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_05m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20201127
 cd /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20201127
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_10m_20201127"
@@ -647,6 +683,18 @@ mv cur_est_10m_20221201_dec50M_RANDOM_SUBSAMPLED.ply cur_est_10m_20221201_dec7M.
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_10m_20221201"
 rclone copy cur_est_10m_20221201_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_10m_20221201_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_10m/cur_est_10m_20230420
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_10m_20230420"
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_10m_20230420.ply -SS RANDOM 50000000
+mv cur_est_10m_20230420_RANDOM_SUBSAMPLED.ply cur_est_10m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_10m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_10m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_10m_20230420_dec7M.ply
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished decimation for: cur_est_10m_20230420"
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_10m_20230420"
+rclone copy cur_est_10m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_10m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20221201
 cd /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20221201
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_20m_20221201"
@@ -659,6 +707,18 @@ mv cur_est_20m_20221201_dec50M_RANDOM_SUBSAMPLED.ply cur_est_20m_20221201_dec7M.
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_20m_20221201"
 rclone copy cur_est_20m_20221201_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_20m_20221201_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_20m/cur_est_20m_20230420
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_20m_20230420"
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_20m_20230420.ply -SS RANDOM 50000000
+mv cur_est_20m_20230420_RANDOM_SUBSAMPLED.ply cur_est_20m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_20m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_20m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_20m_20230420_dec7M.ply
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished decimation for: cur_est_20m_20230420"
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_20m_20230420"
+rclone copy cur_est_20m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_20m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
 # Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20200219
 cd /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20200219
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_40m_20200219"
@@ -671,3 +731,27 @@ mv cur_est_40m_20200219_dec50M_RANDOM_SUBSAMPLED.ply cur_est_40m_20200219_dec7M.
 /home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_40m_20200219"
 rclone copy cur_est_40m_20200219_dec50M.ply orthos:/focal_plots/ply_dec50M
 rclone copy cur_est_40m_20200219_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_40m/cur_est_40m_20230420
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_40m_20230420"
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_40m_20230420.ply -SS RANDOM 50000000
+mv cur_est_40m_20230420_RANDOM_SUBSAMPLED.ply cur_est_40m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_40m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_40m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_40m_20230420_dec7M.ply
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished decimation for: cur_est_40m_20230420"
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_40m_20230420"
+rclone copy cur_est_40m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_40m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
+# Decimation of /mnt/coral3d/focal_plots/cur_est/cur_est_60m/cur_est_60m_20230420
+cd /mnt/coral3d/focal_plots/cur_est/cur_est_60m/cur_est_60m_20230420
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname started decimation for: cur_est_60m_20230420"
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_60m_20230420.ply -SS RANDOM 50000000
+mv cur_est_60m_20230420_RANDOM_SUBSAMPLED.ply cur_est_60m_20230420_dec50M.ply
+sleep 10
+xvfb-run /snap/bin/cloudcompare.CloudCompare -SILENT -C_EXPORT_FMT PLY -NO_TIMESTAMP -O cur_est_60m_20230420_dec50M.ply -SS RANDOM 7000000
+mv cur_est_60m_20230420_dec50M_RANDOM_SUBSAMPLED.ply cur_est_60m_20230420_dec7M.ply
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname finished decimation for: cur_est_60m_20230420"
+/home/deepcat/tools/local_scripts/post_to_slack.sh "$hostname is copying decimated PLYs to Google drive: cur_est_60m_20230420"
+rclone copy cur_est_60m_20230420_dec50M.ply orthos:/focal_plots/ply_dec50M
+rclone copy cur_est_60m_20230420_dec7M.ply orthos:/focal_plots/ply_dec7M
