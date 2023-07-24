@@ -73,7 +73,7 @@ def main(model_id, annotations_filename, max_cameras):
         annotation_id = '{:03d}'.format(annotation[0])
         annotation_label = annotation[1]
         annotation_vector = annotation[2]
-        marker = chunk.addMarker(T.inv().mulp(annotation_vector))
+        marker = chunk.addMarker(T.inv().mulp(annotation_vector), visibility = True)
         projections = marker.projections.items()
         camera_projs = []
         for proj in projections:
