@@ -70,17 +70,18 @@ def main(model_id, annotations_filename, max_cameras):
         sys.exit('Could not create folder: {}'.format(output_folder))
 
     for annotation in annotations:
-        annotation_id = '{:03d}'.format(annotation[0])
+        annotation_id = '{:05d}'.format(annotation[0])
         annotation_label = annotation[1]
         annotation_vector = annotation[2]
         marker = chunk.addMarker(T.inv().mulp(annotation_vector), visibility = True)
         projections = marker.projections.items()
+    
         camera_projs = []
         for proj in projections:
-            camera = proj[0]
-            camera_coords = proj[1]
-            dist = get_distance_from_camera_center(camera_coords.coord.x, camera_coords.coord.y)
-            camera_projs.append([dist, annotation_id, annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y])
+                camera = proj[0]
+                camera_coords = proj[1]
+                dist = get_distance_from_camera_center(camera_coords.coord.x, camera_coords.coord.y)
+                camera_projs.append([dist, annotation_id, annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2], camera.photo.path, camera_coords.coord.x, camera_coords.coord.y])
         if len(camera_projs) == 0:
             # Output dummy image if no cameras found (e.g. outside plot)
             img_text = 'no images! {0}_{1} x {2} y {3} z {4}'.format(annotation_id, annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2])
@@ -92,6 +93,7 @@ def main(model_id, annotations_filename, max_cameras):
             #sys.exit('Error - no cameras found: {0} {1} {2} {3}'.format(annotation_label, annotation_vector[0], annotation_vector[1], annotation_vector[2]))
         else:
             # Sort by distance (sorted sorts lists of lists by first element)
+            image_no = 1
             for camera_proj in sorted(camera_projs)[:int(max_cameras)]:
                 print('{0},{1}'.format(', '.join([str(x) for x in camera_proj[1:]]), str(camera_proj[0])))
                 box_x = max(int(camera_proj[7]) - (ANN_SQ_SIZE / 2), 0)
@@ -99,12 +101,13 @@ def main(model_id, annotations_filename, max_cameras):
                 crop_x = max(int(camera_proj[7]) - (CROP_SIZE / 2), 0)
                 crop_y = max(int(camera_proj[8]) - (CROP_SIZE / 2), 0)
                 img_text = 'lab {0}_{1} x {2} y {3} z {4} orig {5}'.format(camera_proj[1], camera_proj[2], camera_proj[3], camera_proj[4], camera_proj[5], os.path.basename(camera_proj[6]))
-                output_file = '{0}/{1}_{2}_{3}'.format(output_folder, camera_proj[1], camera_proj[2], os.path.basename(camera_proj[6]))
+                output_file = '{0}/{1}_{2}_{3:03d}_{4}'.format(output_folder, camera_proj[1], camera_proj[2], image_no, os.path.basename(camera_proj[6]))
 
                 ffmpeg_cmd = 'ffmpeg -i {0} -hide_banner -loglevel panic -vf "drawbox={1}:{2}:{3}:{3}:color=red@0.5:t=fill,crop={4}:{4}:{5}:{6},drawtext=fontfile=/Library/Fonts/Arial.ttf: text=\'{7}\': x=50: y=h-(2*lh): fontcolor=black: fontsize=20: box=1: boxcolor=gray: boxborderw=5" {8}'.format(camera_proj[6], box_x , box_y, 
                                                                    ANN_SQ_SIZE, CROP_SIZE,crop_x, crop_y, img_text, output_file)
                 process = subprocess.Popen(ffmpeg_cmd, shell=True)
                 process.wait()
+                image_no +=1
             chunk.remove(marker)
 
     # Create movie from images
