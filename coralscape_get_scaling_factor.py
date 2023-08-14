@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 """
+Calculates scaling factor based on GCP target coordinates.
+Specific to CoralScape20K project.
 """
 import sys
 import os

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """
-Creates a PDF of all timepoints for each annotated coral
+Extracts annotated corals for all timepoints and visuaizes them alongside each
+other in the same 3D orientation - outputs as PDF.
 """
 import reefscape
 import sys
