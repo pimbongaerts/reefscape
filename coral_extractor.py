@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-
+Creates a PDF of all timepoints for each annotated coral
 """
 import reefscape
 import sys

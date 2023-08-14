@@ -2,7 +2,6 @@
 """
 Create orthomosaic using the Metashape 2.0 API.
 
-Usage: 
 ./metashape.sh -platform offscreen -r ~/reefscape/scripts/create_ortho.py
 or create an alias:
 alias ortho="~/path_to_metashape-pro/metashape.sh -platform offscreen \

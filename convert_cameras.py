@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """
-
+Convert cameras from CR2 raw format to JPG using `darktable-cli`, which needs
+to be accessible through PATH variable. The config and temporary folder are
+currently still hardcoded.
 """
 import argparse
 import os
