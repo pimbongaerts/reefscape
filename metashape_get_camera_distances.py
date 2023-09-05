@@ -54,7 +54,7 @@ def main(metashape_project_path, scaling_factor, beam_angle):
 							v1 = camera.transform.mulp(camera.sensor.calibration.unproject(Metashape.Vector([camera.sensor.width/2, camera.sensor.height/2]))) - camera.center
 							v2 = points[point_index].coord[0:3] - camera.center
 							angle=np.arccos(np.dot(v1,v2)/(np.linalg.norm(v1)*np.linalg.norm(v2)))
-							if angle <= (beam_angle / 2):
+							if angle <= (int(beam_angle) / 2):
 								continue
 						distance = math.dist(points[point_index].coord[0:3], camera.center) * float(scaling_factor)
 						distances.append(distance)
