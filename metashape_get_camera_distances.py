@@ -22,7 +22,7 @@ def open_metashape_project(metashape_project_path):
 		sys.exit("Could not access {0}".format(metashape_project_path))
 	return doc
 
-def main(metashape_project_path, beam_angle):
+def main(metashape_project_path, scaling_factor, beam_angle):
 
 	# Open metashape project and select primary chunk
 	doc = open_metashape_project(metashape_project_path)
@@ -35,7 +35,7 @@ def main(metashape_project_path, beam_angle):
 	camdists_filepath = metashape_project_path.replace('.psx', '_camdists.csv')
 	camdists_file = open(camdists_filepath, 'w')
 	print('Outputting {}...'.format(camdists_filepath))\
-	
+
 	for camera in chunk.cameras:
 		cam_datetime = camera.photo.meta["Exif/DateTimeOriginal"]
 		if camera.center:
@@ -53,11 +53,11 @@ def main(metashape_project_path, beam_angle):
 							v1 = camera.transform.mulp(camera.sensor.calibration.unproject(Metashape.Vector([camera.sensor.width/2, camera.sensor.height/2]))) - camera.center
 							v2 = points[point_index].coord[0:3] - camera.center
 							angle=np.arccos(np.dot(v1,v2)/(np.linalg.norm(v1)*np.linalg.norm(v2)))
-							if angle > (beam_angle / 2):
+							if angle <= (beam_angle / 2):
 								continue
-						distance = math.dist(points[point_index].coord[0:3], camera.center) * float(timepoint.scale)
+						distance = math.dist(points[point_index].coord[0:3], camera.center) * float(scaling_factor)
 						distances.append(distance)
-			camdists_file.write('{0},{1},{2},{3},{4},{5}\n'.format(camera.label, cam_datetime, np.mean(distances), np.std(distances), len(distances), timepoint.scale))
+			camdists_file.write('{0},{1},{2},{3},{4},{5}\n'.format(camera.label, cam_datetime, np.mean(distances), np.std(distances), len(distances), scaling_factor))
 		else:
 			camdists_file.write('{0},{1},NA,NA,NA,NA\n'.format(camera.label, cam_datetime))
 	camdists_file.close()
@@ -66,10 +66,12 @@ if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description=__doc__)
 	parser.add_argument('metashape_project_path', metavar='metashape_project_path',
 						help='metashape_project_path')
+	parser.add_argument('--scaling_factor', '-f', type=float, default=1.0, 
+		help='Scaling factor to convert distance to metres (default = 1.0)')
 	parser.add_argument('-b', '--beam_angle', dest='beam_angle',
 						metavar='beam_angle',
 						help='optional beam angle filter to only consider '
 							 'points that fall within virtual sonar beam'
 							 '(e.g. ~30 degrees for BR Ping1D)')
 	args = parser.parse_args()
-	main(args.metashape_project_path, args.beam_angle)
+	main(args.metashape_project_path, args.scaling_factor, args.beam_angle)
