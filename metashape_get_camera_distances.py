@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-
+NO LONGER WORKS AS point_cloud.points NOT ACCESSIBLE
 
 """
 
@@ -36,9 +36,8 @@ def main(ref_timepoint_id, timepoint_id, beam_angle):
         doc = open_metashape_project(timepoint.psx_filepath)
         chunk = doc.chunk
 
-        point_cloud = chunk.point_cloud
-        points = point_cloud.points
-        projections = point_cloud.projections
+        points = chunk.tie_points.points
+        projections = chunk.tie_points.projections
         npoints = len(points)
 
 
