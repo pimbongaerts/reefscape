@@ -34,7 +34,8 @@ def main(metashape_project_path, scaling_factor, beam_angle):
 
 	camdists_filepath = metashape_project_path.replace('.psx', '_camdists.csv')
 	camdists_file = open(camdists_filepath, 'w')
-	print('Outputting {}...'.format(camdists_filepath))\
+	print('Outputting {}...'.format(camdists_filepath))
+	camdists_file.write('label,datetime,dist_mean,dist_std,dist_points,scaling_factor\n')
 
 	for camera in chunk.cameras:
 		cam_datetime = camera.photo.meta["Exif/DateTimeOriginal"]
