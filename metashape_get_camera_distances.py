@@ -5,11 +5,11 @@ NO LONGER WORKS AS point_cloud.points NOT ACCESSIBLE
 """
 
 import Metashape
-import reefscape
 import argparse
 import numpy as np
 import math
 import os
+import sys
 
 def open_metashape_project(metashape_project_path):
 	# Enable all GPUs
