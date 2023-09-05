@@ -45,13 +45,15 @@ class Annotation(object):
         # Remove temporary marker
         chunk.remove(self.marker)
 
-    def output_cropped_images(self, output_folder, max_images, max_distance, 
-                              min_sharpness, crop_size, img_size,
+    def output_cropped_images(self, output_folder, min_images, max_images, 
+                              max_distance, min_sharpness, crop_size, img_size,
                               split_categories, omit_overlay):
         # Check if there are camera projections
         if not self.camprojections:
             print('Warning: no cameras found for {0} - {1}'.format(self.line_no, self.label))
             return
+
+            
 
         # Sort images by distance from annotation point to camera center
         sorted_camprojections = sorted(self.camprojections, 
@@ -241,8 +243,8 @@ def create_movie_from_images(output_folder, annotations_filename):
     process.wait()
 
 def main(metashape_project_path, annotations_filename, output_folder,
-         scaling_factor, category_column, max_annotations, max_images, 
-         max_distance, min_sharpness, crop_size, img_size,
+         scaling_factor, category_column, max_annotations, min_images,
+         max_images, max_distance, min_sharpness, crop_size, img_size,
          split_categories, omit_overlay, movie):
 
     # Open metashape project and select primary chunk
@@ -265,7 +267,7 @@ def main(metashape_project_path, annotations_filename, output_folder,
         annotation.get_camera_projections(chunk, transform, scaling_factor)
 
         # Output cropped image for each camera projection
-        annotation.output_cropped_images(output_folder, max_images, 
+        annotation.output_cropped_images(output_folder, min_images, max_images, 
                                          max_distance, min_sharpness,
                                          crop_size, img_size,
                                          split_categories, omit_overlay)
@@ -289,6 +291,7 @@ if __name__ == '__main__':
 
     # Optional output arguments
     parser.add_argument('--max_annotations', '-a', type=int, help='Optional maximum number of annotations to process')
+    parser.add_argument('--min_images', '-m', type=int, help='Optional maximum number of cameras to output per annotation')
     parser.add_argument('--max_images', '-i', type=int, help='Optional maximum number of cameras to output per annotation')
     parser.add_argument('--max_distance', '-d', type=float, help='Optional maximum distance of camera to annotation threshold (in metres as float)')
     parser.add_argument('--min_sharpness', '-x', type=float, help='Optional minimum sharpness threshold (measured as average gradient magnitude)')
@@ -305,7 +308,7 @@ if __name__ == '__main__':
     main(args.metashape_project_path, args.annotations_filename, 
          args.output_folder,
          args.scaling_factor, args.category_column,
-         args.max_annotations, args.max_images,
+         args.max_annotations, args.min_images, args.max_images,
          args.max_distance, args.min_sharpness,
          args.crop_size, args.img_size,
          args.split_categories, args.omit_overlay, args.movie)
