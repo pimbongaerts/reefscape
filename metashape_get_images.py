@@ -302,7 +302,7 @@ if __name__ == '__main__':
     # Optional output argument flags
     parser.add_argument('--split_categories', '-s', action="store_true", help="Optional flag to split image categories into different folders (True if provided)")
     parser.add_argument('--omit_overlay', '-o', action="store_true", help="Optional flag to omit image overlay with metadata (True if provided)")
-    parser.add_argument('--movie', '-m', action="store_true", help="Optional flag to create movie instead of images")
+    parser.add_argument('--movie', '-v', action="store_true", help="Optional flag to create movie instead of images")
 
     args = parser.parse_args()
     main(args.metashape_project_path, args.annotations_filename, 

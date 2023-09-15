@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-NO LONGER WORKS AS point_cloud.points NOT ACCESSIBLE
+BEAM ANGLE NOT CURRENTLY WORKING
 
 """
 
@@ -50,6 +50,7 @@ def main(metashape_project_path, scaling_factor, beam_angle):
 					if not points[point_index].valid:
 						continue    
 					else:
+						# TODO: NOT CURRENTLY WORKING
 						if beam_angle:
 							v1 = camera.transform.mulp(camera.sensor.calibration.unproject(Metashape.Vector([camera.sensor.width/2, camera.sensor.height/2]))) - camera.center
 							v2 = points[point_index].coord[0:3] - camera.center
