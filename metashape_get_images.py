@@ -111,8 +111,15 @@ class CameraProjection(object):
         crop_y = max(int(self.img_y) - (crop_size / 2), 0)
         
         # Define filename
-        crop_filepath = '{0}/{1:04d}_{2}_{3:03d}_{4}_{5}'.format(output_folder, self.parent.line_no, self.parent.label,
-                                                                 image_no, self.parent.category, os.path.basename(self.camera.photo.path))
+        x_str, y_str, z_str = [str(getattr(self, attr)).replace('.', '-') 
+                               for attr in ('x', 'y', 'z')]
+        crop_filename = '{0}_{1}_{2}_{3}_{4:02d}.jpg'.format(self.label,
+                                                             x_str, y_str, z_str,
+                                                             image_no)
+        crop_filepath = os.path.join(output_folder, crop_filename)
+
+        #crop_filepath = '{0}/{1:04d}_{2}_{3:03d}_{4}_{5}'.format(output_folder, self.parent.line_no, self.parent.label,
+        #                                                         image_no, self.parent.category, os.path.basename(self.camera.photo.path))
 
         if not img_size:
             img_size = crop_size
