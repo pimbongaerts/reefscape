@@ -45,15 +45,13 @@ class Annotation(object):
         # Remove temporary marker
         chunk.remove(self.marker)
 
-    def output_cropped_images(self, output_folder, min_images, max_images, 
+    def output_cropped_images(self, output_folder, one_image, max_images, 
                               max_distance, min_sharpness, crop_size, img_size,
                               split_categories, omit_overlay):
         # Check if there are camera projections
         if not self.camprojections:
             print('Warning: no cameras found for {0} - {1}'.format(self.line_no, self.label))
             return
-
-            
 
         # Sort images by distance from annotation point to camera center
         sorted_camprojections = sorted(self.camprojections, 
@@ -88,6 +86,10 @@ class Annotation(object):
             if max_images and image_no > max_images:
                 break
 
+        if image_no == 1 and one_image:
+            sorted_camprojections[0].output_crop_image(output_folder, image_no, 
+                                                       crop_size, img_size, omit_overlay)
+
 class CameraProjection(object):
     """ Camera Projection for Annotation point  """
     def __init__(self, parent, camera, marker_projection, scaling_factor):
@@ -111,9 +113,10 @@ class CameraProjection(object):
         crop_y = max(int(self.img_y) - (crop_size / 2), 0)
         
         # Define filename
-        x_str, y_str, z_str = [str(getattr(self, attr)).replace('.', '-') 
-                               for attr in ('x', 'y', 'z')]
-        crop_filename = '{0}_{1}_{2}_{3}_{4:02d}.jpg'.format(self.label,
+        x_str = str(self.parent.coords.x)#.replace('.', '_')
+        y_str = str(self.parent.coords.y)#.replace('.', '_')
+        z_str = str(self.parent.coords.z)#.replace('.', '_')
+        crop_filename = '{0}__{1}_{2}_{3}__{4:02d}.jpg'.format(self.parent.label,
                                                              x_str, y_str, z_str,
                                                              image_no)
         crop_filepath = os.path.join(output_folder, crop_filename)
@@ -206,9 +209,18 @@ def get_annotations(annotations_filename, category_column, max_annotations):
         cols = clean_line.split()
         coords = Metashape.Vector((float(cols[1]), float(cols[2]), 
                                    float(cols[3])))
-        category = cols[category_column] if category_column else ''
+        if category_column:
+            category = cols[category_column]
+        else:
+            category = ''
+
+        if len(cols) > 4:
+            additional_cols = cols[4:]
+        else:
+            additional_cols = ''
+
         annotations.append(Annotation(line_no, cols[0], coords, 
-                                      category, cols[4:]))
+                                      category, additional_cols))
         line_no += 1
         if max_annotations and line_no > max_annotations: break
     annotations_file.close()
@@ -250,7 +262,7 @@ def create_movie_from_images(output_folder, annotations_filename):
     process.wait()
 
 def main(metashape_project_path, annotations_filename, output_folder,
-         scaling_factor, category_column, max_annotations, min_images,
+         scaling_factor, category_column, max_annotations, one_image,
          max_images, max_distance, min_sharpness, crop_size, img_size,
          split_categories, omit_overlay, movie):
 
@@ -274,7 +286,7 @@ def main(metashape_project_path, annotations_filename, output_folder,
         annotation.get_camera_projections(chunk, transform, scaling_factor)
 
         # Output cropped image for each camera projection
-        annotation.output_cropped_images(output_folder, min_images, max_images, 
+        annotation.output_cropped_images(output_folder, one_image, max_images, 
                                          max_distance, min_sharpness,
                                          crop_size, img_size,
                                          split_categories, omit_overlay)
@@ -298,7 +310,6 @@ if __name__ == '__main__':
 
     # Optional output arguments
     parser.add_argument('--max_annotations', '-a', type=int, help='Optional maximum number of annotations to process')
-    parser.add_argument('--min_images', '-m', type=int, help='Optional maximum number of cameras to output per annotation')
     parser.add_argument('--max_images', '-i', type=int, help='Optional maximum number of cameras to output per annotation')
     parser.add_argument('--max_distance', '-d', type=float, help='Optional maximum distance of camera to annotation threshold (in metres as float)')
     parser.add_argument('--min_sharpness', '-x', type=float, help='Optional minimum sharpness threshold (measured as average gradient magnitude)')
@@ -307,6 +318,7 @@ if __name__ == '__main__':
 
     
     # Optional output argument flags
+    parser.add_argument('--one_image', '-1', action="store_true", help='Force at least one image to be outputted')
     parser.add_argument('--split_categories', '-s', action="store_true", help="Optional flag to split image categories into different folders (True if provided)")
     parser.add_argument('--omit_overlay', '-o', action="store_true", help="Optional flag to omit image overlay with metadata (True if provided)")
     parser.add_argument('--movie', '-v', action="store_true", help="Optional flag to create movie instead of images")
@@ -315,7 +327,7 @@ if __name__ == '__main__':
     main(args.metashape_project_path, args.annotations_filename, 
          args.output_folder,
          args.scaling_factor, args.category_column,
-         args.max_annotations, args.min_images, args.max_images,
+         args.max_annotations, args.one_image, args.max_images,
          args.max_distance, args.min_sharpness,
          args.crop_size, args.img_size,
          args.split_categories, args.omit_overlay, args.movie)
