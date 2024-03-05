@@ -148,13 +148,13 @@ def main(camera_extension, aligned_camera_threshold):
         cameragroup1.label = 'photos'
         chunk.addPhotos(camera_list, group = 0)
         doc.save()
-        # Get additional close-up cameras
-        closeup_camera_list = get_closeup_cameras(camera_extension)
-        if len(closeup_camera_list) > 0:
-          cameragroup2 = chunk.addCameraGroup()
-          cameragroup2.label = 'closeup'
-          chunk.addPhotos(closeup_camera_list, group = 1)
-          doc.save()
+        # Get additional close-up cameras - temporarily disabled
+        closeup_camera_list = [] #get_closeup_cameras(camera_extension)
+        #if len(closeup_camera_list) > 0:
+        #  cameragroup2 = chunk.addCameraGroup()
+        #  cameragroup2.label = 'closeup'
+        #  chunk.addPhotos(closeup_camera_list, group = 1)
+        #  doc.save()
 
     aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
@@ -169,7 +169,7 @@ def main(camera_extension, aligned_camera_threshold):
                               filter_stationary_points = False, # Exclude tie points which are stationary across images
                               keypoint_limit = 5000,
                               tiepoint_limit = 0,
-                              keep_keypoints = False,           # Do not store keypoints in the project
+                              keep_keypoints = True,           # Do not store keypoints in the project
                               guided_matching = False,          # Disable guided image matching
                               reset_matches = True,             # Resent current matches
                               progress = progress_print)
@@ -182,7 +182,7 @@ def main(camera_extension, aligned_camera_threshold):
                               filter_stationary_points = False, # Exclude tie points which are stationary across images
                               keypoint_limit = 5000,
                               tiepoint_limit = 0,
-                              keep_keypoints = False,           # Do not store keypoints in the project
+                              keep_keypoints = True,           # Do not store keypoints in the project
                               guided_matching = False,          # Disable guided image matching
                               reset_matches = True,             # Resent current matches
                               progress = progress_print)                
