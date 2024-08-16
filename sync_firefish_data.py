@@ -7,6 +7,7 @@ Combined date/time field has to be formatted like such:
 """
 import argparse
 import datetime
+import calendar
 import time
 import sys
 
@@ -19,7 +20,8 @@ FIREFISH_ALT_COL = 4
 
 def get_unixtime(timestring):
     """ """
-    return time.mktime(datetime.datetime.strptime(timestring, "%Y:%m:%d %H:%M:%S").timetuple())
+    return time.mktime(datetime.datetime.strptime(timestring, "%Y:%m:%d %H:%M:%S").timetuple()) #local time
+    #return calendar.timegm(datetime.datetime.strptime(timestring, "%Y:%m:%d %H:%M:%S").timetuple())
 
 def has_numbers(inputstring):
     """ """

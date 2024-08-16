@@ -148,63 +148,39 @@ def main(camera_extension, aligned_camera_threshold):
         cameragroup1.label = 'photos'
         chunk.addPhotos(camera_list, group = 0)
         doc.save()
-        # Get additional close-up cameras - temporarily disabled
-        closeup_camera_list = [] #get_closeup_cameras(camera_extension)
-        #if len(closeup_camera_list) > 0:
-        #  cameragroup2 = chunk.addCameraGroup()
-        #  cameragroup2.label = 'closeup'
-        #  chunk.addPhotos(closeup_camera_list, group = 1)
-        #  doc.save()
 
     aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
     if len(aligned_cameras) == 0:
         start_next_step("Match photos", log_file)
-        if len(closeup_camera_list) > 0:
-            chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
-                              generic_preselection = False,     # Enable generic preselection
-                              reference_preselection = False,   # Disable reference preselection
-                              filter_mask = False,              # Disable filtering points by mask
-                              mask_tiepoints = False,           # Disable applying mask filter to tie points
-                              filter_stationary_points = False, # Exclude tie points which are stationary across images
-                              keypoint_limit = 5000,
-                              tiepoint_limit = 0,
-                              keep_keypoints = True,           # Do not store keypoints in the project
-                              guided_matching = False,          # Disable guided image matching
-                              reset_matches = True,             # Resent current matches
-                              progress = progress_print)
-        else:
-            chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
-                              generic_preselection = True,      # Enable generic preselection
-                              reference_preselection = False,   # Disable reference preselection
-                              filter_mask = False,              # Disable filtering points by mask
-                              mask_tiepoints = False,           # Disable applying mask filter to tie points
-                              filter_stationary_points = False, # Exclude tie points which are stationary across images
-                              keypoint_limit = 5000,
-                              tiepoint_limit = 0,
-                              keep_keypoints = True,           # Do not store keypoints in the project
-                              guided_matching = False,          # Disable guided image matching
-                              reset_matches = True,             # Resent current matches
-                              progress = progress_print)                
+        chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
+                          generic_preselection = True,      # Enable generic preselection
+                          reference_preselection = False,   # Disable reference preselection
+                          filter_mask = False,              # Disable filtering points by mask
+                          mask_tiepoints = False,           # Disable applying mask filter to tie points
+                          filter_stationary_points = False, # Exclude tie points which are stationary across images
+                          keypoint_limit = 5000,
+                          tiepoint_limit = 0,
+                          keep_keypoints = True,           # Do not store keypoints in the project
+                          guided_matching = False,          # Disable guided image matching
+                          reset_matches = True,             # Reset current matches
+                          progress = progress_print)                
 
         doc.save()
         
         start_time = time.time()
         start_next_step("Align photos", log_file)
-        if len(closeup_camera_list) > 0:
-            chunk.alignCameras(adaptive_fitting = False,        # Disable adaptive fitting if using multiple lenses (30-May-2023)
-                               reset_alignment = True,          # Reset current alignment
-                               progress = progress_print)
-        else:
-            chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
-                               reset_alignment = True,          # Reset current alignment
-                               progress = progress_print)
+        chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
+                           reset_alignment = True,          # Reset current alignment
+                           progress = progress_print)
         doc.save()
         start_time = time.time()
 
         aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
     if (len(aligned_cameras) / len(chunk.cameras)) < aligned_camera_threshold:
+        start_next_step('Unsufficient cameras aligned: {0} aligned out of {1}'.format(len(aligned_cameras),
+                                                                            len(chunk.cameras)))
         sys.exit('Unsufficient cameras aligned: {0} aligned out of {1}'.format(len(aligned_cameras),
                                                                             len(chunk.cameras)))
 
@@ -239,7 +215,39 @@ def main(camera_extension, aligned_camera_threshold):
                        format = Metashape.PointCloudFormatPLY,
                        split_in_blocks = False,
                        progress = progress_print)
-    
+
+    # Get additional close-up cameras
+    closeup_camera_list = get_closeup_cameras(camera_extension)
+    if len(closeup_camera_list) > 0:
+        cameragroup2 = chunk.addCameraGroup()
+        cameragroup2.label = 'closeup'
+        chunk.addPhotos(closeup_camera_list, group = 1)
+        doc.save()
+
+        start_next_step("Match close-up photos", log_file)
+        chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
+                          generic_preselection = True,      # Enable generic preselection
+                          reference_preselection = False,   # Disable reference preselection
+                          filter_mask = False,              # Disable filtering points by mask
+                          mask_tiepoints = False,           # Disable applying mask filter to tie points
+                          filter_stationary_points = False, # Exclude tie points which are stationary across images
+                          keypoint_limit = 5000,
+                          tiepoint_limit = 0,
+                          keep_keypoints = True,           # Do not store keypoints in the project
+                          guided_matching = False,          # Disable guided image matching
+                          reset_matches = False,             # Reset current matches
+                          progress = progress_print)                
+
+        doc.save()
+        
+        start_time = time.time()
+        start_next_step("Align close-up photos", log_file)
+        chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
+                           reset_alignment = False,          # Reset current alignment
+                           progress = progress_print)
+        doc.save()
+        start_time = time.time()
+
     start_next_step("Export cameras positions", log_file)
     chunk.exportCameras(project_filepath.replace('.psx', '.cams.xml'))
 
