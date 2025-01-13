@@ -156,7 +156,7 @@ def main(camera_extension, aligned_camera_threshold):
             keypoint_limit_value = 5000
         elif 'ton_' in project_filepath:
             keypoint_limit_value = 40000
-        else
+        else:
             keypoint_limit_value = 40000
         start_next_step("Match photos ({} keypoints)".format(keypoint_limit_value), log_file)
         chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
