@@ -152,14 +152,20 @@ def main(camera_extension, aligned_camera_threshold):
     aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
     if len(aligned_cameras) == 0:
-        start_next_step("Match photos", log_file)
+        if 'cur_' in project_filepath:
+            keypoint_limit_value = 5000
+        elif 'ton_' in project_filepath:
+            keypoint_limit_value = 40000
+        else
+            keypoint_limit_value = 40000
+        start_next_step("Match photos ({} keypoints)".format(keypoint_limit_value), log_file)
         chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
                           generic_preselection = True,      # Enable generic preselection
                           reference_preselection = False,   # Disable reference preselection
                           filter_mask = False,              # Disable filtering points by mask
                           mask_tiepoints = False,           # Disable applying mask filter to tie points
                           filter_stationary_points = False, # Exclude tie points which are stationary across images
-                          keypoint_limit = 5000,
+                          keypoint_limit = keypoint_limit_value,
                           tiepoint_limit = 0,
                           keep_keypoints = True,           # Do not store keypoints in the project
                           guided_matching = False,          # Disable guided image matching
