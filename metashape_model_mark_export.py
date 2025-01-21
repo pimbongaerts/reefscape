@@ -7,7 +7,7 @@ import glob
 import json
 import Metashape
 
-focal_plots_path = "/mnt/coral3d/focal_plots/"
+focal_plots_path = "/home/coral3d/focal_plots/"
 PLY = "PLY"
 NO_PLY = ""
 
