@@ -116,7 +116,7 @@ def start_next_step(message, log_file):
   print(formatted_message)
   log_file.write(formatted_message)
 
-def main(camera_extension, aligned_camera_threshold):
+def main(camera_extension, aligned_camera_threshold, export_only):
 
     global start_time
     start_time = time.time()
@@ -136,78 +136,79 @@ def main(camera_extension, aligned_camera_threshold):
     else:
         doc.save(project_filepath)  # Create new project
 
-    if not doc.chunk:
-        chunk = doc.addChunk()      # Add chunk if it does not already exists
-    else:
-        chunk = doc.chunk
-
-    if len(chunk.cameras) == 0:
-        # Get primary cameras
-        camera_list = get_cameras(camera_extension)
-        cameragroup1 = chunk.addCameraGroup()
-        cameragroup1.label = 'photos'
-        chunk.addPhotos(camera_list, group = cameragroup1.key)
-        doc.save()
-
-    aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
-
-    if len(aligned_cameras) == 0:
-        if 'cur_' in project_filepath:
-            keypoint_limit_value = 5000
-        elif 'ton_' in project_filepath:
-            keypoint_limit_value = 40000
+    if not export_only:
+        if not doc.chunk:
+            chunk = doc.addChunk()      # Add chunk if it does not already exists
         else:
-            keypoint_limit_value = 40000
-        start_next_step("Match photos ({} keypoints)".format(keypoint_limit_value), log_file)
-        chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
-                          generic_preselection = True,      # Enable generic preselection
-                          reference_preselection = False,   # Disable reference preselection
-                          filter_mask = False,              # Disable filtering points by mask
-                          mask_tiepoints = False,           # Disable applying mask filter to tie points
-                          filter_stationary_points = False, # Exclude tie points which are stationary across images
-                          keypoint_limit = keypoint_limit_value,
-                          tiepoint_limit = 0,
-                          keep_keypoints = True,           # Do not store keypoints in the project
-                          guided_matching = False,          # Disable guided image matching
-                          reset_matches = True,             # Reset current matches
-                          progress = progress_print)                
+            chunk = doc.chunk
 
-        doc.save()
-        
-        start_time = time.time()
-        start_next_step("Align photos", log_file)
-        chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
-                           reset_alignment = True,          # Reset current alignment
-                           progress = progress_print)
-        doc.save()
-        start_time = time.time()
+        if len(chunk.cameras) == 0:
+            # Get primary cameras
+            camera_list = get_cameras(camera_extension)
+            cameragroup1 = chunk.addCameraGroup()
+            cameragroup1.label = 'photos'
+            chunk.addPhotos(camera_list, group = cameragroup1.key)
+            doc.save()
 
         aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
 
-    if (len(aligned_cameras) / len(chunk.cameras)) < aligned_camera_threshold:
-        start_next_step('Unsufficient cameras aligned: {0} aligned out of {1}'.format(len(aligned_cameras),
-                                                                            len(chunk.cameras)))
-        sys.exit('Unsufficient cameras aligned: {0} aligned out of {1}'.format(len(aligned_cameras),
-                                                                            len(chunk.cameras)))
+        if len(aligned_cameras) == 0:
+            if 'cur_' in project_filepath:
+                keypoint_limit_value = 5000
+            elif 'ton_' in project_filepath:
+                keypoint_limit_value = 40000
+            else:
+                keypoint_limit_value = 40000
+            start_next_step("Match photos ({} keypoints)".format(keypoint_limit_value), log_file)
+            chunk.matchPhotos(downscale = 1,                    # Image alignment accuracy = High
+                              generic_preselection = True,      # Enable generic preselection
+                              reference_preselection = False,   # Disable reference preselection
+                              filter_mask = False,              # Disable filtering points by mask
+                              mask_tiepoints = False,           # Disable applying mask filter to tie points
+                              filter_stationary_points = False, # Exclude tie points which are stationary across images
+                              keypoint_limit = keypoint_limit_value,
+                              tiepoint_limit = 0,
+                              keep_keypoints = True,           # Do not store keypoints in the project
+                              guided_matching = False,          # Disable guided image matching
+                              reset_matches = True,             # Reset current matches
+                              progress = progress_print)                
 
-    start_next_step("Build dense maps", log_file)
-    chunk.buildDepthMaps(downscale = 2,                 # Depth map quality = High (2)
-                         filter_mode = Metashape.MildFiltering,
-                         reuse_depth = False,           # Disable reuse depth maps option
-                         progress = progress_print)
+            doc.save()
+            
+            start_time = time.time()
+            start_next_step("Align photos", log_file)
+            chunk.alignCameras(adaptive_fitting = True,         # Enable adaptive fitting of distortion coefficients
+                               reset_alignment = True,          # Reset current alignment
+                               progress = progress_print)
+            doc.save()
+            start_time = time.time()
 
-    doc.save()
+            aligned_cameras, non_aligned_cameras = get_aligned_and_non_aligned_cameras(chunk)
+
+        if (len(aligned_cameras) / len(chunk.cameras)) < aligned_camera_threshold:
+            start_next_step('Unsufficient cameras aligned: {0} aligned out of {1}'.format(len(aligned_cameras),
+                                                                                len(chunk.cameras)))
+            sys.exit('Unsufficient cameras aligned: {0} aligned out of {1}'.format(len(aligned_cameras),
+                                                                                len(chunk.cameras)))
+
+        start_next_step("Build dense maps", log_file)
+        chunk.buildDepthMaps(downscale = 2,                 # Depth map quality = High (2)
+                             filter_mode = Metashape.MildFiltering,
+                             reuse_depth = False,           # Disable reuse depth maps option
+                             progress = progress_print)
+
+        doc.save()
+        start_time = time.time()
+        
+        start_next_step("Build dense maps", log_file)
+        chunk.buildPointCloud(point_colors = True,          # Enable point colors calculation
+                              point_confidence = True,      # Enable point confidence calculation
+                              keep_depth = True,            # Enable store depth maps option
+                              progress = progress_print)
+
+        doc.save()
+
     start_time = time.time()
-    
-    start_next_step("Build dense maps", log_file)
-    chunk.buildPointCloud(point_colors = True,          # Enable point colors calculation
-                          point_confidence = True,      # Enable point confidence calculation
-                          keep_depth = True,            # Enable store depth maps option
-                          progress = progress_print)
-
-    doc.save()
-    start_time = time.time()
-    
     start_next_step("Export points to PLY file", log_file)
     chunk.exportPointCloud(path = project_filepath.replace('.psx', '.ply'),
                        source_data = Metashape.PointCloudData,
@@ -274,5 +275,7 @@ if __name__ == '__main__':
     parser.add_argument('-a', '--aligned_camera_threshold', dest='aligned_camera_threshold',
                         metavar='aligned_camera_threshold', default=0.95, type=float,
                         help='minimum threshold of aligned cameras (default 0.95)')
+    parser.add_argument('-e', '--export_only', dest='export_only', action='store_true',
+                        help='if set, only export without processing')
     args = parser.parse_args()
     main(args.camera_extension.lower(), args.aligned_camera_threshold)
