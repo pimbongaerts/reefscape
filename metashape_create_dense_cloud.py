@@ -278,4 +278,4 @@ if __name__ == '__main__':
     parser.add_argument('-e', '--export_only', dest='export_only', action='store_true',
                         help='if set, only export without processing')
     args = parser.parse_args()
-    main(args.camera_extension.lower(), args.aligned_camera_threshold)
+    main(args.camera_extension.lower(), args.aligned_camera_threshold, args.export_only)
