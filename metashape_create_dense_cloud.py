@@ -136,10 +136,10 @@ def main(camera_extension, aligned_camera_threshold, export_only):
     else:
         doc.save(project_filepath)  # Create new project
 
-        if not doc.chunk:
-            chunk = doc.addChunk()      # Add chunk if it does not already exists
-        else:
-            chunk = doc.chunk
+    if not doc.chunk:
+        chunk = doc.addChunk()      # Add chunk if it does not already exists
+    else:
+        chunk = doc.chunk
 
     if not export_only:
         if len(chunk.cameras) == 0:
