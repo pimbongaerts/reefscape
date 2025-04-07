@@ -74,8 +74,13 @@ class Timepoint(object):
                     self.__export_current_markers(doc, marker_backup_filepath)
                     doc.chunk.remove(doc.chunk.markers)
                 # Find markers (circ 12-bit, tol 20, max 5)
+                photos_cameras = [
+                    cam for cam in chunk.cameras 
+                    if cam.group and cam.group.label == "photos"
+                ]
                 try:
-                    doc.chunk.detectMarkers(target_type=Metashape.CircularTarget12bit, 
+                    doc.chunk.detectMarkers(photos_cameras,
+                                        target_type=Metashape.CircularTarget12bit, 
                                         tolerance=20, 
                                         filter_mask=False, 
                                         inverted=False, 
