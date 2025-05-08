@@ -225,7 +225,7 @@ def main(camera_extension, aligned_camera_threshold, export_only):
 
     # Get additional close-up cameras
     closeup_camera_list = get_closeup_cameras(camera_extension)
-    if len(closeup_camera_list) > 0:
+    if len(closeup_camera_list) > 0 and not export_only:
         cameragroup2 = chunk.addCameraGroup()
         cameragroup2.label = 'closeup'
         chunk.addPhotos(closeup_camera_list, group = cameragroup2.key)
