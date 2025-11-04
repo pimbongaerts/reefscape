@@ -254,7 +254,8 @@ def main(camera_extension, aligned_camera_threshold, export_only):
             start_next_step(
                 "Unsufficient cameras aligned: {0} aligned out of {1}".format(
                     len(aligned_cameras), len(chunk.cameras)
-                )
+                ),
+                log_file,
             )
             sys.exit(
                 "Unsufficient cameras aligned: {0} aligned out of {1}".format(
