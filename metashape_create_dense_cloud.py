@@ -29,7 +29,7 @@ __license__ = "GPL"
 PHOTO_FOLDER_POSTFIX = ".photos"
 CLOSEUP_FOLDER_POSTFIX = ".closeup"
 VIDEOFRAMES_FOLDER_POSTFIX = ".videoframes"
-MIN_PHOTOS = 200
+MIN_PHOTOS = 50
 UPDATE_INTERVAL = 300  # in seconds (= 5min)
 
 start_time = 0
