@@ -80,7 +80,7 @@ class Timepoint(object):
                 ]
                 try:
                     doc.chunk.detectMarkers(photos_cameras,
-                                        target_type=Metashape.TargetType.CircularTarget12bit, 
+                                        #target_type=Metashape.TargetType.CircularTarget12bit, 
                                         tolerance=20, 
                                         filter_mask=False, 
                                         inverted=False, 
