@@ -66,11 +66,13 @@ def get_videoframes(camera_extension):
         os.getcwd(), os.path.basename(os.getcwd()), VIDEOFRAMES_FOLDER_POSTFIX
     )
     videoframe_list = []
-    for filename in os.listdir(videoframes_path):
-        if filename.lower().endswith("." + camera_extension):
-            filepath = os.path.join(videoframes_path, filename)
-            videoframe_list.append(filepath)
-    return videoframe_list
+
+    if os.path.exists(videoframes_path):
+        for filename in os.listdir(videoframes_path):
+            if filename.lower().endswith("." + camera_extension):
+                filepath = os.path.join(videoframes_path, filename)
+                videoframe_list.append(filepath)
+        return videoframe_list
 
 
 def get_closeup_cameras(camera_extension):
